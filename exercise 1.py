@@ -27,9 +27,32 @@
 # print( f"Liczby z listy mniejsze niz 5 to : {wynik}")
 
 #4
-liczba = int(input( " podaj liczbe: "))
-lista = []
-for n in range (1,liczba+1):
-    if liczba % n == 0:
-        lista.append(n)
-print(f"Dzielniki liczby {liczba} to : {lista}")
+# liczba = int(input( " podaj liczbe: "))
+# lista = []
+# for n in range (1,liczba+1):
+#     if liczba % n == 0:
+#         lista.append(n)
+# print(f"Dzielniki liczby {liczba} to : {lista}")
+
+#5
+# a = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
+# b = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+#
+# a_set = set(a)
+# b_set = set(b)
+# c_set = a_set&b_set
+# nowa_lista = list(c_set)
+# print(nowa_lista)
+
+#6
+# znaki = input("podaj ciag znakow ")
+# znaki_rev = znaki[-1::-1]
+# # print(znaki_rev)
+# if znaki==znaki_rev:
+#     print("twoj ciag jest palindromem")
+# else:
+#     print("twoj ciag nie jest palindromem")
+
+#7
+a = [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+new =
