@@ -46,3 +46,22 @@
 #     print(i)
 # for i in dict_my.values():
 #     print(i)
+
+# for i in range (5):
+#     try:
+#         print(5/i)
+#     except ZeroDivisionError:
+#         print("nie dziel przez 0")
+#     except Exception as i:
+#         print('hduhduh')
+#     else:
+#         print("uf tu nei bylo zera")
+#     print("koniec")
+
+# import datetime
+# today = datetime.date.today()
+# print(today)
+# full = datetime.datetime.now()
+# print(full)
+# tomorrow = datetime.date.today() +datetime.timedelta(days = 1)
+# print(tomorrow)
