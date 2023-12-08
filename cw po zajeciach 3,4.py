@@ -65,3 +65,22 @@
 # print(full)
 # tomorrow = datetime.date.today() +datetime.timedelta(days = 1)
 # print(tomorrow)
+
+# with open("moj_plik","a") as a:
+#     a.write("mąż")
+#     a.write("2")
+# with open("moj_plik","r") as a:
+#     b = a.read()
+#     print(b)
+# with open("moj_plik","x") as a:
+#     a.write("hello")
+
+# import chardet
+# with open("moj_plik","rb") as a:
+#     tekst = a.read()
+# result = chardet.detect(tekst)
+# print(result)
+# kodowanie = result["encoding"]
+# print(kodowanie)
+# nowy_tekst = tekst.decode(encoding=kodowanie)
+# print(nowy_tekst)
