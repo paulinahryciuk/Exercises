@@ -84,3 +84,31 @@
 # print(kodowanie)
 # nowy_tekst = tekst.decode(encoding=kodowanie)
 # print(nowy_tekst)
+
+# import csv
+# lista = [1,2,3,4,5,6,7,8,9,'a','b','c']
+# with open("fcsv.csv",'w') as plik_csv:
+#     tekst = csv.writer(plik_csv)
+#     nowy = tekst.writerow(lista)
+#
+# all_slownik = [
+#     {'name': 'radek', 'branch': 'coe', 'year': '3', 'cgpa': '0'},
+#     {'name': 'tomek', 'branch': 'cos', 'year': '3', 'cgpa': '8'},
+#     {'name': 'zenek', 'branch': 'cot', 'year': '3.9', 'cgpa': '9'},
+#     {'name': 'marek', 'branch': 'coe', 'year': '11', 'cgpa': '1.5'},
+#     {'name': 'arek', 'branch': 'cow', 'year': '8', 'cgpa': '0.2'},
+# ]
+#
+# import csv
+# # naglowki = ['name', 'branch', 'year', 'cgpa']
+# # with open("slownik.csv","w") as slow:
+# #     reader = csv.reader(slow)
+# #     dopiska = csv.DictWriter(slow,fieldnames=naglowki)
+# #     dopiska.writeheader()
+# #     dopiska.writerows(all_slownik)
+# #     znak = csv.Sniffer.sniff(slow.read(1024))
+# #     print(znak.delimiter)
+#
+# with open("slownik.csv", "r") as slow:
+#     znak = csv.Sniffer().sniff(slow.read(1024))
+#     print(znak.delimiter)
