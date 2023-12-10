@@ -112,3 +112,48 @@
 # with open("slownik.csv", "r") as slow:
 #     znak = csv.Sniffer().sniff(slow.read(1024))
 #     print(znak.delimiter)
+#
+# def fun1():
+#     print("To jest fun1")
+#
+#     def fun2():
+#         print("To jest funkcja fun2")
+#
+#     return
+#
+#
+# # a = fun1()
+# # a()
+# fun1()
+# fukcja = fun1()
+# fukcja()
+
+#
+# def restauracja(typ_zamowienia):
+#     print("Witamy w naszej restauracji")
+#
+#     def zamow_pizze(skladniki="pieczarki"):
+#         print("Zamówiona pizza, składniki: ", skladniki)
+#
+#     def zamow_napoj(nazwa="herbata"):
+#         print("Zamow napoj", nazwa)
+#
+#     if typ_zamowienia.lower() == 'pizza':
+#         return zamow_pizze
+#     else:
+#         return zamow_napoj  # zwracam adres funkcji
+#
+#
+# zamowienie_pizza = restauracja('pizza')
+# zamowienie_napoj = restauracja('napoj')
+
+# def sumuj (*args):
+#     # print((a + *))
+#     suma = 0
+#     for i in args:
+#         suma += i
+#     print(suma)
+# lista = [1,2,3,4]
+# sumuj(1,2,3,4)
+# # sumuj(lista)
+
