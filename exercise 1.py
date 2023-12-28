@@ -54,5 +54,39 @@
 #     print("twoj ciag nie jest palindromem")
 
 #7
-a = [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
-new =
+# a = [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+# print([a for a in a if a%2 == 0])
+
+#11
+# liczba = int(input("podaj liczbe: "))
+# dzielniki = []
+
+# def jest_pierwsza(a):
+#     for i in range(1,a):
+#         if a % i ==0:
+#             dzielniki.append(i)
+#     if len(dzielniki)> 1:
+#         print("nie jest pierwsza")
+#     else:
+#         print('pierwsza')
+#
+# jest_pierwsza(liczba)
+
+# w = 0
+# def pierwsza(a):
+#     w = 0
+#
+#     while w!=1:
+#         for i in range (2,a):
+#             if a%i ==0:
+#                 w+=1
+#     if w==1:
+#         print("pierwsza")
+#     else:
+#         print("nie pierwsza")
+#
+#
+# pierwsza(liczba)
+
+
+
