@@ -157,3 +157,16 @@
 # sumuj(1,2,3,4)
 # # sumuj(lista)
 
+# rodzina = 0
+# def opis (*kwargs, *args):
+#     for i in args:
+#         rodzina += i
+#         return
+#     for i in kwargs:
+
+def opis(nazwisko, **kwargs):
+    print(f"nazwisko: {nazwisko}")
+    for key, item in kwargs.items():
+        print(f"klucz {key} and wartsci {item}")
+
+opis ('Kowalscy',Ewa=33, Michał=44)
