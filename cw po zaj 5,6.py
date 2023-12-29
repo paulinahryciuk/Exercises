@@ -34,10 +34,29 @@
 #             return c + suma
 #     print(suma)
 
-def sumuj_mniejsze(x):
-    if x==0:
-        return 0
-    else:
-        return x + sumuj_mniejsze(x-1)
+# def sumuj_mniejsze(x):
+#     if x==0:
+#         return 0
+#     else:
+#         return x + sumuj_mniejsze(x-1)
+#
+# print(sumuj_mniejsze(4))
 
-print(sumuj_mniejsze(4))
+# Napisz funkcję rekurencyjną countup(n), która drukuje "Blastoff!" a następnie w kolejnych liniach numery od 1 do n
+# def cutdown(x):
+#     if x == 0:
+#         return "Blastoff"
+#     else:
+#         print(x)
+#         cutdown(x-1)
+#
+# cutdown(3)
+
+# Suma cyfr liczby n jest sumą jej cyfr. Napisz rekurencyjną funkcję digitalSum(n), która pobiera dodatnią liczbę całkowitą n i zwraca sumę jej cyfr.
+# liczba = int(input("Podaj dodatnia liczbe calkowita"))
+# def digitalSum(n):
+#     if n < 10:
+#         print(n)
+#     else:
+#         print()
+
