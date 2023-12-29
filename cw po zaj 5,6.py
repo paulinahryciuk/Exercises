@@ -73,13 +73,47 @@
 # window.mainloop()
 
 
-def dekor(f):
-    def wrapper():
-        print("dekorujemy")
-        return f()
-    return wrapper
-@ dekor
-def napisz (x="Ewa"):
-    print(f"helo {x}")
+# def dekor(f):
+#     def wrapper():
+#         print("dekorujemy")
+#         return f()
+#     return wrapper
+# @ dekor
+# def napisz (x="Ewa"):
+#     print(f"helo {x}")
+#
+# napisz()
 
-napisz()
+# def decorator (funk):
+#     def wrapper():
+#         wynik = funk()
+#         return wynik.upper()
+#     return wrapper
+#
+# @decorator
+# def funkcja():
+#     tekst = input("podaj tekkst ")
+#     return tekst
+#
+# print(funkcja())
+
+# Ćwiczenie 2: Napisać dekorator,
+# mający za zadanie, drukować informację o czasie wykonywania funkcji.
+# Dekorator, powinien być gotowy dekorować funkcje przyjmujące różną ilość parametrów.
+
+import time
+
+def dekorator(funk):
+    def wrapper(*args, **kwargs):
+        start = time.time()
+        x = funk(*args,**kwargs)
+        koniec = time.time()
+        print(koniec - start)
+        return x
+    return wrapper
+
+@dekorator
+def funkcja():
+    print("o la la")
+
+funkcja()
