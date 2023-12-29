@@ -59,4 +59,27 @@
 #         print(n)
 #     else:
 #         print()
+#
+# import turtle
+# t = turtle.Turtle()
+# t.goto(100,100)
+# t.penup()
+# t.goto(200,200)
+# t.pendown()
+# t.goto(300,300)
+# t.left(50)
+# t.goto(50,50)
+# window = turtle.Screen()
+# window.mainloop()
 
+
+def dekor(f):
+    def wrapper():
+        print("dekorujemy")
+        return f()
+    return wrapper
+@ dekor
+def napisz (x="Ewa"):
+    print(f"helo {x}")
+
+napisz()
