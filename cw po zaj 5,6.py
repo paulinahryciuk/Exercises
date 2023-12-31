@@ -101,19 +101,42 @@
 # mający za zadanie, drukować informację o czasie wykonywania funkcji.
 # Dekorator, powinien być gotowy dekorować funkcje przyjmujące różną ilość parametrów.
 
-import time
+# import time
+#
+# def dekorator(funk):
+#     def wrapper(*args, **kwargs):
+#         start = time.time()
+#         x = funk(*args,**kwargs)
+#         koniec = time.time()
+#         print(koniec - start)
+#         return x
+#     return wrapper
+#
+# @dekorator
+# def funkcja():
+#     print("o la la")
+#
+# funkcja()
 
-def dekorator(funk):
-    def wrapper(*args, **kwargs):
-        start = time.time()
-        x = funk(*args,**kwargs)
-        koniec = time.time()
-        print(koniec - start)
-        return x
-    return wrapper
 
-@dekorator
-def funkcja():
-    print("o la la")
+import shutil
+from pathlib import Path
 
-funkcja()
+sciezka1= Path('przyklad')
+sciezka2 = Path('przyklad/D')
+
+if sciezka1.exists() and sciezka1.is_dir():
+    """Recursively delete a directory tree."""
+    shutil.rmtree(sciezka1)
+
+sciezka1.mkdir()
+
+sciezkaB = sciezka1/'A'/'B'
+sciezkaC = sciezka1/'A'/'C'
+
+sciezkaB.mkdir(parents = True)
+sciezkaC.mkdir()
+
+# sciezka1.rename('A'/"AAA")
+
+
