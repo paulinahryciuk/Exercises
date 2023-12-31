@@ -119,24 +119,31 @@
 # funkcja()
 
 
-import shutil
-from pathlib import Path
+# import shutil
+# from pathlib import Path
+#
+# sciezka1= Path('przyklad')
+# sciezka2 = Path('przyklad/D')
+#
+# if sciezka1.exists() and sciezka1.is_dir():
+#     """Recursively delete a directory tree."""
+#     shutil.rmtree(sciezka1)
+#
+# sciezka1.mkdir()
+#
+# sciezkaB = sciezka1/'A'/'B'
+# sciezkaC = sciezka1/'A'/'C'
+#
+# sciezkaB.mkdir(parents = True)
+# sciezkaC.mkdir()
+#
+# # sciezka1.rename('A'/"AAA")
 
-sciezka1= Path('przyklad')
-sciezka2 = Path('przyklad/D')
+# lista = [1.2,3.5,4.1,8.6]
+# lista2 = [int(i) for i in lista ]
+# print(lista2)
 
-if sciezka1.exists() and sciezka1.is_dir():
-    """Recursively delete a directory tree."""
-    shutil.rmtree(sciezka1)
-
-sciezka1.mkdir()
-
-sciezkaB = sciezka1/'A'/'B'
-sciezkaC = sciezka1/'A'/'C'
-
-sciezkaB.mkdir(parents = True)
-sciezkaC.mkdir()
-
-# sciezka1.rename('A'/"AAA")
-
+# tekst = ['AAAAAGGAATTCCCCTAGAATTAAAAACCAGGTTACTG']
+# frag = ['A', 'T', 'G', '0']
+# print(["!!" for i in tekst ])
 
