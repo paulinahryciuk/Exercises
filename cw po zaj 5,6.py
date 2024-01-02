@@ -147,3 +147,17 @@
 # frag = ['A', 'T', 'G', '0']
 # print(["!!" for i in tekst ])
 
+
+class Zwierze:
+    """
+    Klasa dwfiniujaca zwierze
+    """
+
+    def __init__(self, imie, ulubione_zabawki, najgorsze_zabawki):
+        self.imie = imie
+        self.ulubione_zabawki = ulubione_zabawki
+        self.najgorsze_zabawki = najgorsze_zabawki
+
+Zwierze() = kot
+
+
