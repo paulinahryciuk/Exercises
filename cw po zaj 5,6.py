@@ -175,25 +175,49 @@
 # print(kot.wymien_nielubiane())
 
 
-class Player:
-    '''
-    Klasa repr gracza
-    '''
+# class Player:
+#     '''
+#     Klasa repr gracza
+#     '''
+#
+#     def __init__(self,nazwa,points):
+#         self.nazwa = nazwa
+#         self.points = points
+#
+#     def wyswietl_punkty(self):
+#         return f"Gracz {self.nazwa}  ma {self.points} punktow"
+#
+#     def zdobyty_punkt(self):
+#         self.points += 1
+#
+# gracz1 = Player("AA",0)
+#
+# gracz1.zdobyty_punkt()
+# print(gracz1.wyswietl_punkty())
 
-    def __init__(self,nazwa,points):
-        self.nazwa = nazwa
-        self.points = points
 
-    def wyswietl_punkty(self):
-        return f"Gracz {self.nazwa}  ma {self.points} punktow"
+class Konto:
+    def __init__(self,balance):
+        self.balance = balance
 
-    def zdobyty_punkt(self):
-        self.points += 1
+    def deposit(self,kwota):
+        self.balance += kwota
 
-gracz1 = Player("AA",0)
+    def withdraw(self,wartosc):
+        if self.balance - wartosc >0 :
+            print(True)
+        else:
+            print(False)
 
-gracz1.zdobyty_punkt()
-print(gracz1.wyswietl_punkty())
+konto1 = Konto(1000)
+konto2 = Konto(2000)
+
+konto1.deposit(500)
+print("-------------")
+konto2.withdraw(1555)
+konto2.withdraw(3555)
+print(konto1.balance)
+
 
 
 
