@@ -147,33 +147,53 @@
 # frag = ['A', 'T', 'G', '0']
 # print(["!!" for i in tekst ])
 
+#
+# class Zwierze:
+#     """
+#     Klasa dwfiniujaca zwierze
+#     """
+#
+#     def __init__(self, imie, ulubione_zabawki, najgorsze_zabawki):
+#         self.imie = imie
+#         self.ulubione_zabawki = ulubione_zabawki
+#         self.najgorsze_zabawki = najgorsze_zabawki
+#
+#     def przywitaj_sie(self):
+#         return f"Czesc mam na imie {self.imie}"
+#
+#     def wymien_ulubione(self):
+#         return f"Moje ulubone zabawki to : {self.ulubione_zabawki}"
+#
+#     def wymien_nielubiane(self):
+#         return f"Moje najgorsze zabawki to : {self.najgorsze_zabawki} jest ich {len(self.najgorsze_zabawki)}"
+#
+# kot = Zwierze("Kotek","pilka",["lala","auto"])
+#
+# print(kot.przywitaj_sie())
+# print(kot.wymien_ulubione())
+# print(kot.ulubione_zabawki)
+# print(kot.wymien_nielubiane())
 
-class Zwierze:
-    """
-    Klasa dwfiniujaca zwierze
-    """
 
-    def __init__(self, imie, ulubione_zabawki, najgorsze_zabawki):
-        self.imie = imie
-        self.ulubione_zabawki = ulubione_zabawki
-        self.najgorsze_zabawki = najgorsze_zabawki
+class Player:
+    '''
+    Klasa repr gracza
+    '''
 
-    def przywitaj_sie(self):
-        return f"Czesc mam na imie {self.imie}"
+    def __init__(self,nazwa,points):
+        self.nazwa = nazwa
+        self.points = points
 
-    def wymien_ulubione(self):
-        return f"Moje ulubone zabawki to : {self.ulubione_zabawki}"
+    def wyswietl_punkty(self):
+        return f"Gracz {self.nazwa}  ma {self.points} punktow"
 
-    def wymien_nielubiane(self):
-        return f"Moje najgorsze zabawki to : {self.najgorsze_zabawki} jest ich {len(self.najgorsze_zabawki)}"
+    def zdobyty_punkt(self):
+        self.points += 1
 
-kot = Zwierze("Kotek","pilka",["lala","auto"])
+gracz1 = Player("AA",0)
 
-print(kot.przywitaj_sie())
-print(kot.wymien_ulubione())
-print(kot.ulubione_zabawki)
-print(kot.wymien_nielubiane())
-
+gracz1.zdobyty_punkt()
+print(gracz1.wyswietl_punkty())
 
 
 
