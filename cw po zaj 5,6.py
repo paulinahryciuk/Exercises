@@ -158,6 +158,22 @@ class Zwierze:
         self.ulubione_zabawki = ulubione_zabawki
         self.najgorsze_zabawki = najgorsze_zabawki
 
-Zwierze() = kot
+    def przywitaj_sie(self):
+        return f"Czesc mam na imie {self.imie}"
+
+    def wymien_ulubione(self):
+        return f"Moje ulubone zabawki to : {self.ulubione_zabawki}"
+
+    def wymien_nielubiane(self):
+        return f"Moje najgorsze zabawki to : {self.najgorsze_zabawki} jest ich {len(self.najgorsze_zabawki)}"
+
+kot = Zwierze("Kotek","pilka",["lala","auto"])
+
+print(kot.przywitaj_sie())
+print(kot.wymien_ulubione())
+print(kot.ulubione_zabawki)
+print(kot.wymien_nielubiane())
+
+
 
 
