@@ -261,10 +261,14 @@
 # W grę niech wchodzą koła, prostokąty, kwadraty oraz trójkąty.
 # Czy prostokąt i kwadrat mogą być połączone relacją dziedziczenia?
 
+import abc from ABC, abstractmethod
+
+
 class Figury:
     """
     Klasa reprezentujaca figury geometryczne w pythonie
     """
+   @abstractmethod
     def obl_obwod(self):
         pass
     def obl_pole(self):
