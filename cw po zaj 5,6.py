@@ -196,28 +196,116 @@
 # print(gracz1.wyswietl_punkty())
 
 
-class Konto:
-    def __init__(self,balance):
-        self.balance = balance
+# class Konto:
+#     def __init__(self, balance):
+#         self.__balance = balance
+#
+#     def deposit(self,kwota):
+#         self.__balance += kwota
+#
+#     def withdraw(self,wartosc):
+#         if self.__balance - wartosc >0 :
+#             print(True)
+#         else:
+#             print(False)
+#
+#     def wyswietl_konto(self):
+#         return f"Stan konta wynosi: {self.__balance}"
+#
+#
+# konto1 = Konto(1000)
+# # konto2 = Konto(2000)
+# konto1.deposit(500)
+# # print("-------------")
+# # konto2.withdraw(1555)
+# # konto2.withdraw(3555)
+# # print(konto1.__balance)
+# print(konto1.wyswietl_konto())
+# konto1.balance = 5000
+# print(konto1.wyswietl_konto())
 
-    def deposit(self,kwota):
-        self.balance += kwota
-
-    def withdraw(self,wartosc):
-        if self.balance - wartosc >0 :
-            print(True)
-        else:
-            print(False)
-
-konto1 = Konto(1000)
-konto2 = Konto(2000)
-
-konto1.deposit(500)
-print("-------------")
-konto2.withdraw(1555)
-konto2.withdraw(3555)
-print(konto1.balance)
 
 
 
+# class Konto:
+#     def __init__(self, balance):
+#         self.balance = balance
+#
+#     def deposit(self,kwota):
+#         self.balance += kwota
+#
+#     def withdraw(self,wartosc):
+#         if self.balance - wartosc >0 :
+#             print(True)
+#         else:
+#             print(False)
+#
+#     def wyswietl_konto(self):
+#         return f"Stan konta wynosi: {self.balance}"
+# class Lokata(Konto):
+#     def __init__(self,balance,premia):
+#         super().__init__(balance)
+#         self.premia = premia
+#
+#     # def wyswietl_konto(self):
+#     #     super().wyswietl_konto()
+#
+# obj = Lokata(900,455)
+# print(obj.balance)
+# print(obj.wyswietl_konto())
+
+
+# Figury geometryczne
+# Stwórz hierarchię klas reprezentujących figury geometryczne.
+# Każda figura powinna umieć wypisać informacje o sobie, a także obliczyć swój obwód i pole.
+# W grę niech wchodzą koła, prostokąty, kwadraty oraz trójkąty.
+# Czy prostokąt i kwadrat mogą być połączone relacją dziedziczenia?
+
+class Figury:
+    """
+    Klasa reprezentujaca figury geometryczne w pythonie
+    """
+    def obl_obwod(self):
+        pass
+    def obl_pole(self):
+        pass
+    def wypisanie_info(self):
+        pass
+
+class Kwadrat(Figury):
+    def __init__(self,bok):
+        self.bok = bok
+
+    def obl_pole(self):
+        return self.bok * self.bok
+
+    def obl_obwod(self):
+        return self.bok *4
+
+    def wypisanie_info(self):
+        return f"Jestem kwadratem o boku {self.bok}"
+
+f1 = Kwadrat(2)
+print(f1.obl_pole())
+print(f1.obl_obwod())
+f1.wypisanie_info()
+
+class Prostokat(Figury):
+    def __init__(self,a,b):
+        self.a = a
+        self.b = b
+
+    def obl_obwod(self):
+        return 2*self.a + 2*self.b
+
+    def obl_pole(self):
+        return self.a*self.b
+
+    def wypisanie_info(self):
+        print(f"Jestem prostokatem o bokach: {self.a} i {self.b}")
+
+f2 = Prostokat(4,5)
+print(f2.obl_pole())
+print(f2.obl_obwod())
+f2.wypisanie_info()
 
