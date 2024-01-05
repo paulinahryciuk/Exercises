@@ -285,27 +285,40 @@ class Kwadrat(Figury):
     def wypisanie_info(self):
         return f"Jestem kwadratem o boku {self.bok}"
 
-f1 = Kwadrat(2)
-print(f1.obl_pole())
-print(f1.obl_obwod())
-f1.wypisanie_info()
+# f1 = Kwadrat(2)
+# print(f1.obl_pole())
+# print(f1.obl_obwod())
+# f1.wypisanie_info()
 
-class Prostokat(Figury):
-    def __init__(self,a,b):
-        self.a = a
-        self.b = b
+# class Prostokat(Figury):
+#     def __init__(self,a,b):
+#         self.a = a
+#         self.b = b
+#
+#     def obl_obwod(self):
+#         return 2*self.a + 2*self.b
+#
+#     def obl_pole(self):
+#         return self.a*self.b
+#
+#     def wypisanie_info(self):
+#         print(f"Jestem prostokatem o bokach: {self.a} i {self.b}")
+#
+# f2 = Prostokat(4,5)
+# print(f2.obl_pole())
+# print(f2.obl_obwod())
+# f2.wypisanie_info()
+#
+# class Kwadrat(Prostokat):
+#     def __init__(self,a):
+#         super().__init__(a)
+#         self.b = a
+#
+# f3 = Kwadrat(2)
+# print(f3.obl_pole())
 
-    def obl_obwod(self):
-        return 2*self.a + 2*self.b
-
-    def obl_pole(self):
-        return self.a*self.b
-
-    def wypisanie_info(self):
-        print(f"Jestem prostokatem o bokach: {self.a} i {self.b}")
-
-f2 = Prostokat(4,5)
-print(f2.obl_pole())
-print(f2.obl_obwod())
-f2.wypisanie_info()
+# class Prostokat(Kwadrat):
+#     def __init__(self,a,b):
+#         super().__init__(a)
+#         self.b = b
 
