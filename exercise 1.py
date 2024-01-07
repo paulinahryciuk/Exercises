@@ -88,5 +88,15 @@
 #
 # pierwsza(liczba)
 
+## https://www.practicepython.org/exercise/2014/01/29/01-character-input.html ##
 
+# 12
+a = [5, 10, 15, 20, 25]
 
+def lista (a):
+    pierwszy = a [0]
+    last= a [-1]
+    b = [pierwszy,last]
+    return b
+
+print(lista(a))
