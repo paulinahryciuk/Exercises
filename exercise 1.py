@@ -91,12 +91,23 @@
 ## https://www.practicepython.org/exercise/2014/01/29/01-character-input.html ##
 
 # 12
-a = [5, 10, 15, 20, 25]
+# a = [5, 10, 15, 20, 25]
+#
+# def lista (a):
+#     pierwszy = a [0]
+#     last= a [-1]
+#     b = [pierwszy,last]
+#     return b
+#
+# print(lista(a))
 
-def lista (a):
-    pierwszy = a [0]
-    last= a [-1]
-    b = [pierwszy,last]
+#14
+lista = [1,2,2,3,4,4,]
+
+def usun_duplikaty(lista):
+    a = set(lista)
+    b = list(a)
     return b
 
-print(lista(a))
+
+print(usun_duplikaty(lista))
