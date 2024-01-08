@@ -102,12 +102,48 @@
 # print(lista(a))
 
 #14
-lista = [1,2,2,3,4,4,]
+# lista = [1,2,2,3,4,4,]
+#
+# def usun_duplikaty(lista):
+#     a = set(lista)
+#     b = list(a)
+#     return b
+#
+#
+# print(usun_duplikaty(lista))
 
-def usun_duplikaty(lista):
-    a = set(lista)
-    b = list(a)
-    return b
+#18 Krowy i byki
 
+# print("Witam w grze KROWY I BYKI")
+# print("Zaczynamy!")
+# byki = 0
+# krowy = 0
+#
+# import random
+# numer_komputer = random.randint(1,10000)
+# print(numer_komputer)
+# pier_cyf_komp = str(numer_komputer)[0]
+# druga_cyf_komp = str(numer_komputer)[1]
+# trzecia_cyf_komp = str(numer_komputer)[2]
+# ost_cyf_komp = str(numer_komputer)[-1]
+# gracz_numer = 'abcd'
+# print(gracz_numer)
+# while str(numer_komputer)!=gracz_numer:
+#     while True:
+#         kolejnosc = input("Ktora cyfre zgadujesz? a/b/c/d ? ")
+#         if kolejnosc != 'a' and "b" and 'c' and 'd':
+#             print("Podales zla wartosc")
+#         else:
+#             break
+#     cyfra = input("Podaj cyfre: ")
+#     if kolejnosc== 'a':
+#         if pier_cyf_komp == cyfra:
+#             print("Brawo! Zdobywasz byka")
+#             krowy +=1
+#             gracz_numer.replace('a',cyfra)
+#         if cyfra == druga_cyf_komp or trzecia_cyf_komp or ost_cyf_komp:
+#             print("Zdobywasz krowe")
+#             krowy +=1
+#     print(f"Krowy : {krowy} \nbyki: {byki}")
+#     print(gracz_numer)
 
-print(usun_duplikaty(lista))
