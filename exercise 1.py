@@ -147,3 +147,78 @@
 #     print(f"Krowy : {krowy} \nbyki: {byki}")
 #     print(gracz_numer)
 
+
+#listy skladane
+# „Zwróć przedmiot, jeśli nie jest to banan, jeśli jest to banan, zwróć pomarańczowy”.
+
+# fruits = ["apple", "banana", "cherry", "kiwi", "mango"]
+#
+# new = [i if i != "banana" else "pamarancza" for i in fruits]
+# print(new)
+#
+# #Ustaw wartości na nowej liście na wielkie litery:
+# new2 = [i.upper() for i in fruits]
+# print(new2)
+
+#dekoratory
+# Ćwiczenie 1: Napisać swój pierwszy dekorator, którym należy udekorować dwie proste funkcje.
+# Celem dekoratora, jest drukowanie informacji, która funkcja została wykonana.
+
+
+# def dekorator(fun):
+#     def wrapper(x):
+#         print(fun.__name__)
+#         return fun(x)
+#     return wrapper
+#
+# @dekorator
+# def funkcja_1(x):
+#     # self.x = x
+#     return 2*x
+#
+#
+# @dekorator
+# def funkcja_2(x):
+#     # self.x = x
+#     return 4*x
+#
+# print(funkcja_1(2))
+# print(funkcja_2(2))
+
+
+# Zadanie 4 – Login required
+# Napisz program, który do uruchomienia będzie wymagał nazwy użytkownika i hasła
+# lub wybrania opcji logowanie anonimowe. Napisz dekorator o nazwie login_required,
+# który zaaplikowany do dowolnej funkcji zweryfikuje czy użytkownik zalogował się poprawnie.
+# W przypadku, gdy:
+# • użytkownik zalogował się poprawnie, dekorator powinien wywoływać otaczaną
+# funkcję,
+# • użytkownik nie został zalogowany, dekorator powinien rzucić wyjątek o nazwie
+# NotLoggedIn.
+
+# def weryfikacja(x):
+#     if x == "logowanie anonimowe":
+#         return "ok"
+#     else:
+
+
+
+# def dekorator(funk):
+#     def wrapper(x):
+#         if x == "haslo_login":
+#             return funk(x)
+#         else:
+#             return "notLOG"
+#     return wrapper
+#
+# @dekorator
+# def wypisz_hello(x):
+#     if x =="anonimowe":
+#         return "Hello"
+#     if x =="haslo_login":
+#         return "musisz sie zalogowac"
+#
+#
+# print(wypisz_hello("haslo_login"))
+# print(wypisz_hello("haslo_logi"))
+
