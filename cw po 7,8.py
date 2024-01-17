@@ -73,5 +73,20 @@
 # print("-------------------------")
 # print(odp.json())
 
-import pakiet_cw
-pakiet_cw.powitanie()
+# import pakiet_cw
+# pakiet_cw.powitanie()
+
+# class Slown(dict):
+#
+#     def __missing__(self, key):
+#        self[key] =0
+
+
+class KL:
+
+    def Met(self):
+        return ("test")
+
+k1 = KL()
+assert "test" == k1.Met()
+assert "test2" == k1.Met()
