@@ -82,11 +82,115 @@
 #        self[key] =0
 
 
-class KL:
+# class KL:
+#
+#     def Met(self):
+#         return ("test")
+#
+# k1 = KL()
+# assert "test" == k1.Met()
+# assert "test2" == k1.Met()
 
-    def Met(self):
-        return ("test")
 
-k1 = KL()
-assert "test" == k1.Met()
-assert "test2" == k1.Met()
+# class Punkt:
+#     def __init__(self,x,y):
+#         self.x = x
+#         self.y = y
+#
+#     def wyswietl(self):
+#         return (self.x,self.y)
+#
+#     def move(self,a,b):
+#         self.x += a
+
+    # def reset(self):
+        # self.x = 0
+        # self.move(-15,0)
+
+
+    # def __str__(self):
+    #     return f"({self.x, self.y})"
+
+    # def __repr__(self):
+    #     return f"({self.x, self.y})"
+
+    # def __str__(self):
+    #     lista = []
+    #     lista.append(self.x)
+    #     lista.append(self.y)
+    #     # return f"({lista})"
+
+#     def __repr__(self):
+#         return f"({self.x, self.y})"
+#
+# pkt1 = Punkt(2,3)
+# # print(pkt1.wyswietl())
+# # print(pkt1)
+#
+# pkt2 = Punkt(5,6)
+# lista = [pkt2,pkt1]
+# print(lista)
+# print("--------")
+#
+# pkt2.move(10,10)
+# print(pkt2.wyswietl())
+# print(pkt2)
+# # pkt2.reset()
+# print(pkt2)
+#
+# print('---------')
+# print(pkt2.__class__.__name__)
+# print(pkt2.__class__.__mro__)
+
+# dictio = {"A":'a',"B":"b"}
+# class Slownik(dict):
+#     def __init__(self,x= dictio):
+#         self.x = x
+#     def __missing__(self, key):
+#         return "nie ma"
+# #     # def __init__(self,x=dictio):
+# sl = Slownik()
+# print(sl.x)
+# # # sl = {"A":'a',"B":"b"}
+# # print(type(sl))
+# # print(sl)
+# print(sl.get('name'))
+# print(sl["A"])
+# print(sl["name"])
+
+# class Litery:
+#     def zwroc(self):
+#         print("hello")
+#
+# xxx = Litery()
+# # xxx = "goodbye"
+#
+# assert "goodbye" == xxx.zwroc()
+
+# x = "hello"
+#
+#
+#
+# x = "goodbye"
+#
+# # assert "hello" == 'x'
+# if assert "goodbye" == x:
+#     return "hello"
+
+
+class A:
+    def meto(self):
+        print("AAA")
+
+class B:
+    def meto(self):
+        print("BBB")
+
+class C(B,A):
+    def meto(self):
+        # A.meto(self)
+        super().meto()
+        print("i jeszcze to")
+
+c1 = C()
+c1.meto()
