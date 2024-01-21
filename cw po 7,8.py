@@ -213,19 +213,38 @@
 # print(Romek.pseudo)
 # print(Romek)
 
-slownik = {"A":"a", "B":"b"}
-import pickle
-with open("slow_pikl.pikle",'wb') as file:
-    pickle.dump(slownik,file)
+# slownik = {"A":"a", "B":"b"}
+# import pickle
+# with open("slow_pikl.pikle",'wb') as file:
+#     pickle.dump(slownik,file)
+#
+# # with open("slow_pikl.pikle",'rb') as file2:
+# #     pickle.load(file2)
+# #     print(file2)
+# # with open("slow_pikl.pikle",'rb') as file2:
+# # pf = pickle.load(file2)
+# # print(pf)
+# # pf = pickle.loads(file2)
+# # print(pf)
+# with open("slow_pikl.pikle",'rb') as file2:
+#     pf = pickle.load(file2)
+# print(pf)
 
-# with open("slow_pikl.pikle",'rb') as file2:
-#     pickle.load(file2)
-#     print(file2)
-# with open("slow_pikl.pikle",'rb') as file2:
-# pf = pickle.load(file2)
-# print(pf)
-# pf = pickle.loads(file2)
-# print(pf)
-with open("slow_pikl.pikle",'rb') as file2:
-    pf = pickle.load(file2)
-print(pf)
+class Exp_zero(Exception):
+    def __init__(self, tresc):
+        super().__init__(tresc)
+
+try:
+    x = int(input("Podaj x"))
+    y = int(input("Podaj y"))
+    # print(x/y)
+    if y ==0:
+        raise Exp_zero("zero ??")
+    print(x / y)
+except Exp_zero:
+    print("nie mozna dzielic przez 0")
+else:
+    print("na szczescie nei podales 0")
+finally:
+    print("Koniec obliczen")
+
