@@ -178,19 +178,54 @@
 #     return "hello"
 
 
-class A:
-    def meto(self):
-        print("AAA")
+# class A:
+#     def meto(self):
+#         print("AAA")
+#
+# class B:
+#     def meto(self):
+#         print("BBB")
+#
+# class C(B,A):
+#     def meto(self):
+#         # A.meto(self)
+#         super().meto()
+#         print("i jeszcze to")
+#
+# c1 = C()
+# c1.meto()
+# print(c1.__class__.__mro__)
 
-class B:
-    def meto(self):
-        print("BBB")
+#########################################https://www.youtube.com/watch?v=PIKiHq1O9HQ
 
-class C(B,A):
-    def meto(self):
-        # A.meto(self)
-        super().meto()
-        print("i jeszcze to")
 
-c1 = C()
-c1.meto()
+
+# from dataclasses import dataclass
+#
+# @dataclass
+# class Person:
+#     wiek: int
+#     wzrost: int
+#     pseudo: str
+#
+#
+# Romek = Person(20,200,"Ro")
+# print(Romek.pseudo)
+# print(Romek)
+
+slownik = {"A":"a", "B":"b"}
+import pickle
+with open("slow_pikl.pikle",'wb') as file:
+    pickle.dump(slownik,file)
+
+# with open("slow_pikl.pikle",'rb') as file2:
+#     pickle.load(file2)
+#     print(file2)
+# with open("slow_pikl.pikle",'rb') as file2:
+# pf = pickle.load(file2)
+# print(pf)
+# pf = pickle.loads(file2)
+# print(pf)
+with open("slow_pikl.pikle",'rb') as file2:
+    pf = pickle.load(file2)
+print(pf)
