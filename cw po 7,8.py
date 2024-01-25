@@ -230,21 +230,38 @@
 #     pf = pickle.load(file2)
 # print(pf)
 
-class Exp_zero(Exception):
-    def __init__(self, tresc):
-        super().__init__(tresc)
+# class Exp_zero(Exception):
+#     def __init__(self, tresc):
+#         super().__init__(tresc)
+#
+# try:
+#     x = int(input("Podaj x"))
+#     y = int(input("Podaj y"))
+#     # print(x/y)
+#     if y ==0:
+#         raise Exp_zero("zero ??")
+#     print(x / y)
+# except Exp_zero:
+#     print("nie mozna dzielic przez 0")
+# else:
+#     print("na szczescie nei podales 0")
+# finally:
+#     print("Koniec obliczen")
+#
+# lista = [1,2,3,4,5,6,7,8,9]
+# iterator = iter(lista)
+# # print(iterator)
+# print(next(iterator))
+# print("pauza")
+# print(next(iterator))
 
-try:
-    x = int(input("Podaj x"))
-    y = int(input("Podaj y"))
-    # print(x/y)
-    if y ==0:
-        raise Exp_zero("zero ??")
-    print(x / y)
-except Exp_zero:
-    print("nie mozna dzielic przez 0")
-else:
-    print("na szczescie nei podales 0")
-finally:
-    print("Koniec obliczen")
+class Bomba:
+    def __init__(self,x,y):
+        self.x = x
+        self.y = y
 
+    def __iter__(self):
+        return self
+
+B1 = Bomba(1,6)
+print(next(B1))
