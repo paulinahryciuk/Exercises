@@ -13,15 +13,51 @@ import sqlite3
 
 
 try:
-    polaczenie = sqlite3.connect(':memory:')
+    # polaczenie = sqlite3.connect(':memory:')
+    polaczenie = sqlite3.connect('baza.db')
+    polaczenie2 = sqlite3.Row
     kursor = polaczenie.cursor()
     print("baza podloczona")
+
+    # query='''
+    # CREATE TABLE SqliteDB_developers (
+    # id INTEGER PRIMARY KEY,
+    # name TEXT NOT NULL UNIQUE
+    # );'''
+    #
+    # kursor.execute(query)
+    # polaczenie.commit()
+
+    # with open('tables.sql','r') as f:
+    #     tabelka = f.read()
+    #
+    # kursor.executescript(tabelka)
+    # polaczenie.commit()
+    #
+    # insert = '''
+    # INSERT INTO SqliteDB_developers (id, name) VALUES (1, 'Ania');
+    # '''
+    #
+    # insert2 = '''
+    # INSERT INTO SqliteDB_developers (id, name) VAlues (2, 'Kasia');
+    # '''
+    # kursor.execute(insert)
+    # kursor.execute(insert2)
+    # polaczenie.commit()
+
+
+
 except polaczenie.Error as e:
     print("blad",e)
 finally:
     if polaczenie:
         polaczenie.close()
         print("baza zamknieya")
+
+
+
+
+
 
 
 
