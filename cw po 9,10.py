@@ -1,4 +1,6 @@
 import sqlite3
+lista = [(4,'Ola'),
+         (5,'Basia'),]
 
 # try:
 #     conn = sqlite3.connect('baza.db')
@@ -45,7 +47,20 @@ try:
     # kursor.execute(insert2)
     # polaczenie.commit()
 
+    # select = '''
+    # SELECT * FROM SqliteDB_developers;
+    # '''
+    # # kursor.execute(select)
+    # for rows in kursor.execute(select):
+    #     print(rows)
 
+    insert = '''
+    INSERT INTO SqliteDB_developers (id, name) VALUES (?,?);
+    '''
+    # kursor.execute(insert, (3,'Asia'))
+    # polaczenie.commit()
+    kursor.executemany(insert,lista)
+    polaczenie.commit()
 
 except polaczenie.Error as e:
     print("blad",e)
