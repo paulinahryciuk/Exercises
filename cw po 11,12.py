@@ -57,8 +57,40 @@ from sqlalchemy.orm import relationship, sessionmaker, declarative_base
 
 Base = declarative_base()
 
-class Persor(Base):
+class Person(Base):
     __tablename__ = 'osobki'
-    imie  = Column(String, primary_key=True)
+    id = Column (Integer, primary_key = True)
+    imie  = Column(String)
     nazwisko = Column(String)
     wiek = Column(Integer)
+    miejsce = relationship('Adress',
+                           back_populates='person',
+                           cascade='all, delete-orphan')
+
+class Adress(Base):
+    __tablename__ = 'miasta'
+    id = Column(Integer, primary_key = True)
+    miasto = Column(String)
+    person_id = Column(ForeignKey('osobki.id'))
+    person = relationship('Person',back_populates='miejsce')
+
+engine = create_engine('sqlite:///zamieszkanie2.db')
+Base.metadata.create_all(engine)
+Session = sessionmaker(bind=engine)
+session = Session()
+
+ala = Person(imie = "Ala",nazwisko = "kkk",wiek = 20)
+ola = Person(imie = "Ola",nazwisko = "mmm",wiek = 30)
+ala.miejsce = [Adress(miasto ='krakow')]
+ola.miejsce = [Adress(miasto ='wawa'),
+             Adress(miasto = 'lodz')]
+
+session.add(ala)
+session.add(ola)
+# session.add(ola_adres)
+# session.add(ala_adres)
+
+session.commit()
+
+users = session.query(Person.imie).all()
+print(users)
