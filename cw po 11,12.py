@@ -95,58 +95,148 @@
 # users = session.query(Person.imie).all()
 # print(users)
 
+#
+# from sqlalchemy import (
+#     Column, Integer, String, ForeignKey, create_engine
+# )
+#
+# from sqlalchemy.orm import relationship, sessionmaker, declarative_base
+#
+# Base = declarative_base()
+#
+#
+# class Owoc(Base):
+#     __tablename__ = 'owoce'
+#     id = Column(Integer, primary_key= True)
+#     nazwa = Column(String)
+#     # kolorek = relationship('Typ1', backref='owoc_kolor')
+#     # smaczek = relationship(('Typ2', backref= 'owoc_smak'))kolorek = relationship('Typ1', backref='owoc_kolor')
+#     kolorek = relationship('Typ1', back_populates='owoc_kolor', cascade='all, delete-orphan')
+#     smaczek = relationship('Typ2', back_populates= 'owoc_smak', cascade = 'all, delete-orphan')
+#
+#
+# class Typ1(Base):
+#     __tablename__ = 'typ1'
+#     id = Column(Integer, primary_key=True)
+#     kolor = Column(String)
+#     kolorek_id = Column(ForeignKey('owoce.id'))
+#     # owoc_kolor = Column(ForeignKey(Owoc, 'kolorek'))
+#     owoc_kolor = relationship('Owoc', back_populates='kolorek')
+#
+#
+# class Typ2(Base):
+#     __tablename__ = 'typ2'
+#     id2 = Column(Integer, primary_key=True)
+#     smak = Column(String)
+#     # owoc_smak = Column(ForeignKey(Owoc, 'smaczek'))
+#     smak_id = Column(ForeignKey('owoce.id'))
+#     owoc_smak = relationship('Owoc', back_populates='smaczek')
 
-from sqlalchemy import (
-    Column, Integer, String, ForeignKey, create_engine
-)
 
-from sqlalchemy.orm import relationship, sessionmaker, declarative_base
-
-Base = declarative_base()
-
-
-class Owoc(Base):
-    __tablename__ = 'owoce'
-    id = Column(Integer, primary_key= True)
-    nazwa = Column(String)
-    # kolorek = relationship('Typ1', backref='owoc_kolor')
-    # smaczek = relationship(('Typ2', backref= 'owoc_smak'))kolorek = relationship('Typ1', backref='owoc_kolor')
-    kolorek = relationship('Typ1', back_populates='owoc_kolor', cascade='all, delete-orphan')
-    smaczek = relationship('Typ2', back_populates= 'owoc_smak', cascade = 'all, delete-orphan')
-
-
-class Typ1(Base):
-    __tablename__ = 'typ1'
-    id = Column(Integer, primary_key=True)
-    kolor = Column(String)
-    kolorek_id = Column(ForeignKey('owoce.id'))
-    # owoc_kolor = Column(ForeignKey(Owoc, 'kolorek'))
-    owoc_kolor = relationship('Owoc', back_populates='kolorek')
+# engine = create_engine('sqlite:///owoce.db')
+# Base.metadata.create_all(engine)
+# pierwszy = Owoc(nazwa='jablko')
+# drugi = Owoc(nazwa='banan')
+# trzeci = Owoc(nazwa='aronia')
+# pierwszy.kolorek = [Typ1(kolor='zielony')]
+# drugi.kolorek = [Typ1(kolor='zolty')]
+# trzeci.kolorek = [Typ1(kolor='cirmny')]
+# pierwszy.smaczek = [Typ2(smak='kwasny')]
+# drugi.smaczek = [Typ2(smak='slodki')]
+# trzeci.smaczek = [Typ2(smak='cierpki')]
+# Session = sessionmaker(bind=engine)
+# session = Session()
+# session.add(pierwszy)
+# session.add(drugi)
+# session.add(trzeci)
+# session.commit()
 
 
-class Typ2(Base):
-    __tablename__ = 'typ2'
-    id2 = Column(Integer, primary_key=True)
-    smak = Column(String)
-    # owoc_smak = Column(ForeignKey(Owoc, 'smaczek'))
-    smak_id = Column(ForeignKey('owoce.id'))
-    owoc_smak = relationship('Owoc', back_populates='smaczek')
+# from sqlalchemy import (
+#     Column, Integer, String, ForeignKey, create_engine
+# )
+#
+# from sqlalchemy.orm import relationship, sessionmaker, declarative_base
+#
+# Base = declarative_base()
+#
+#
+# class Rodzic(Base):
+#     __tablename__ = 'rodzice'
+#     id = Column(Integer, primary_key=True)
+#     name = Column(String(50))
+#     dzieci = relationship('Dzieci', backref='rodz1')
+#
+#
+# class Dzieci(Base):
+#     __tablename__ = 'dzieci'
+#     id = Column(Integer, primary_key=True)
+#     name = Column(String)
+#     rodzic_id = Column(Integer, ForeignKey('rodzice.id'))
+#
+#
+# engine = create_engine('sqlite:///rodzina.db')
+# Base.metadata.create_all(engine)
+# Session = sessionmaker(bind=engine)
+# session = Session()
+#
+# rodz = Rodzic(name='rodzice1')
+# # rodz.dzieci = [Dzieci('dziecko1')]
+# # rodz.dzieci = [Dzieci('dziecko1')]
+# dziec1 = Dzieci(name='dziecko1', rodz1 = rodz)
+# dziec2 = Dzieci(name='dziecko2', rodz1 = rodz)
+#
+# # session.add_all([rodz, dziec1, dziec2])
+# session.add(rodz)
+# session.add(dziec1)
+# session.add(dziec2)
+# session.commit()
 
 
-engine = create_engine('sqlite:///owoce.db')
-Base.metadata.create_all(engine)
-pierwszy = Owoc(nazwa='jablko')
-drugi = Owoc(nazwa='banan')
-trzeci = Owoc(nazwa='aronia')
-pierwszy.kolorek = [Typ1(kolor='zielony')]
-drugi.kolorek = [Typ1(kolor='zolty')]
-trzeci.kolorek = [Typ1(kolor='cirmny')]
-pierwszy.smaczek = [Typ2(smak='kwasny')]
-drugi.smaczek = [Typ2(smak='slodki')]
-trzeci.smaczek = [Typ2(smak='cierpki')]
-Session = sessionmaker(bind=engine)
-session = Session()
-session.add(pierwszy)
-session.add(drugi)
-session.add(trzeci)
-session.commit()
+# from sqlalchemy import create_engine, Column, Integer, String, Table, ForeignKey
+# from sqlalchemy.orm import relationship, sessionmaker, declarative_base
+#
+# Base = declarative_base()
+#
+# porownanie = Table('tytul', Base.metadata,
+#                    Column('student_nr', Integer, ForeignKey('studenci.id'), primary_key=True),
+#                    Column('kurs_nr', Integer, ForeignKey('kursy.id'), primary_key=True))
+#
+#
+# class Student(Base):
+#     __tablename__ = 'studenci'
+#     id = Column(Integer, primary_key=True)
+#     name = Column(String)
+#     kursy = relationship('Kurs', secondary=porownanie, back_populates='studenci')
+#
+#
+# class Kurs(Base):
+#     __tablename__ = 'kursy'
+#     id = Column(Integer, primary_key=True)
+#     name = Column(String)
+#     studenci = relationship('Student', secondary=porownanie, back_populates='kursy')
+#
+#
+# engine = create_engine('sqlite:///kursy.db')
+# Base.metadata.create_all(engine)
+# Session = sessionmaker(bind=engine)
+# session = Session()
+#
+# student1 = Student(name='student1')
+# student2 = Student(name='student2')
+# kurs1 = Kurs(name='kursA')
+# kurs2 = Kurs(name='kursB')
+# student1.kursy.append(kurs2)
+# student2.kursy.append(kurs2)
+# student2.kursy.append(kurs1)
+#
+# session.add(student1)
+# session.add(student2)
+# session.commit()
+
+from decimal import Decimal
+
+l1 = Decimal('0.02')
+l2 = Decimal('1.07')
+precyzja = Decimal('0.1')
+print((l1+l2).quantize(precyzja))
