@@ -234,9 +234,11 @@
 # session.add(student2)
 # session.commit()
 
-from decimal import Decimal
+# from decimal import Decimal
+#
+# l1 = Decimal('0.02')
+# l2 = Decimal('1.07')
+# precyzja = Decimal('0.1')
+# print((l1+l2).quantize(precyzja))
 
-l1 = Decimal('0.02')
-l2 = Decimal('1.07')
-precyzja = Decimal('0.1')
-print((l1+l2).quantize(precyzja))
+####test
