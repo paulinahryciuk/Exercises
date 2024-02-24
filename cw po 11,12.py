@@ -47,6 +47,7 @@
 #     with ConMan(db_name) as polaczenie:
 #             kursor = polaczenie.cursor()
 #             kursor.execute()
+import tkinter
 
 #
 # from sqlalchemy import (
@@ -242,3 +243,18 @@
 # print((l1+l2).quantize(precyzja))
 
 ####test
+
+
+
+import tkinter
+
+class MyGui:
+    def __init__(self):
+        okienko = tkinter.Tk()
+        labelka = tkinter.Label(okienko, text="Kliknij")
+        labelka.pack(side = 'top')
+
+        tkinter.mainloop()
+
+my_gui = MyGui()
+
