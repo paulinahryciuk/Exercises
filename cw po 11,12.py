@@ -266,14 +266,28 @@ import tkinter
 # przycisk = tkinter.Button(okienko, text = 'kliknij', command = klik)
 # przycisk.pack()
 # okienko.mainloop()
+#
+# def pokaz_tekst():
+#     tekst = pole_wprowadzenia.get()
+#     print(f'wprowadzony tekst: {tekst}')
+#
+# okienko = tkinter.Tk()
+# pole_wprowadzenia = tkinter.Entry(okienko)
+# pole_wprowadzenia.pack()
+# przycisk = tkinter.Button(okienko,text="pokaz tekst", command=pokaz_tekst)
+# przycisk.pack(side = tkinter.BOTTOM)
+# okienko.mainloop()
 
-def pokaz_tekst():
-    tekst = pole_wprowadzenia.get()
-    print(f'wprowadzony tekst: {tekst}')
+# def suwak(wartosc):
+#     print(f"wartosc suwaka to: {wartosc}")
+#
+# okienko = tkinter.Tk()
+# #suwaczek = tkinter.Scale(okienko, from_=0, to =20, orient = tkinter.HORIZONTAL,command = suwak)
+# suwaczek = tkinter.Scale(okienko, from_=0, to =20, command = suwak)
+# suwaczek.pack()
+# okienko.mainloop()
 
-okienko = tkinter.Tk()
-pole_wprowadzenia = tkinter.Entry(okienko)
-pole_wprowadzenia.pack()
-przycisk = tkinter.Button(okienko,text="pokaz tekst", command=pokaz_tekst)
-przycisk.pack(side = tkinter.BOTTOM)
-okienko.mainloop()
+
+a = input('podaj a')
+b = input('podaj b')
+print(eval(a)+eval(b))
