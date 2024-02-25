@@ -247,14 +247,33 @@ import tkinter
 
 
 import tkinter
+#
+# class MyGui:
+#     def __init__(self):
+#         okienko = tkinter.Tk()
+#         labelka = tkinter.Label(okienko, text="Kliknij")
+#         labelka.pack(side = 'top')
+#
+#         tkinter.mainloop()
+#
+# my_gui = MyGui()
 
-class MyGui:
-    def __init__(self):
-        okienko = tkinter.Tk()
-        labelka = tkinter.Label(okienko, text="Kliknij")
-        labelka.pack(side = 'top')
+# def klik():
+#     print("przysisk wcisniety")
+#
+# okienko = tkinter.Tk()
+# okienko.title('tytul')
+# przycisk = tkinter.Button(okienko, text = 'kliknij', command = klik)
+# przycisk.pack()
+# okienko.mainloop()
 
-        tkinter.mainloop()
+def pokaz_tekst():
+    tekst = pole_wprowadzenia.get()
+    print(f'wprowadzony tekst: {tekst}')
 
-my_gui = MyGui()
-
+okienko = tkinter.Tk()
+pole_wprowadzenia = tkinter.Entry(okienko)
+pole_wprowadzenia.pack()
+przycisk = tkinter.Button(okienko,text="pokaz tekst", command=pokaz_tekst)
+przycisk.pack(side = tkinter.BOTTOM)
+okienko.mainloop()
