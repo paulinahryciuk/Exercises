@@ -96,5 +96,53 @@
 
 # slownik = {'czerwony': 'red', 'niebeiski': 'blue', 'bialy': 'white'}
 # slowko = input("Podaj slowko do przetlumaczenia")
-# print(slownik[slowko])
+# # print(slownik[slowko])
+# print(slowko)
+
 #
+# x = input("Podaj liczne x :")
+# def describe_number(x):
+#     match int(x):
+#         case x if int(x) > 0:
+#             print(f"Liczba {x} jest dodatnia")
+#         case x if int(x) < 0:
+#             print(f"Liczba {x} jest ujemna")
+#         case x if int(x) == 0:
+#             print(f"Liczba {x} wynosi zero")
+#
+# describe_number(x)
+
+
+# lista = [0, 1, 2, 3, 4, 5]
+# for i in enumerate(lista, start=100):
+#     print(i)
+#
+# ludzie = ['Radek', 'Janek', 'Tomek', 'Martyna', "Marek"]
+# wiek = [45, 40, 18, 26]
+# for i,j in zip(ludzie,wiek):
+#     print(i,j)
+#
+
+# Napisz funkcję sum_of_squares, która przyjmuje listę liczb całkowitych jako argument i zwraca sumę kwadratów tych liczb.
+# Skorzystaj z pętli for, aby przejść przez wszystkie elementy listy i obliczyć sumę kwadratów.
+
+# lista2 = []
+#
+# def sum_of_squares(x):
+#     suma = 0
+#     for i in x:
+#         a =(i**2)
+#         lista2.append(a)
+#         suma += a
+#     print(f'suma wynosi {suma}')
+#
+#
+#
+#
+# lista = [2,4,10,8]
+# sum_of_squares(lista)
+# print(lista2)
+# # print(f'suma wynosi {suma}')
+
+# Napisz funkcję countdown, która przyjmuje jedną liczbę całkowitą n jako argument i drukuje odliczanie od n do 1,
+# a następnie drukuje "Start!". Użyj pętli while, aby zrealizować odliczanie.
