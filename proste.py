@@ -146,3 +146,12 @@
 
 # Napisz funkcję countdown, która przyjmuje jedną liczbę całkowitą n jako argument i drukuje odliczanie od n do 1,
 # a następnie drukuje "Start!". Użyj pętli while, aby zrealizować odliczanie.
+
+def countdown(n):
+    while n >= 1:
+        print(n)
+        n = n - 1
+    print("strat")
+
+
+countdown(3)
