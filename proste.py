@@ -147,11 +147,66 @@
 # Napisz funkcję countdown, która przyjmuje jedną liczbę całkowitą n jako argument i drukuje odliczanie od n do 1,
 # a następnie drukuje "Start!". Użyj pętli while, aby zrealizować odliczanie.
 
-def countdown(n):
-    while n >= 1:
-        print(n)
-        n = n - 1
-    print("strat")
+# def countdown(n):
+#     while n >= 1:
+#         print(n)
+#         n = n - 1
+#     print("strat")
+#
+#
+# countdown(3)
+#
+# 1. Dodawanie
+#     2. Odejmowanie
+#     3. Mnożenie
+#     4. Dzielenie
+#     5. Koniec
 
 
-countdown(3)
+while True:
+    wybor = int(input('''wybierz numer:
+    1. Dodawanie
+    2. Odejmowanie
+    3. Mnożenie
+    4. Dzielenie
+    5. Koniec
+    '''))
+    if wybor == 5:
+        print("Koniec pracy")
+        break
+
+    else:
+        try:
+            if wybor==1 or wybor==2 or wybor==3 or wybor==4:
+                liczba1 = int(input("pierwsza liczba: "))
+                liczba2 = int(input("druga liczba: "))
+                if wybor == 1:
+                    # print(liczba1 + liczba2)
+                    a=liczba1 + liczba2
+                elif wybor == 2:
+                    # print(liczba1 - liczba2)
+                    a=liczba1 - liczba2
+
+                elif wybor == 3:
+                    # print(liczba1 * liczba2)
+                    a=liczba1 * liczba2
+                elif wybor == 4:
+                    # print(liczba1 / liczba2)
+                    a=liczba1 / liczba2
+            else:
+                    print("zly nr")
+                    break
+        except ZeroDivisionError:
+            print("nie dziel prez zero")
+            # if wybor==4 and liczba2==0:
+            #     print()
+        except ValueError:
+            print('Podaj poprawna wartosc')
+        except TypeError:
+            print('Podaj poprawna wartosc')
+
+        else:
+            print("obliczono")
+            print(f"wynik oblicznia: {a}")
+        finally:
+            print('obliczenia zakonczono')
