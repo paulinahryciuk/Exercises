@@ -163,50 +163,68 @@
 #     5. Koniec
 
 
-while True:
-    wybor = int(input('''wybierz numer:
-    1. Dodawanie
-    2. Odejmowanie
-    3. Mnożenie
-    4. Dzielenie
-    5. Koniec
-    '''))
-    if wybor == 5:
-        print("Koniec pracy")
-        break
+# while True:
+#     wybor = int(input('''wybierz numer:
+#     1. Dodawanie
+#     2. Odejmowanie
+#     3. Mnożenie
+#     4. Dzielenie
+#     5. Koniec
+#     '''))
+#     if wybor == 5:
+#         print("Koniec pracy")
+#         break
+#
+#     else:
+#         try:
+#             if wybor==1 or wybor==2 or wybor==3 or wybor==4:
+#                 liczba1 = int(input("pierwsza liczba: "))
+#                 liczba2 = int(input("druga liczba: "))
+#                 if wybor == 1:
+#                     # print(liczba1 + liczba2)
+#                     a=liczba1 + liczba2
+#                 elif wybor == 2:
+#                     # print(liczba1 - liczba2)
+#                     a=liczba1 - liczba2
+#
+#                 elif wybor == 3:
+#                     # print(liczba1 * liczba2)
+#                     a=liczba1 * liczba2
+#                 elif wybor == 4:
+#                     # print(liczba1 / liczba2)
+#                     a=liczba1 / liczba2
+#             else:
+#                     print("zly nr")
+#                     break
+#         except ZeroDivisionError:
+#             print("nie dziel prez zero")
+#             # if wybor==4 and liczba2==0:
+#             #     print()
+#         except ValueError:
+#             print('Podaj poprawna wartosc')
+#         except TypeError:
+#             print('Podaj poprawna wartosc')
+#
+#         else:
+#             print("obliczono")
+#             print(f"wynik oblicznia: {a}")
+#         finally:
+#             print('obliczenia zakonczono')
 
-    else:
-        try:
-            if wybor==1 or wybor==2 or wybor==3 or wybor==4:
-                liczba1 = int(input("pierwsza liczba: "))
-                liczba2 = int(input("druga liczba: "))
-                if wybor == 1:
-                    # print(liczba1 + liczba2)
-                    a=liczba1 + liczba2
-                elif wybor == 2:
-                    # print(liczba1 - liczba2)
-                    a=liczba1 - liczba2
+# import datetime
+# a = datetime.datetime.now()
+# print(a)
+# print(a.strftime("%B"))
 
-                elif wybor == 3:
-                    # print(liczba1 * liczba2)
-                    a=liczba1 * liczba2
-                elif wybor == 4:
-                    # print(liczba1 / liczba2)
-                    a=liczba1 / liczba2
-            else:
-                    print("zly nr")
-                    break
-        except ZeroDivisionError:
-            print("nie dziel prez zero")
-            # if wybor==4 and liczba2==0:
-            #     print()
-        except ValueError:
-            print('Podaj poprawna wartosc')
-        except TypeError:
-            print('Podaj poprawna wartosc')
+# Napisz funkcję reverse_string, która przyjmuje łańcuch znaków jako argument i zwraca ten łańcuch odwrócony.
+# Użyj pętli while, aby odwrócić łańcuch.
 
-        else:
-            print("obliczono")
-            print(f"wynik oblicznia: {a}")
-        finally:
-            print('obliczenia zakonczono')
+def rev_str(x):
+    dl = len(x)
+
+    while dl > 0:
+        o = (x[dl - 1])
+        print(o)
+        dl -= 1
+
+rev_str('alami')
