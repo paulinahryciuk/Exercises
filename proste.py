@@ -268,17 +268,48 @@
 # print(stud)
 
 
-import csv
-file = 'uczniowie.csv'
-with open(file,'r') as ft:
-    reader = csv.DictReader(ft)
-    students = [line for line in reader if int(line['age'])>=15]
-print(students)
+# import csv
+# file = 'uczniowie.csv'
+# with open(file,'r') as ft:
+#     reader = csv.DictReader(ft)
+#     students = [line for line in reader if int(line['age'])>=15]
+# print(students)
+#
+# fieldname = ['name','surname','age','klasa']
+# file2 = 'uczniowie2.csv'
+#
+# with open(file2,'w') as ft2:
+#     writer = csv.DictWriter(ft2,fieldnames=fieldname)
+#     writer.writeheader()
+#     writer.writerows(students)
 
-fieldname = ['name','surname','age','klasa']
-file2 = 'uczniowie2.csv'
 
-with open(file2,'w') as ft2:
-    writer = csv.DictWriter(ft2,fieldnames=fieldname)
-    writer.writeheader()
-    writer.writerows(students)
+# def wylicz_srednia(x):
+#     print(sum(x) / len(x))
+#
+#
+# x = (5, 4, 3, 5)
+# wylicz_srednia(x)
+
+
+
+# def sumuj(*cyfry):
+#     suma = 0
+#     for i in cyfry:
+#          suma += i
+#     return suma
+#
+#
+# print(sumuj(2, 3, 4))
+
+def wylicz_srednia2(uczen, *oceny):
+    # sumuj(oceny)
+    suma = 0
+    for i in oceny:
+        suma += i
+        # return suma
+    srednia = suma/len(oceny)
+    print(f"Srednia ucznia {uczen} wynosi: {srednia}")
+
+# x = (Ola, 4,5,6,)
+wylicz_srednia2('Ola',4,5,6)
