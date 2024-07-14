@@ -219,12 +219,66 @@
 # Napisz funkcję reverse_string, która przyjmuje łańcuch znaków jako argument i zwraca ten łańcuch odwrócony.
 # Użyj pętli while, aby odwrócić łańcuch.
 
-def rev_str(x):
-    dl = len(x)
+# def rev_str(x):
+#     dl = len(x)
+#
+#     while dl > 0:
+#         o = (x[dl - 1])
+#         print(o)
+#         dl -= 1
+#
+# rev_str('alami')
+#
+# with open('nauka', 'w+') as ft:
+#     ft.write("ucze sie")
+#
+# with open('nauka') as ft:
+#     a =ft.read()
+# print(a)
+#
+# Napisz program w Pythonie, który wczytuje plik CSV zawierający dane o uczniach (imię, nazwisko, wiek, klasa)
+# i zapisuje do nowego pliku CSV tylko tych uczniów, którzy są w wieku 15 lat lub starsi.
 
-    while dl > 0:
-        o = (x[dl - 1])
-        print(o)
-        dl -= 1
+# import csv
+# with open("uczniowie.csv",'r') as file:
+#     # writer = csv.reader(file, delimiter=',')
+#     # for line in writer:
+#     #     print(readlines)
+#     #     # plik =line
+#     # print(plik)
+#     # fieldname = ['name','surname','age','klasa']
+#     # reader = csv.DictReader('uczniowie.csv',delimiter=',')
+#     # for line in reader:
+#     #     print(line)
+#     # reader =csv.DictReader(file, fieldnames=fieldname,delimiter=',')
+#     # for line in reader:
+#     #     if int(reader['age'])>=15:
+#     #         print(line)
+#     reader = csv.DictReader(file)
+#     # for line in reader:
+#     #     if reader['age']>15:
+#     #         print(line)
+#     stud = [row for row in reader if int(reader['age'])>=15]
+#     print(stud)
+#
+# import csv
+# with open("uczniowie.csv",'r') as file:
+#     reader = csv.DictReader(file)
+#     stud = [row for row in reader if int(row['age']) >= 15]
+# print(stud)
 
-rev_str('alami')
+
+import csv
+file = 'uczniowie.csv'
+with open(file,'r') as ft:
+    reader = csv.DictReader(ft)
+    students = [line for line in reader if int(line['age'])>=15]
+print(students)
+
+fieldname = ['name','surname','age','klasa']
+file2 = 'uczniowie2.csv'
+
+with open(file2,'w') as ft2:
+    writer = csv.DictWriter(ft2,fieldnames=fieldname)
+    writer.writeheader()
+    writer.writerows(students)
