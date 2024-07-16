@@ -292,7 +292,6 @@
 # wylicz_srednia(x)
 
 
-
 # def sumuj(*cyfry):
 #     suma = 0
 #     for i in cyfry:
@@ -302,14 +301,27 @@
 #
 # print(sumuj(2, 3, 4))
 
-def wylicz_srednia2(uczen, *oceny):
-    # sumuj(oceny)
-    suma = 0
-    for i in oceny:
-        suma += i
-        # return suma
-    srednia = suma/len(oceny)
-    print(f"Srednia ucznia {uczen} wynosi: {srednia}")
+# def wylicz_srednia2(uczen, *oceny):
+#     # sumuj(oceny)
+#     suma = 0
+#     for i in oceny:
+#         suma += i
+#         # return suma
+#     srednia = suma/len(oceny)
+#     print(f"Srednia ucznia {uczen} wynosi: {srednia}")
+#
+# # x = (Ola, 4,5,6,)
+# wylicz_srednia2('Ola',4,5,6)
 
-# x = (Ola, 4,5,6,)
-wylicz_srednia2('Ola',4,5,6)
+
+# Napisz funkcję describe_student, która przyjmuje argumenty pozycyjne (imię, nazwisko, wiek) oraz dowolną liczbę
+# argumentów nazwanych (**kwargs), które mogą zawierać dodatkowe informacje o uczniu (np. klasa, hobby, ulubiony_przedmiot).
+# Funkcja powinna zwracać słownik z wszystkimi informacjami o uczniu.
+
+def describe_student(imie, nazwisko, wiek, **kwargs):
+    print(f"Uczen {imie} {nazwisko} ma lat: {wiek} ")
+    print(f"Dodatkowe informacje o nim to : {kwargs}")
+
+
+
+describe_student("Adam", "Kot", 8, klasa='2b', hobby='pilka')
