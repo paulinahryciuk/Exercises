@@ -318,10 +318,18 @@
 # argumentów nazwanych (**kwargs), które mogą zawierać dodatkowe informacje o uczniu (np. klasa, hobby, ulubiony_przedmiot).
 # Funkcja powinna zwracać słownik z wszystkimi informacjami o uczniu.
 
-def describe_student(imie, nazwisko, wiek, **kwargs):
-    print(f"Uczen {imie} {nazwisko} ma lat: {wiek} ")
-    print(f"Dodatkowe informacje o nim to : {kwargs}")
+# def describe_student(imie, nazwisko, wiek, **kwargs):
+#     print(f"Uczen {imie} {nazwisko} ma lat: {wiek} ")
+#     print(f"Dodatkowe informacje o nim to : {kwargs}")
+#
+#
+#
+# describe_student("Adam", "Kot", 8, klasa='2b', hobby='pilka')
 
+bezwz = lambda *args: abs(sum(args))
+print(bezwz(-1,2,-4,-5))
 
+liczby = [2,5,9,3]
+fun = list(map(lambda x: x*10, liczby))
+print(fun)
 
-describe_student("Adam", "Kot", 8, klasa='2b', hobby='pilka')
