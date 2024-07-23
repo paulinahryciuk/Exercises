@@ -325,11 +325,38 @@
 #
 #
 # describe_student("Adam", "Kot", 8, klasa='2b', hobby='pilka')
+#
+# bezwz = lambda *args: abs(sum(args))
+# print(bezwz(-1,2,-4,-5))
+#
+# liczby = [2,5,9,3]
+# fun = list(map(lambda x: x*10, liczby))
+# print(fun)
 
-bezwz = lambda *args: abs(sum(args))
-print(bezwz(-1,2,-4,-5))
 
-liczby = [2,5,9,3]
-fun = list(map(lambda x: x*10, liczby))
-print(fun)
+# import datetime
+#
+# today = datetime.date.today()
+# print(today)
+# tomorrow = today+datetime.timedelta(days=1)
+# print(tomorrow)
+#
+# Napisz program, który zawiera funkcję zagnieżdżoną do obliczania kwadratu liczby, oraz funkcję główną,
+# która zwraca listę kwadratów liczb z listy wejściowej.
+#
+#
+# def fun1(number):
+#     def fun2(x):
+#         return x*x
+#     # return fun1
+#     lista = []
+#     for i in number:
+#         lista.append(fun2(i))
+#     return lista
+#
+#
+# print(fun1([3,4,5]))
+#
+# Napisz program, który zawiera funkcję zagnieżdżoną do sprawdzania, czy liczba jest liczbą pierwszą, oraz funkcję główną,
+# która zwraca listę wszystkich liczb pierwszych mniejszych niż zadana liczba n.
 
