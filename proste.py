@@ -360,3 +360,32 @@
 # Napisz program, który zawiera funkcję zagnieżdżoną do sprawdzania, czy liczba jest liczbą pierwszą, oraz funkcję główną,
 # która zwraca listę wszystkich liczb pierwszych mniejszych niż zadana liczba n.
 
+# def fun1(lista):
+#     def fun2(i):
+#         return i
+#     parzyste=[]
+#     for _ in lista:
+#         if _%2 ==0:
+#             parzyste.append(_)
+#
+#     parz_duze=[]
+#     for y in parzyste:
+#         if y >3:
+#             parz_duze.append(y)
+#
+#     return parz_duze
+#
+#
+# print(fun1([2, 3, 4, 5]))
+
+
+def fun1(n):
+    def fun2(i):
+        return i
+    parzyste=[]
+    for _ in range(1,n):
+        if _%2 ==0:
+            parzyste.append(_)
+    return parzyste
+
+print(fun1(10))
