@@ -408,26 +408,31 @@
 # sortowanie_wiek(baza)
 
 
-
 # Napisz program, który używa funkcji lambda do przekształcenia listy liczb przez:
 #
 # Pomnożenie każdej liczby przez 2.
 # Dodanie 5 do każdej liczby.
 
-dwu = lambda x: x*2
-print(dwu([2, 4, 6]))
+# dwu = lambda x: x*2
+# print(list(map(dwu,[2, 4, 6])))
+# print(list(map(lambda x:x*2,[2, 4, 6])))
+#
+# piec = lambda x:x+5
+# print(list(map(piec,[5,15,95])))
+#
+# duze = lambda x:x>5
+# print(list(filter(duze,[5,10,2,56])))
+#
+#
+# Napisz program, który filtruje listę liczb, używając funkcji lambda, w celu:
+#
+# Znalezienia wszystkich liczb parzystych.
+# Znalezienia wszystkich liczb nieparzystych.
+# Znalezienia wszystkich liczb większych od podanej wartości.
 
+lista = [2, 7, 6, 5, 3, 9, 1]
+parzyste = list(filter(lambda x: x % 2 == 0, lista))
+print(parzyste)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+wieksze = list(filter(lambda x: x>5,lista))
+print(wieksze)
