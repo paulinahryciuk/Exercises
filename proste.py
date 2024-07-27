@@ -379,13 +379,55 @@
 # print(fun1([2, 3, 4, 5]))
 
 
-def fun1(n):
-    def fun2(i):
-        return i
-    parzyste=[]
-    for _ in range(1,n):
-        if _%2 ==0:
-            parzyste.append(_)
-    return parzyste
+# def fun1(n):
+#     def fun2(i):
+#         return i
+#     parzyste=[]
+#     for _ in range(1,n):
+#         if _%2 ==0:
+#             parzyste.append(_)
+#     return parzyste
+#
+# print(fun1(10))
+#
+#
+# Napisz program, który sortuje listę słowników według określonego klucza, używając funkcji lambda.
 
-print(fun1(10))
+# Instrukcje
+# Zdefiniuj listę słowników, gdzie każdy słownik reprezentuje osobę z kluczami imie, wiek, miasto.
+# Użyj funkcji lambda do posortowania listy według wieku (wiek) w porządku rosnącym.
+# Użyj funkcji lambda do posortowania listy według imienia (imie) w porządku alfabetycznym.
+# Użyj funkcji lambda do posortowania listy według miasta (miasto) w porządku alfabetycznym.
+
+
+# sortowanie_wiek = lambda **kwargs: sorted(kwargs,key=kwargs.wiek)
+#
+# baza = [{'imie':"Ola", 'wiek':10, 'miasto':'Krakow'}, {'imie':"Ala", 'wiek':5, 'miasto':'Warsz'},
+#         {'imie':"Adam",'wiek':12, 'miasto':"Adamowka"}]
+#
+# sortowanie_wiek(baza)
+
+
+
+# Napisz program, który używa funkcji lambda do przekształcenia listy liczb przez:
+#
+# Pomnożenie każdej liczby przez 2.
+# Dodanie 5 do każdej liczby.
+
+dwu = lambda x: x*2
+print(dwu([2, 4, 6]))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
