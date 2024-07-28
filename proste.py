@@ -430,9 +430,17 @@
 # Znalezienia wszystkich liczb nieparzystych.
 # Znalezienia wszystkich liczb większych od podanej wartości.
 
-lista = [2, 7, 6, 5, 3, 9, 1]
-parzyste = list(filter(lambda x: x % 2 == 0, lista))
-print(parzyste)
+# lista = [2, 7, 6, 5, 3, 9, 1]
+# parzyste = list(filter(lambda x: x % 2 == 0, lista))
+# print(parzyste)
+#
+# wieksze = list(filter(lambda x: x>5,lista))
+# print(wieksze)
+#
+# Znaleźć najdłuższe słowo w liście słów.
 
-wieksze = list(filter(lambda x: x>5,lista))
-print(wieksze)
+from functools import reduce
+
+slowa = ['ala', 'kokokokok', 'ul']
+najluzsze = reduce(lambda x,y: x if len(x)>len(y) else y, slowa)
+print(najluzsze)
