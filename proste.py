@@ -439,8 +439,47 @@
 #
 # Znaleźć najdłuższe słowo w liście słów.
 
-from functools import reduce
+# from functools import reduce
+#
+# slowa = ['ala', 'kokokokok', 'ul']
+# najluzsze = reduce(lambda x,y: x if len(x)>len(y) else y, slowa)
+# print(najluzsze)
+#
 
-slowa = ['ala', 'kokokokok', 'ul']
-najluzsze = reduce(lambda x,y: x if len(x)>len(y) else y, slowa)
-print(najluzsze)
+
+# Napisz dekorator sprawdz_typy, który sprawdza typy argumentów przekazywanych do funkcji i wyświetla ostrzeżenie,
+# jeśli typy są niezgodne z oczekiwanymi.
+#
+# Instrukcje
+# Zdefiniuj dekorator sprawdz_typy.
+# Zdefiniuj przykładową funkcję, np. dodaj(a, b), która dodaje dwie liczby.
+# Użyj dekoratora sprawdz_typy, aby sprawdzić, czy argumenty przekazywane do funkcji dodaj(a, b) są typu int.
+
+# def spr_typ(funkcja):
+#     def wrapper(a,b):
+#         if type(a) == 'int' and type(b) == 'int':
+#             print("mozesz dodawac")
+#         else:
+#             print("nie mozesz dodac bo to nie sa liczby")
+#         return funkcja
+#     print("----")
+#     return wrapper
+#
+#
+# @spr_typ
+# def sumuj(a, b):
+#     return a + b
+#
+#
+# print(sumuj(1, 2))
+# print(type(1))
+#
+#
+# Napisz dekorator licz_wywolania, który liczy, ile razy dana funkcja została wywołana. Licznik powinien być przypisany
+# do atrybutu wywolania dekorowanej funkcji.
+#
+# Instrukcje
+# Zdefiniuj dekorator licz_wywolania.
+# Zdefiniuj przykładową funkcję, np. powitaj(), która wypisuje "Cześć!".
+# Użyj dekoratora licz_wywolania do funkcji powitaj i sprawdź liczbę wywołań po kilku wywołaniach funkcji.
+
