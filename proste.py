@@ -483,3 +483,44 @@
 # Zdefiniuj przykładową funkcję, np. powitaj(), która wypisuje "Cześć!".
 # Użyj dekoratora licz_wywolania do funkcji powitaj i sprawdź liczbę wywołań po kilku wywołaniach funkcji.
 
+
+# licznik =0
+# def licz_wywolania(funkcja):
+#     # licznik =0
+#     def wrapper():
+#         # licznik+=1
+#         wrapper.wywolania +=1
+#
+#     return wrapper()
+#
+#
+# @licz_wywolania
+# def powitanie():
+#     print("Czesc")
+#
+# powitanie()
+
+
+# Zadanie
+# Zdefiniuj dekorator capitalize_output, który będzie zmieniał wszystkie litery w zwracanym przez funkcję tekście na wielkie.
+# Zdefiniuj przykładową funkcję powitanie, która przyjmuje imię jako argument i zwraca powitanie w formacie "Cześć, {imię}!".
+# Użyj dekoratora capitalize_output na funkcji powitanie.
+# Wywołaj funkcję powitanie z różnymi argumentami i sprawdź, czy zwracany tekst jest w wersji z wielkimi literami.
+
+# def capitalize_output(funk):
+#     def wrapper(*args,**kwargs):
+#         results = funk(*args,**kwargs)
+#         return results.upper
+#     return wrapper
+#
+#
+# @capitalize_output
+# def powitanie(x):
+#     print(f"witaj {x}")
+#
+# powitanie("Pau")
+#
+#
+# Zadanie: Automatyczna walidacja zakresu wartości
+# Zadanie: Napisz dekorator, który automatycznie sprawdza, czy argumenty przekazane do funkcji mieszczą się w określonym
+# zakresie. Jeśli nie, powinien zgłaszać błąd (ValueError).
