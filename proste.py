@@ -524,3 +524,21 @@
 # Zadanie: Automatyczna walidacja zakresu wartości
 # Zadanie: Napisz dekorator, który automatycznie sprawdza, czy argumenty przekazane do funkcji mieszczą się w określonym
 # zakresie. Jeśli nie, powinien zgłaszać błąd (ValueError).
+
+def spr_zakresu(func):
+    def wrapper(*arg, **kwargs):
+         results = func(*arg,**kwargs)
+         if results > 10:
+             print( 'za duza wartosc')
+         return results
+    return wrapper
+
+
+@spr_zakresu
+def liczba_wielkosc(x):
+    print(f"twoja jednocyfrowa liczba to {x}")
+    return x
+
+
+liczba_wielkosc(5)
+liczba_wielkosc(15)
