@@ -566,6 +566,42 @@
 # print(lista2)
 
 # Zadanie 5: Zamiana liter na wielkie
-slowa = ['obraz', 'waz']
-slowo_upt = [i.upper() for i in slowa]
-print(slowo_upt)
+# slowa = ['obraz', 'waz']
+# slowo_upt = [i.upper() for i in slowa]
+# print(slowo_upt)
+#
+#
+# Zadanie: Klasa Prostokat
+# Opis: Utwórz klasę Prostokat, która będzie reprezentować prostokąt. Klasa powinna mieć metody do obliczania pola oraz
+# obwodu prostokąta.
+#
+# Szczegóły:
+#
+# Klasa powinna mieć dwie właściwości: dlugosc i szerokosc.
+# Dodaj metodę pole(), która zwróci pole prostokąta.
+# Dodaj metodę obwod(), która zwróci obwód prostokąta.
+
+
+class Prostokat():
+    """
+    Klasa opisujeaca prostokat
+    """
+
+    def __init__(self, dlugosc, szerokosc):
+        self.dlugosc = dlugosc
+        self.szerokosc = szerokosc
+
+
+    def oblicz_pole(self):
+        pole = self.dlugosc * self.szerokosc
+        print(f"Pole prostokata wynosi {pole} cm kwdr")
+
+
+    def oblicz_obwod(self):
+        obwod = 2 * self.dlugosc + 2 * self.szerokosc
+        print(f"Obowd prostokata o wymiarach {self.dlugosc} i {self.szerokosc} wynosi: {obwod} cm")
+
+
+p1 = Prostokat(2, 3)
+p1.oblicz_pole()
+p1.oblicz_obwod()
