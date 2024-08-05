@@ -525,20 +525,47 @@
 # Zadanie: Napisz dekorator, który automatycznie sprawdza, czy argumenty przekazane do funkcji mieszczą się w określonym
 # zakresie. Jeśli nie, powinien zgłaszać błąd (ValueError).
 
-def spr_zakresu(func):
-    def wrapper(*arg, **kwargs):
-         results = func(*arg,**kwargs)
-         if results > 10:
-             print( 'za duza wartosc')
-         return results
-    return wrapper
+# def spr_zakresu(func):
+#     def wrapper(*arg, **kwargs):
+#          results = func(*arg,**kwargs)
+#          if results > 10:
+#              print( 'za duza wartosc')
+#          return results
+#     return wrapper
+#
+#
+# @spr_zakresu
+# def liczba_wielkosc(x):
+#     print(f"twoja jednocyfrowa liczba to {x}")
+#     return x
+#
+#
+# liczba_wielkosc(5)
+# liczba_wielkosc(15)
+#
+# Zadanie 1: Podwojenie wartości w liście
 
+# lista = [0,5,7,8]
+# lista2 = [i*2 for i in lista]
+# print(lista2)
+#
+# # Zadanie 2: Filtracja liczb parzystych
+# lista3 = [i for i in lista if i%2 ==0]
+# print(lista3)
+#
+# # Zadanie 3: Lista kwadratów
+# lista4 = [i*i for i in lista3]
+# print(lista4)
 
-@spr_zakresu
-def liczba_wielkosc(x):
-    print(f"twoja jednocyfrowa liczba to {x}")
-    return x
+# Zadanie 4: Długości słów w zdaniu
+#
+# zdanie = 'Ola ma kota.'
+# lista = [len(i) for i in zdanie]
+# print(lista)
+# lista2 = [len(i) for i in zdanie.split()]
+# print(lista2)
 
-
-liczba_wielkosc(5)
-liczba_wielkosc(15)
+# Zadanie 5: Zamiana liter na wielkie
+slowa = ['obraz', 'waz']
+slowo_upt = [i.upper() for i in slowa]
+print(slowo_upt)
