@@ -765,40 +765,88 @@
 # Klasa Samochod powinna dziedziczyć po klasie Pojazd i mieć dodatkowy atrybut liczba_drzwi.
 # Klasa Samochod powinna mieć metodę opis_samochodu(), która rozszerza opis pojazdu o informację o liczbie drzwi.
 # Klasa Samochod powinna również mieć metodę czy_klasyczny(), która sprawdzi, czy samochód jest klasyczny (starszy niż 25 lat).
+#
+# import datetime
+#
+#
+# class Pojazd():
+#     def __init__(self, marka, model, rok_produkcji):
+#         self.marka = marka
+#         self.model = model
+#         self.rok_produkcji = rok_produkcji
+#
+#     def opis_pojazdu(self):
+#         return f"{self.marka} {self.model} ({self.rok_produkcji})"
+#
+#
+# class Samochod(Pojazd):
+#     def __init__(self, marka, model, rok_produkcji, l_drzwi):
+#         super().__init__(marka, model, rok_produkcji)
+#         self.l_drzwi = l_drzwi
+#
+#     def opis_samochodu(self):
+#         # print(f"{self.marka} {self.model} ({self.rok_produkcji}) liczba drzwi:{self.l_drzwi}")
+#         print(f"{self.opis_pojazdu()} liczba drzwi:{self.l_drzwi}")
+#
+#     def czy_klasyczny(self):
+#         # x = datetime.datetime.now()
+#         # y = x.strftime('%x')
+#         # if int(y) - self.rok_produkcji > 25:
+#         if 2024 - self.rok_produkcji > 25:
+#             return True
+#         else:
+#             return False
+#
+#
+# s1 = Samochod('Ford', 'Mondeo', 2008, 4)
+# s1.opis_samochodu()
+# print(s1.czy_klasyczny())
+# # print(datetime.datetime.now())
 
-import datetime
+
+# Zadanie: System Płatności
+# Opis: Utwórz system, który obsługuje różne metody płatności (np. kartą kredytową, PayPal, przelewem bankowym).
+# W tym celu stwórz klasę abstrakcyjną Platnosc, która będzie zawierała metody abstrakcyjne do przeprowadzania płatności i
+# sprawdzania statusu płatności. Następnie utwórz klasy pochodne dla różnych metod płatności, które będą implementować te metody.
+#
+# Szczegóły:
+# Klasa abstrakcyjna Platnosc:
+#
+# Powinna zawierać dwie metody abstrakcyjne:
+# zaplac(kwota): metoda odpowiedzialna za realizację płatności.
+# sprawdz_status(): metoda odpowiedzialna za sprawdzenie statusu płatności.
+# Klasy pochodne:
+#
+# Utwórz klasy PlatnoscKarta, PlatnoscPayPal i PlatnoscPrzelew, które dziedziczą po Platnosc.
+# Każda z tych klas powinna implementować metody zaplac() i sprawdz_status() w sposób charakterystyczny dla danej metody płatności.
+# Symulacja płatności:
+#
+# Utwórz obiekty każdej z klas płatności i zasymuluj realizację płatności oraz sprawdzenie statusu.
 
 
-class Pojazd():
-    def __init__(self, marka, model, rok_produkcji):
-        self.marka = marka
-        self.model = model
-        self.rok_produkcji = rok_produkcji
+from abc import ABC, abstractmethod
+# import abc
 
-    def opis_pojazdu(self):
-        return f"{self.marka} {self.model} ({self.rok_produkcji})"
+class Platnosc(ABC):
 
+    @abstractmethod
+    def zaplac(self):
+        pass
 
-class Samochod(Pojazd):
-    def __init__(self, marka, model, rok_produkcji, l_drzwi):
-        super().__init__(marka, model, rok_produkcji)
-        self.l_drzwi = l_drzwi
-
-    def opis_samochodu(self):
-        # print(f"{self.marka} {self.model} ({self.rok_produkcji}) liczba drzwi:{self.l_drzwi}")
-        print(f"{self.opis_pojazdu()} liczba drzwi:{self.l_drzwi}")
-
-    def czy_klasyczny(self):
-        # x = datetime.datetime.now()
-        # y = x.strftime('%x')
-        # if int(y) - self.rok_produkcji > 25:
-        if 2024 - self.rok_produkcji > 25:
-            return True
-        else:
-            return False
+    @abstractmethod
+    def sprawdz_status(self):
+        pass
 
 
-s1 = Samochod('Ford', 'Mondeo', 2008, 4)
-s1.opis_samochodu()
-print(s1.czy_klasyczny())
-# print(datetime.datetime.now())
+class PlatnoscKarta(Platnosc):
+
+    def zaplac(self, kwota):
+        self.kwota = kwota
+        print(f"Platnosc karta na kwote {self.kwota} pobiegla pomyslnie")
+
+    def sprawdz_status(self):
+        print("platnosc pobiegla pomyslnie")
+
+
+p1 = PlatnoscKarta()
+p1.zaplac(200)
