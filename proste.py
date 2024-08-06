@@ -725,27 +725,80 @@
 # Klasa Pies powinna nadpisać metodę dzwiek() tak, aby zwracała "Hau hau!".
 # Dodaj do klasy Pies metodę aportuj(), która zwraca tekst "Pies aportuje!".
 
-class Zwierze():
-    def __init__(self, gatunek, wiek):
-        self.gatunek = gatunek
-        self.wiek = wiek
+# class Zwierze():
+#     def __init__(self, gatunek, wiek):
+#         self.gatunek = gatunek
+#         self.wiek = wiek
+#
+#     def dzwiek(self):
+#         return "zwierze wydaje dzwiek"
+#
+#
+# class Pies(Zwierze):
+#     def __init__(self, gatunek, wiek, rasa):
+#         super().__init__( gatunek, wiek)
+#         self.rasa = rasa
+#
+#     def dzwiek(self):
+#         return "Hau hau"
+#
+#     def aportuj(self):
+#         print("Pies aportuje")
+#
+#
+# z1 = Pies('pies', 5, 'owczarek')
+# z1.aportuj()
+# print(z1.dzwiek())
 
-    def dzwiek(self):
-        return "zwierze wydaje dzwiek"
+
+# Zadanie: Klasy Pojazd i Samochod
+# Opis: Utwórz dwie klasy: Pojazd i Samochod. Klasa Samochod powinna dziedziczyć po klasie Pojazd.
+# Dodaj atrybuty i metody, które będą odpowiednio wykorzystywać dziedziczenie.
+#
+# Szczegóły:
+#
+# Klasa Pojazd powinna mieć atrybuty:
+# marka
+# model
+# rok_produkcji
+# Klasa Pojazd powinna mieć metodę opis_pojazdu(), która zwróci opis pojazdu w formacie: "Marka Model (Rok produkcji)".
+# Klasa Samochod powinna dziedziczyć po klasie Pojazd i mieć dodatkowy atrybut liczba_drzwi.
+# Klasa Samochod powinna mieć metodę opis_samochodu(), która rozszerza opis pojazdu o informację o liczbie drzwi.
+# Klasa Samochod powinna również mieć metodę czy_klasyczny(), która sprawdzi, czy samochód jest klasyczny (starszy niż 25 lat).
+
+import datetime
 
 
-class Pies(Zwierze):
-    def __init__(self, gatunek, wiek, rasa):
-        super().__init__( gatunek, wiek)
-        self.rasa = rasa
+class Pojazd():
+    def __init__(self, marka, model, rok_produkcji):
+        self.marka = marka
+        self.model = model
+        self.rok_produkcji = rok_produkcji
 
-    def dzwiek(self):
-        return "Hau hau"
-
-    def aportuj(self):
-        print("Pies aportuje")
+    def opis_pojazdu(self):
+        return f"{self.marka} {self.model} ({self.rok_produkcji})"
 
 
-z1 = Pies('pies', 5, 'owczarek')
-z1.aportuj()
-print(z1.dzwiek())
+class Samochod(Pojazd):
+    def __init__(self, marka, model, rok_produkcji, l_drzwi):
+        super().__init__(marka, model, rok_produkcji)
+        self.l_drzwi = l_drzwi
+
+    def opis_samochodu(self):
+        # print(f"{self.marka} {self.model} ({self.rok_produkcji}) liczba drzwi:{self.l_drzwi}")
+        print(f"{self.opis_pojazdu()} liczba drzwi:{self.l_drzwi}")
+
+    def czy_klasyczny(self):
+        # x = datetime.datetime.now()
+        # y = x.strftime('%x')
+        # if int(y) - self.rok_produkcji > 25:
+        if 2024 - self.rok_produkcji > 25:
+            return True
+        else:
+            return False
+
+
+s1 = Samochod('Ford', 'Mondeo', 2008, 4)
+s1.opis_samochodu()
+print(s1.czy_klasyczny())
+# print(datetime.datetime.now())
