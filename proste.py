@@ -581,27 +581,171 @@
 # Dodaj metodę pole(), która zwróci pole prostokąta.
 # Dodaj metodę obwod(), która zwróci obwód prostokąta.
 
+#
+# class Prostokat():
+#     """
+#     Klasa opisujeaca prostokat
+#     """
+#
+#     def __init__(self, dlugosc, szerokosc):
+#         self.dlugosc = dlugosc
+#         self.szerokosc = szerokosc
+#
+#
+#     def oblicz_pole(self):
+#         pole = self.dlugosc * self.szerokosc
+#         print(f"Pole prostokata wynosi {pole} cm kwdr")
+#
+#
+#     def oblicz_obwod(self):
+#         obwod = 2 * self.dlugosc + 2 * self.szerokosc
+#         print(f"Obowd prostokata o wymiarach {self.dlugosc} i {self.szerokosc} wynosi: {obwod} cm")
+#
+#     def czy_kwadrat(self):
+#         if self.dlugosc==self.szerokosc:
+#             return True
+#         else:
+#             return False
+#
+#
+# p1 = Prostokat(2, 3)
+# p1.oblicz_pole()
+# p1.oblicz_obwod()
+# print(p1.czy_kwadrat())
+# p2 = Prostokat(2,2)
+# print(p2.czy_kwadrat())
+#
+#
+#
 
-class Prostokat():
-    """
-    Klasa opisujeaca prostokat
-    """
 
-    def __init__(self, dlugosc, szerokosc):
-        self.dlugosc = dlugosc
-        self.szerokosc = szerokosc
+# Zadanie: Klasa Samochod
+# Opis: Utwórz klasę Samochod, która będzie reprezentować samochód. Klasa powinna posiadać metody do dodawania przebiegu,
+# obliczania średniego spalania oraz zwracania informacji o samochodzie.
+#
+# Szczegóły:
+#
+# Klasa powinna mieć właściwości:
+# marka
+# model
+# rocznik
+# przebieg (początkowo ustawiony na 0)
+# spalanie (średnie spalanie w litrach na 100 km, domyślnie ustawione na 7.0)
+# Dodaj metodę dodaj_przebieg(km), która zwiększy przebieg o podaną wartość.
+# Dodaj metodę oblicz_spalanie(km, litry), która obliczy średnie spalanie na podstawie przejechanych kilometrów i zużytego paliwa.
+# Dodaj metodę info(), która zwróci informacje o samochodzie (marka, model, rocznik, przebieg).
+#
+# class Samochod():
+#     """
+#     Klasa opisujaca samochod
+#     """
+#
+#     def __init__(self, marka, model, rocznik, przebieg, spalanie=7.0):
+#         self.marka = marka
+#         self.model = model
+#         self.rocznik = rocznik
+#         self.przebieg = przebieg
+#         self.spalanie = spalanie
+#
+#     def dodaj_przebieg(self):
+#         self.przebieg += 10
+#
+#     def oblicz_spalanie(self):
+#         # self.srednie_spalanie = srednie_spalanie
+#         self.srednie_spalanie = self.przebieg * self.spalanie
+#         print(f"srednie spalanie to: {self.srednie_spalanie} ")
+#
+#     def info(self):
+#         print(
+#             f"Samochod marki {self.marka} model: {self.model} ma przebieg: {self.przebieg} a spalnie srednie wynosi: {self.srednie_spalanie}")
+#
+#
+# sam1 = Samochod('Ford', 'Mondeo', 2020, 0)
+# sam1.dodaj_przebieg()
+# sam1.dodaj_przebieg()
+# sam1.oblicz_spalanie()
+# sam1.info()
 
 
-    def oblicz_pole(self):
-        pole = self.dlugosc * self.szerokosc
-        print(f"Pole prostokata wynosi {pole} cm kwdr")
+# Zadanie: Klasa KontoBankowe
+# Opis: Utwórz klasę KontoBankowe, która będzie reprezentować konto bankowe z hermetyzowanymi danymi.
+# Klasa powinna umożliwiać dostęp do salda oraz operacje wpłaty i wypłaty środków, z zachowaniem odpowiednich zasad.
+#
+# Szczegóły:
+#
+# Klasa powinna mieć atrybuty:
+# _numer_konta (prywatny)
+# _saldo (prywatny, początkowo 0)
+# Dodaj metodę wplac(kwota), która zwiększy saldo o podaną kwotę.
+# Dodaj metodę wyplac(kwota), która zmniejszy saldo o podaną kwotę, jeśli saldo na to pozwala.
+# Dodaj metodę sprawdz_saldo(), która zwróci aktualne saldo.
+# Dodaj getter i setter dla numeru konta, aby można było go odczytać, ale nie zmieniać po utworzeniu konta.
 
 
-    def oblicz_obwod(self):
-        obwod = 2 * self.dlugosc + 2 * self.szerokosc
-        print(f"Obowd prostokata o wymiarach {self.dlugosc} i {self.szerokosc} wynosi: {obwod} cm")
+# class KontoBankowe():
+#     def __init__(self, __numer_konta, __saldo=0):
+#         self.__numer_konta = __numer_konta
+#         self.__saldo = __saldo
+#
+#     def wplac(self, kwota):
+#         # self.kwota = kwota
+#         self.__saldo += kwota
+#         print("Pieniadze wplacone")
+#
+#     def wyplac(self, wyplata):
+#         # self.wyplata = wyplata
+#         if wyplata <= self.__saldo:
+#             self.__saldo -= wyplata
+#             print("Pieniadze wyplacone")
+#         else:
+#             print("Masz za malo pieniedzy")
+#
+#     def sprawdz_saldo(self):
+#         print(f"Stan konta wynosi: {self.__saldo}")
+#
+#
+# k1 = KontoBankowe(2222)
+# k1.wplac(1000)
+# k1.sprawdz_saldo()
+# k1.wyplac(200)
+# k1.sprawdz_saldo()
 
 
-p1 = Prostokat(2, 3)
-p1.oblicz_pole()
-p1.oblicz_obwod()
+# Zadanie: Klasy Zwierze i Pies
+# Opis: Utwórz dwie klasy: Zwierze i Pies. Klasa Pies powinna dziedziczyć po klasie Zwierze.
+# Klasa Pies powinna mieć dodatkową metodę specyficzną dla psów.
+#
+# Szczegóły:
+#
+# Klasa Zwierze powinna mieć atrybuty:
+# gatunek
+# wiek
+# Klasa Zwierze powinna mieć metodę dzwiek(), która będzie zwracać dźwięk wydawany przez zwierzę.
+# Klasa Pies powinna dziedziczyć po klasie Zwierze i mieć dodatkowy atrybut rasa.
+# Klasa Pies powinna nadpisać metodę dzwiek() tak, aby zwracała "Hau hau!".
+# Dodaj do klasy Pies metodę aportuj(), która zwraca tekst "Pies aportuje!".
+
+class Zwierze():
+    def __init__(self, gatunek, wiek):
+        self.gatunek = gatunek
+        self.wiek = wiek
+
+    def dzwiek(self):
+        return "zwierze wydaje dzwiek"
+
+
+class Pies(Zwierze):
+    def __init__(self, gatunek, wiek, rasa):
+        super().__init__( gatunek, wiek)
+        self.rasa = rasa
+
+    def dzwiek(self):
+        return "Hau hau"
+
+    def aportuj(self):
+        print("Pies aportuje")
+
+
+z1 = Pies('pies', 5, 'owczarek')
+z1.aportuj()
+print(z1.dzwiek())
