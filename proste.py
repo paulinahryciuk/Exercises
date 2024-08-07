@@ -824,29 +824,46 @@
 # Utwórz obiekty każdej z klas płatności i zasymuluj realizację płatności oraz sprawdzenie statusu.
 
 
-from abc import ABC, abstractmethod
-# import abc
+# from abc import ABC, abstractmethod
+# # import abc
+#
+# class Platnosc(ABC):
+#
+#     @abstractmethod
+#     def zaplac(self):
+#         pass
+#
+#     @abstractmethod
+#     def sprawdz_status(self):
+#         pass
+#
+#
+# class PlatnoscKarta(Platnosc):
+#
+#     def zaplac(self, kwota):
+#         self.kwota = kwota
+#         print(f"Platnosc karta na kwote {self.kwota} pobiegla pomyslnie")
+#
+#     def sprawdz_status(self):
+#         print("platnosc pobiegla pomyslnie")
+#
+#
+# p1 = PlatnoscKarta()
+# p1.zaplac(200)
 
-class Platnosc(ABC):
+# import math
 
-    @abstractmethod
-    def zaplac(self):
-        pass
+class Czlowiek:
+    def __init__(self, imie):
+        self.imie = imie
 
-    @abstractmethod
-    def sprawdz_status(self):
-        pass
+    def __str__(self):
+        # return f'({self.imie})'
+        return f'({self.imie!r})'
 
+c = Czlowiek('Ania')
+print(c.imie)
+print(c)
 
-class PlatnoscKarta(Platnosc):
-
-    def zaplac(self, kwota):
-        self.kwota = kwota
-        print(f"Platnosc karta na kwote {self.kwota} pobiegla pomyslnie")
-
-    def sprawdz_status(self):
-        print("platnosc pobiegla pomyslnie")
-
-
-p1 = PlatnoscKarta()
-p1.zaplac(200)
+x = 'asia'
+print(f'{x!r}')
