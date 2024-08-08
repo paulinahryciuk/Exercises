@@ -852,18 +852,62 @@
 # p1.zaplac(200)
 
 # import math
+#
+# class Czlowiek:
+#     def __init__(self, imie):
+#         self.imie = imie
+#
+#     def __str__(self):
+#         # return f'({self.imie})'
+#         return f'({self.imie!r})'
+#
+# c = Czlowiek('Ania')
+# print(c.imie)
+# print(c)
+#
+# x = 'asia'
+# print(f'{x!r}')
 
-class Czlowiek:
-    def __init__(self, imie):
-        self.imie = imie
 
-    def __str__(self):
-        # return f'({self.imie})'
-        return f'({self.imie!r})'
+# Zadanie: System pojazdów
+# Wyobraź sobie, że tworzysz prosty system zarządzania pojazdami. Każdy pojazd ma swoje unikalne właściwości,
+# ale niektóre pojazdy mogą dziedziczyć cechy od innych.
+#
+# Stwórz klasę Vehicle, która będzie bazową klasą dla wszystkich pojazdów. Klasa ta powinna mieć metodę move(),
+# która wypisuje "Vehicle is moving".
+#
+# Stwórz klasę Car, która dziedziczy po klasie Vehicle. Klasa Car powinna nadpisać metodę move() tak,
+# aby wypisywała "Car is driving".
+#
+# Stwórz klasę Boat, która również dziedziczy po klasie Vehicle. Klasa Boat powinna nadpisać metodę move() tak,
+# aby wypisywała "Boat is sailing".
+#
+# Stwórz klasę AmphibiousVehicle, która dziedziczy zarówno po Car, jak i Boat. Niech ta klasa nie nadpisuje metody move().
+#
+# Utwórz obiekt klasy AmphibiousVehicle i wywołaj metodę move(). Zastanów się, która metoda zostanie wywołana i dlaczego.
+#
+# (Opcjonalnie) Dodaj do klasy AmphibiousVehicle swoją wersję metody move(), która wypisuje "Amphibious Vehicle is moving",
+# a następnie wywołaj ją ponownie.
 
-c = Czlowiek('Ania')
-print(c.imie)
-print(c)
+class Vehicle:
+    def move(self):
+        print("Vehicle is moving")
 
-x = 'asia'
-print(f'{x!r}')
+class Car(Vehicle):
+    def move(self):
+        print("Car is driving")
+
+class Boat(Vehicle):
+    def move(self):
+        print("Boat is sailing")
+
+class AmphibiousVehicle(Car,Boat):
+    pass
+
+o1 = AmphibiousVehicle()
+o1.move()
+
+
+
+
+
