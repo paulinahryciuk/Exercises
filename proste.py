@@ -888,25 +888,92 @@
 #
 # (Opcjonalnie) Dodaj do klasy AmphibiousVehicle swoją wersję metody move(), która wypisuje "Amphibious Vehicle is moving",
 # a następnie wywołaj ją ponownie.
+#
+# class Vehicle:
+#     def move(self):
+#         print("Vehicle is moving")
+#
+# class Car(Vehicle):
+#     def move(self):
+#         print("Car is driving")
+#
+# class Boat(Vehicle):
+#     def move(self):
+#         print("Boat is sailing")
+#
+# class AmphibiousVehicle(Car,Boat):
+#     pass
+#
+#     @staticmethod
+#     def statyczna():
+#         print("to jest metoda statyczna")
+#
+#
+# o1 = AmphibiousVehicle()
+# o1.move()
+# AmphibiousVehicle.statyczna()
 
-class Vehicle:
-    def move(self):
-        print("Vehicle is moving")
 
-class Car(Vehicle):
-    def move(self):
-        print("Car is driving")
 
-class Boat(Vehicle):
-    def move(self):
-        print("Boat is sailing")
 
-class AmphibiousVehicle(Car,Boat):
-    pass
 
-o1 = AmphibiousVehicle()
-o1.move()
+# Zadanie: Zarządzanie kontami bankowymi
+# Stwórz klasę BankAccount, która będzie reprezentować konto bankowe. Każde konto ma numer konta i saldo.
+# Klasa ta powinna mieć możliwość tworzenia kont na różne sposoby, a także przechowywania liczby wszystkich utworzonych kont.
+#
+# Wymagania:
+# Atrybuty klasy:
+#
+# total_accounts: Atrybut klasy, który przechowuje liczbę wszystkich utworzonych kont.
+# Konstruktor (__init__):
+#
+# Przyjmuje dwa argumenty: numer konta i saldo początkowe.
+# Zwiększa total_accounts o 1 za każdym razem, gdy tworzone jest nowe konto.
+# Metoda klasowa from_balance_only(balance):
+#
+# Tworzy nowe konto z losowym numerem konta (możesz wykorzystać prosty licznik do generowania unikalnych numerów) i
+# podanym saldem początkowym.
+# Metoda klasowa total_accounts_created():
+#
+# Zwraca liczbę wszystkich utworzonych kont (wartość total_accounts).
+# Metoda instancyjna display():
+#
+# Wyświetla informacje o numerze konta i saldzie.
 
+# class BankAccount:
+#     '''
+#     Reprezentuje konto bankowe
+#     '''
+#     def __init__(self,nr_konta, saldo):
+#         self.nr_konta = nr_konta
+#         self.saldo = saldo
+#     total_accounts = 0
+#
+#     @classmethod
+#     def total_accounts_created(cls,  total_accounts):
+#         cls.total_accounts +=1
+#
+#     @classmethod
+#     def from_balance_only(cls, balance):
+#
+#     @classmethod
+#     def total_accounts_created(cls):
+#         return cls.total.accounts
+#
+#     def display(self):
+#         return self.nr_konta,self.saldo
+
+
+import pickle
+
+slownik = {"imie":"ania", "nazwisko":"nowak", "wiek":40}
+with open ('plik_pikle', 'wb') as file:
+    pickle.dump(slownik, file)
+
+with open('plik_pikle', 'rb') as f:
+    p = pickle.load(f)
+
+print(p)
 
 
 
