@@ -964,17 +964,128 @@
 #         return self.nr_konta,self.saldo
 
 
-import pickle
-
-slownik = {"imie":"ania", "nazwisko":"nowak", "wiek":40}
-with open ('plik_pikle', 'wb') as file:
-    pickle.dump(slownik, file)
-
-with open('plik_pikle', 'rb') as f:
-    p = pickle.load(f)
-
-print(p)
-
-
+# import pickle
+#
+# slownik = {"imie":"ania", "nazwisko":"nowak", "wiek":40}
+# with open ('plik_pikle', 'wb') as file:
+#     pickle.dump(slownik, file)
+#
+# with open('plik_pikle', 'rb') as f:
+#     p = pickle.load(f)
+#
+# print(p)
 
 
+
+
+# Zadanie: System zamówień w restauracji
+# Stwórz prosty system zamówień dla restauracji. System ten powinien pozwalać na dodawanie zamówień, przeliczanie kosztów,
+# a także obsługiwać sytuacje, gdy podane dane są nieprawidłowe, na przykład jeśli zamówienie jest puste lub cena jest ujemna.
+#
+# Wymagania:
+# Klasa MenuItem:
+#
+# Atrybuty:
+# name (nazwa dania, typ: string)
+# price (cena dania, typ: float)
+# Konstruktor inicjalizuje powyższe atrybuty i sprawdza, czy cena jest dodatnia. Jeśli nie, zgłasza wyjątek ValueError.
+# Metoda __str__() zwraca ładnie sformatowany string zawierający nazwę dania i jego cenę.
+# Klasa Order:
+#
+# Atrybuty:
+# items (lista dań, typ: list)
+# Metody:
+# add_item(item) - dodaje pozycję do zamówienia.
+# total_cost() - oblicza i zwraca całkowity koszt zamówienia.
+# __str__() - zwraca ładnie sformatowany string zawierający wszystkie pozycje zamówienia i całkowity koszt.
+# Klasa EmptyOrderError:
+#
+# Dziedziczy po Exception i reprezentuje wyjątek, który ma być zgłaszany, gdy zamówienie jest puste.
+# Metoda finalize_order(order):
+#
+# Sprawdza, czy zamówienie zawiera co najmniej jedną pozycję. Jeśli nie, zgłasza EmptyOrderError.
+# Jeśli zamówienie jest poprawne, wypisuje szczegóły zamówienia i całkowity koszt.
+
+# class MenuItem:
+#     def __init__(self,name: str, price: float):
+#         if price < 0:
+#             raise ValueError('cena nei mzoe byc ujemna')
+#         self.name = name
+#         self.price = price
+#
+#     def __str__(self):
+#         return f"Danie: {self.name}, cena: {self.price}"
+#
+#
+#
+# class Order:
+#     def __init__(self):
+#         self_item = []
+#
+#     def add_item(self, item):
+#         self.item.append(item)
+#
+#
+#
+#     def total_cost(self):
+#         for i in self.item:
+#             print(item.price)
+#
+#
+#     def __str__(self):
+#         print(f"zamowiono: {self.item}, koszta zamowienia wynosi: {self.total_cost} ")
+#
+# class EmptyOrderError(Exception):
+#     pass
+#
+#     def finalize_order(self, order)
+#         if self.item < 1:
+#             raise EmptyOrderError (zamowieei nei moze byc puste)
+#             end
+#         end
+#     end
+
+
+
+
+# Zadanie: Alfabet
+# Stwórz klasę Alphabet, która będzie iteratorem generującym kolejne litery alfabetu od A do Z.
+#
+# Wymagania:
+# Klasa Alphabet:
+# Atrybuty:
+# current (bieżąca litera, typ: str, domyślnie 'A')
+# Konstruktor inicjalizuje powyższy atrybut.
+# Metoda __iter__() powinna zwracać self.
+# Metoda __next__() powinna zwracać bieżącą literę alfabetu i przechodzić do kolejnej. Jeśli litera osiągnie 'Z',
+# metoda powinna zgłosić wyjątek StopIteration.
+
+
+
+# class StopIteration(Exception):
+#     pass
+
+
+class Alphabet:
+    def __init__(self):
+        self.current = 'A'
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if self.current <'Z':
+            self.current= litera
+            self.current + 1
+            return litera
+        else:
+            raise StopIteration
+
+
+    # def koniec_iteracji(self):
+    #     raise StopIteration('Itareacja zakonczyla sie')
+
+
+a = Alphabet()
+print(a.__iter__)
+print(a.__next__())
