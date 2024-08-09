@@ -914,9 +914,6 @@
 # AmphibiousVehicle.statyczna()
 
 
-
-
-
 # Zadanie: Zarządzanie kontami bankowymi
 # Stwórz klasę BankAccount, która będzie reprezentować konto bankowe. Każde konto ma numer konta i saldo.
 # Klasa ta powinna mieć możliwość tworzenia kont na różne sposoby, a także przechowywania liczby wszystkich utworzonych kont.
@@ -974,8 +971,6 @@
 #     p = pickle.load(f)
 #
 # print(p)
-
-
 
 
 # Zadanie: System zamówień w restauracji
@@ -1046,8 +1041,6 @@
 #     end
 
 
-
-
 # Zadanie: Alfabet
 # Stwórz klasę Alphabet, która będzie iteratorem generującym kolejne litery alfabetu od A do Z.
 #
@@ -1061,31 +1054,64 @@
 # metoda powinna zgłosić wyjątek StopIteration.
 
 
-
 # class StopIteration(Exception):
 #     pass
 
 
-class Alphabet:
-    def __init__(self):
-        self.current = 'A'
+# class Alphabet:
+#     def __init__(self):
+#         self.current = 'A'
+#
+#     def __iter__(self):
+#         return self
+#
+#     def __next__(self):
+#         if self.current <'Z':
+#             self.current= litera
+#             self.current + 1
+#             return litera
+#         else:
+#             raise StopIteration
+#
+#
+#     # def koniec_iteracji(self):
+#     #     raise StopIteration('Itareacja zakonczyla sie')
+#
+#
+# a = Alphabet()
+# print(a.__iter__)
+# print(a.__next__())
 
-    def __iter__(self):
-        return self
 
-    def __next__(self):
-        if self.current <'Z':
-            self.current= litera
-            self.current + 1
-            return litera
-        else:
-            raise StopIteration
+# Zadanie: Porównywanie prostokątów
+# Stwórz klasę Rectangle, która będzie reprezentowała prostokąt. Klasa powinna mieć możliwość porównywania dwóch
+# prostokątów na podstawie ich pola powierzchni. Zaimplementuj metodę __lt__, która pozwoli porównywać dwa prostokąty za
+# pomocą operatora <.
+#
+# Wymagania:
+# Klasa Rectangle:
+#
+# Atrybuty:
+# width (szerokość prostokąta, typ: float)
+# height (wysokość prostokąta, typ: float)
+# Konstruktor inicjalizuje powyższe atrybuty.
+# Metoda area() powinna zwracać pole powierzchni prostokąta (szerokość * wysokość).
+# Metoda __lt__() powinna zwracać True, jeśli pole powierzchni pierwszego prostokąta jest mniejsze niż pole powierzchni
+# drugiego prostokąta, i False w przeciwnym przypadku.
+# Napisz kod, który porówna kilka prostokątów i wyświetli odpowiednie wyniki.
+
+class Rectangle:
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+
+    def area(self):
+        return self.width * self.height
+
+    def __lt__(self, other):
+        return self.area() < other.area()
 
 
-    # def koniec_iteracji(self):
-    #     raise StopIteration('Itareacja zakonczyla sie')
-
-
-a = Alphabet()
-print(a.__iter__)
-print(a.__next__())
+pr1 = Rectangle(2, 2)
+pr2 = Rectangle(2, 3)
+print(pr1.__lt__(pr2))
