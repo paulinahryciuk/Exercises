@@ -1183,48 +1183,94 @@
 #     print("koniec obliczen")
 
 #################
-class BladWartosci(Exception):
-    def __init__(self, msg):
-        super().__init__(msg)
+# class BladWartosci(Exception):
+#     def __init__(self, msg):
+#         super().__init__(msg)
+#
+#
+# class Kalkulator:
+#     '''
+#     Podstawowy kalkulator
+#     '''
+#
+#     def __init__(self, a, b):
+#         self.a = a
+#         self.b = b
+#         self.BWartosci()   ##
+#
+#     def dodawanie(self):
+#         print(self.a + self.b)
+#
+#     def odejmowanie(self):
+#         print(self.a - self.b)
+#
+#     def mnozenie(self):
+#         print(self.a * self.b)
+#
+#     def dzielenie(self):
+#         print( self.a / self.b)
+#
+#     def BWartosci(self):
+#         if not isinstance(self.a, int):
+#             raise BladWartosci("To nei jest liczba")  ##
+#         if not isinstance(self.b, int):
+#             raise BladWartosci("To nei jest liczba")
+#
+#
+# try:
+#     k1 = Kalkulator( 's',6)
+#     k1.dzielenie()
+# except ZeroDivisionError:
+#     print("nie mozna dzielic przez 0")
+# except BladWartosci:
+#     print("nie mozna")
+# else:
+#     print("Wprowadziles dobre wartosci")
+# finally:
+#     print("koniec obliczen")
 
 
-class Kalkulator:
-    '''
-    Podstawowy kalkulator
-    '''
+# Zadanie: System Zarządzania Pracownikami
+# Stwórz prosty system zarządzania pracownikami w firmie, wykorzystując klasy danych (@dataclass). System powinien
+# umożliwiać dodawanie nowych pracowników, ich listowanie, oraz obliczanie średniego wynagrodzenia w firmie.
+#
+# Wymagania:
+# Stwórz klasę Employee, która będzie przechowywać informacje o pracowniku:
+#
+# Imię (name): string
+# Wiek (age): int
+# Stanowisko (position): string
+# Wynagrodzenie (salary): float
+# Stwórz klasę Company, która będzie zarządzać pracownikami:
+#
+# Lista pracowników (employees): lista obiektów klasy Employee.
+# Metoda add_employee(employee: Employee): dodaje nowego pracownika do listy.
+# Metoda list_employees(): wypisuje wszystkich pracowników firmy.
+# Metoda average_salary(): zwraca średnie wynagrodzenie wszystkich pracowników.
+# Napisz kod, który utworzy kilka obiektów klasy Employee, doda je do firmy, wyświetli listę pracowników oraz obliczy
+# średnie wynagrodzenie.
 
-    def __init__(self, a, b):
-        self.a = a
-        self.b = b
-        self.BWartosci()   ##
-
-    def dodawanie(self):
-        print(self.a + self.b)
-
-    def odejmowanie(self):
-        print(self.a - self.b)
-
-    def mnozenie(self):
-        print(self.a * self.b)
-
-    def dzielenie(self):
-        print( self.a / self.b)
-
-    def BWartosci(self):
-        if not isinstance(self.a, int):
-            raise BladWartosci("To nei jest liczba")  ##
-        if not isinstance(self.b, int):
-            raise BladWartosci("To nei jest liczba")
+from dataclasses import dataclass
 
 
-try:
-    k1 = Kalkulator( 's',6)
-    k1.dzielenie()
-except ZeroDivisionError:
-    print("nie mozna dzielic przez 0")
-except BladWartosci:
-    print("nie mozna")
-else:
-    print("Wprowadziles dobre wartosci")
-finally:
-    print("koniec obliczen")
+@dataclass
+class Employee:
+    name: str
+    age: int
+    position: str
+    salary: float
+
+@dataclass
+class Company:
+    employees = []
+
+    def add_employees(self, employee):
+        self.employees.append(employee)
+
+    def list_employees(self):
+        for i in self.employees:
+            print(i.name)
+
+    def avarage_salary(self):
+        total = sum(i.salary for i in self.employees)
+        return total / len(self.employees)
