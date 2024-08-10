@@ -1100,18 +1100,131 @@
 # drugiego prostokąta, i False w przeciwnym przypadku.
 # Napisz kod, który porówna kilka prostokątów i wyświetli odpowiednie wyniki.
 
-class Rectangle:
-    def __init__(self, width, height):
-        self.width = width
-        self.height = height
+# class Rectangle:
+#     def __init__(self, width, height):
+#         self.width = width
+#         self.height = height
+#
+#     def area(self):
+#         return self.width * self.height
+#
+#     def __lt__(self, other):
+#         return self.area() < other.area()
+#
+#
+# pr1 = Rectangle(2, 2)
+# pr2 = Rectangle(2, 3)
+# print(pr1.__lt__(pr2))
 
-    def area(self):
-        return self.width * self.height
 
-    def __lt__(self, other):
-        return self.area() < other.area()
+# Zadanie: Kalkulator
+# Stwórz klasę Calculator, która będzie prostym kalkulatorem wykonującym operacje dodawania, odejmowania, mnożenia i
+# dzielenia. Klasa powinna obsługiwać wyjątki, które mogą wystąpić podczas wykonywania tych operacji, takie jak próba dzielenia przez zero lub wprowadzenie niepoprawnych danych wejściowych.
+#
+# Wymagania:
+# Klasa Calculator:
+#
+# Metody:
+# add(a, b): zwraca sumę a i b.
+# subtract(a, b): zwraca różnicę a i b.
+# multiply(a, b): zwraca iloczyn a i b.
+# divide(a, b): zwraca wynik dzielenia a przez b. Jeśli b jest zerem, metoda powinna zgłosić wyjątek ZeroDivisionError z
+# komunikatem "Cannot divide by zero."
+# Każda z metod powinna również obsługiwać wyjątek ValueError, jeśli dane wejściowe nie są liczbami. W takim przypadku
+# powinna zgłaszać wyjątek ValueError z komunikatem "Invalid input. Please enter numbers."
+# Napisz kod, który wykorzysta klasę Calculator i spróbuje wykonać różne operacje, obsługując zgłaszane wyjątki.
 
 
-pr1 = Rectangle(2, 2)
-pr2 = Rectangle(2, 3)
-print(pr1.__lt__(pr2))
+# class BladWartosci(Exception):
+#     def __init__(self, value):
+#         super().__init__()
+#         self.value = value
+#
+#
+# class Kalkulator:
+#     '''
+#     Podstawowy kalkulator
+#     '''
+#
+#     def __init__(self, a, b):
+#         self.a = a
+#         self.b = b
+#         self.BWartosci()   ##
+#
+#     def dodawanie(self):
+#         print(self.a + self.b)
+#
+#     def odejmowanie(self):
+#         print(self.a - self.b)
+#
+#     def mnozenie(self):
+#         print(self.a * self.b)
+#
+#     def dzielenie(self):
+#         print( self.a / self.b)
+#
+#     def BWartosci(self):
+#         if not isinstance(self.a, int):
+#             raise BladWartosci(self.a)  ##
+#         if not isinstance(self.b, int):
+#             raise BladWartosci(self.b)
+#
+#
+# try:
+#     k1 = Kalkulator( 's',6)
+#     k1.dzielenie()
+# except ZeroDivisionError:
+#     print("nie mozna dzielic przez 0")
+# except BladWartosci:
+#     print("nie mozna")
+# else:
+#     print("Wprowadziles dobre wartosci")
+# finally:
+#     print("koniec obliczen")
+
+#################
+class BladWartosci(Exception):
+    def __init__(self, msg):
+        super().__init__(msg)
+
+
+class Kalkulator:
+    '''
+    Podstawowy kalkulator
+    '''
+
+    def __init__(self, a, b):
+        self.a = a
+        self.b = b
+        self.BWartosci()   ##
+
+    def dodawanie(self):
+        print(self.a + self.b)
+
+    def odejmowanie(self):
+        print(self.a - self.b)
+
+    def mnozenie(self):
+        print(self.a * self.b)
+
+    def dzielenie(self):
+        print( self.a / self.b)
+
+    def BWartosci(self):
+        if not isinstance(self.a, int):
+            raise BladWartosci("To nei jest liczba")  ##
+        if not isinstance(self.b, int):
+            raise BladWartosci("To nei jest liczba")
+
+
+try:
+    k1 = Kalkulator( 's',6)
+    k1.dzielenie()
+except ZeroDivisionError:
+    print("nie mozna dzielic przez 0")
+except BladWartosci:
+    print("nie mozna")
+else:
+    print("Wprowadziles dobre wartosci")
+finally:
+    print("koniec obliczen")
