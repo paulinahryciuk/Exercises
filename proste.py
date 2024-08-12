@@ -1250,27 +1250,91 @@
 # Napisz kod, który utworzy kilka obiektów klasy Employee, doda je do firmy, wyświetli listę pracowników oraz obliczy
 # średnie wynagrodzenie.
 
-from dataclasses import dataclass
+# from dataclasses import dataclass
+#
+#
+# @dataclass
+# class Employee:
+#     name: str
+#     age: int
+#     position: str
+#     salary: float
+#
+# @dataclass
+# class Company:
+#     employees = []
+#
+#     def add_employees(self, employee):
+#         self.employees.append(employee)
+#
+#     def list_employees(self):
+#         for i in self.employees:
+#             print(i.name)
+#
+#     def avarage_salary(self):
+#         total = sum(i.salary for i in self.employees)
+#         return total / len(self.employees)
 
 
-@dataclass
-class Employee:
-    name: str
-    age: int
-    position: str
-    salary: float
+# Zadanie: Symulacja Gry RPG z Obiektowością
+# Stwórz prostą grę RPG, w której bohaterowie walczą z przeciwnikami. Każdy bohater i przeciwnik będzie mieć swoje
+# statystyki i umiejętności. Wykorzystaj klasy i mechanizmy obiektowości, aby zaimplementować logikę gry.
+#
+# Wymagania:
+# Stwórz klasę Character, która będzie bazową klasą dla bohaterów i przeciwników:
+#
+# Atrybuty: name, health, attack_power, defense.
+# Metody:
+# attack(target): Zmniejsza zdrowie celu (target) na podstawie mocy ataku atakującego i obrony celu.
+# is_alive(): Zwraca True, jeśli zdrowie postaci jest większe niż 0, w przeciwnym razie False.
+# Stwórz klasę Hero, która dziedziczy z Character i dodaje dodatkową funkcjonalność:
+#
+# Atrybuty:
+# mana: Energia używana do rzucania czarów.
+# Metody:
+# cast_spell(target): Zmniejsza zdrowie celu o wartość równą podwójnej mocy ataku, jeśli bohater ma wystarczająco dużo many.
+# Stwórz klasę Enemy, która dziedziczy z Character, i dodaj jej jakąś unikalną zdolność.
+#
+# Zasymuluj walkę między bohaterem a przeciwnikiem. Bohater i przeciwnik atakują się na zmianę, aż jeden z nich zostanie
+# pokonany.
 
-@dataclass
-class Company:
-    employees = []
+class Character:
+    def __init__(self, name, health, attack_power, defense):
+        self.name = name
+        self.health = health
+        self.attack_power = attack_power
+        self.defense = defense
 
-    def add_employees(self, employee):
-        self.employees.append(employee)
+    def attack(self, target):
+        att = self.attack_power - target.defense
+        target.health -= att
+        # target.health = self.attack_power - target.defense
 
-    def list_employees(self):
-        for i in self.employees:
-            print(i.name)
+    def is_alive(self):
+        if self.health > 0:
+            return True
+        else:
+            return False
 
-    def avarage_salary(self):
-        total = sum(i.salary for i in self.employees)
-        return total / len(self.employees)
+
+class Hero(Character):
+    def __init__(self, name, health, attack_power, defense, mana):
+        super().__init__(health, attack_power, defense)
+        self.mana = mana
+
+    def cast_spell(self, target):
+        target.health -= 2 * self.attack_power
+
+
+class Enemy(Character):
+    def text(self):
+        print('Nigdy mnei nie pokonasz')
+
+
+ch1 = Character("Ali", 100, 20, 40)
+ch2 = Character("bibi", 100, 40, 60)
+
+h1 = Hero("Ccc", 100, 15, 25, 3)
+# print(h1.cast_spell(ch1))
+print(ch1.attack(h1))
+
