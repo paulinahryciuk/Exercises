@@ -1297,44 +1297,130 @@
 #
 # Zasymuluj walkę między bohaterem a przeciwnikiem. Bohater i przeciwnik atakują się na zmianę, aż jeden z nich zostanie
 # pokonany.
+#
+# class Character:
+#     def __init__(self, name, health, attack_power, defense):
+#         self.name = name
+#         self.health = health
+#         self.attack_power = attack_power
+#         self.defense = defense
+#
+#     def attack(self, target):
+#         att = self.attack_power - target.defense
+#         target.health -= att
+#         # target.health = self.attack_power - target.defense
+#
+#     def is_alive(self):
+#         if self.health > 0:
+#             return True
+#         else:
+#             return False
+#
+#
+# class Hero(Character):
+#     def __init__(self, name, health, attack_power, defense, mana):
+#         super().__init__(health, attack_power, defense)
+#         self.mana = mana
+#
+#     def cast_spell(self, target):
+#         target.health -= 2 * self.attack_power
+#
+#
+# class Enemy(Character):
+#     def text(self):
+#         print('Nigdy mnei nie pokonasz')
+#
+#
+# ch1 = Character("Ali", 100, 20, 40)
+# ch2 = Character("bibi", 100, 40, 60)
+#
+# h1 = Hero("Ccc", 100, 15, 25, 3)
+# # print(h1.cast_spell(ch1))
+# print(ch1.attack(h1))
 
-class Character:
-    def __init__(self, name, health, attack_power, defense):
-        self.name = name
-        self.health = health
-        self.attack_power = attack_power
-        self.defense = defense
 
-    def attack(self, target):
-        att = self.attack_power - target.defense
-        target.health -= att
-        # target.health = self.attack_power - target.defense
+# Zadanie: System Zarządzania Szkołą
+# Stwórz system zarządzania szkołą, w którym nauczyciele mogą przypisywać oceny uczniom, a uczniowie mogą sprawdzać swoje
+# oceny i obliczać średnią ocen. System będzie składał się z trzech klas: Student, Teacher, i School. Zadanie ma na celu
+# wykorzystanie dziedziczenia, metod klasowych oraz operacji na słownikach.
+#
+# Wymagania:
+# Klasa Student:
+#
+# Atrybuty:
+# name: imię ucznia (string).
+# grades: słownik z przedmiotami jako kluczami i listami ocen jako wartościami (słownik).
+# Metody:
+# add_grade(subject, grade): dodaje ocenę do listy ocen dla danego przedmiotu.
+# get_average_grade(subject): zwraca średnią ocen z danego przedmiotu.
+# get_overall_average(): zwraca średnią ocen ze wszystkich przedmiotów.
+# __str__(): zwraca string z imieniem ucznia i listą przedmiotów oraz ocen.
+# Klasa Teacher:
+#
+# Atrybuty:
+# name: imię nauczyciela (string).
+# subject: przedmiot, którego nauczyciel uczy (string).
+# Metody:
+# assign_grade(student, grade): przypisuje ocenę uczniowi z przedmiotu, którego nauczyciel uczy.
+# __str__(): zwraca string z imieniem nauczyciela i przedmiotem.
+# Klasa School:
+#
+# Atrybuty:
+# students: lista wszystkich uczniów w szkole (lista obiektów Student).
+# teachers: lista wszystkich nauczycieli w szkole (lista obiektów Teacher).
+# Metody:
+# add_student(student): dodaje ucznia do szkoły.
+# add_teacher(teacher): dodaje nauczyciela do szkoły.
+# get_student_by_name(name): zwraca obiekt ucznia na podstawie jego imienia.
+# get_teacher_by_name(name): zwraca obiekt nauczyciela na podstawie jego imienia.
+# Wskazówki:
+# Użyj słownika w klasie Student, aby przechowywać oceny z różnych przedmiotów.
+# Dodaj walidację, aby upewnić się, że nauczyciel przypisuje oceny tylko z przedmiotu, którego uczy.
+# Rozważ dodanie metody w klasie School, która umożliwi wyświetlenie średnich ocen wszystkich uczniów.
+# Przykładowe rozwiązanie:
+# python
 
-    def is_alive(self):
-        if self.health > 0:
-            return True
-        else:
-            return False
+
+class Student:
+    '''
+    klasa opisujaca ucznia
+    :param imie: str
+    '''
+
+    def __init__(self, imie, klasa, ocena):
+        self.imie = imie
+        self.klasa = klasa
+        self.ocena = ocena
+
+    def dostac_ocene(self, new_ocena):
+        self.ocena.append(new_ocena)
+
+    def wyswietl_oceny(self):
+        print(f'oceny: {self.ocena}')
+
+    def wyswietl_srednia(self):
+        srednia = sum(self.ocena) / len(self.ocena)
+        print(f" Srednia ocen ucznie {self.imie} wynosi {srednia}")
 
 
-class Hero(Character):
-    def __init__(self, name, health, attack_power, defense, mana):
-        super().__init__(health, attack_power, defense)
-        self.mana = mana
 
-    def cast_spell(self, target):
-        target.health -= 2 * self.attack_power
+class Nauczyciel:
+    def __init__(self, imie):
+        self.imie = imie
 
-
-class Enemy(Character):
-    def text(self):
-        print('Nigdy mnei nie pokonasz')
+    def dac_ocene(self, new_ocena, imie):
+        imie.ocena.append(new_ocena)
 
 
-ch1 = Character("Ali", 100, 20, 40)
-ch2 = Character("bibi", 100, 40, 60)
+class School:
+    pass
 
-h1 = Hero("Ccc", 100, 15, 25, 3)
-# print(h1.cast_spell(ch1))
-print(ch1.attack(h1))
 
+
+uczen1 = Student('Ania','1b', [5,4,5])
+nauczyciel1 = Nauczyciel("Pani Asia")
+uczen1.wyswietl_srednia()
+uczen1.wyswietl_oceny()
+uczen1.dostac_ocene(6)
+uczen1.wyswietl_oceny()
+nauczyciel1.dac_ocene(3,"Ania")
