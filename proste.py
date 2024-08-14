@@ -1380,47 +1380,60 @@
 # Przykładowe rozwiązanie:
 # python
 
+#
+# class Student:
+#     '''
+#     klasa opisujaca ucznia
+#     :param imie: str
+#     :param ocena: list
+#     '''
+#
+#     def __init__(self, imie, klasa, ocena):
+#         self.imie = imie
+#         self.klasa = klasa
+#         self.ocena = ocena
+#
+#     def dostac_ocene(self, new_ocena):
+#         self.ocena.append(new_ocena)
+#
+#     def wyswietl_oceny(self):
+#         print(f'oceny: {self.ocena}')
+#
+#     def wyswietl_srednia(self):
+#         srednia = sum(self.ocena) / len(self.ocena)
+#         print(f" Srednia ocen ucznie {self.imie} wynosi {srednia}")
+#
+#
+#
+# class Nauczyciel:
+#     def __init__(self, imie):
+#         self.imie = imie
+#
+#     # def dac_ocene(self, new_ocena, imie):
+#     #     imie.ocena.append(new_ocena)
+#
+# #     def dac_ocene(self, new_ocena, student):
+# #         student.dostac_ocene(new_ocena)
+#
+# class School:
+#     pass
+#
+# uczen1 = Student('Ania','1b', [5,4,5])
+# nauczyciel1 = Nauczyciel("Pani Asia")
+# uczen1.wyswietl_srednia()
+# uczen1.wyswietl_oceny()
+# uczen1.dostac_ocene(6)
+# uczen1.wyswietl_oceny()
+# nauczyciel1.dac_ocene(3,uczen1)
+# uczen1.wyswietl_oceny()
 
-class Student:
-    '''
-    klasa opisujaca ucznia
-    :param imie: str
-    '''
 
-    def __init__(self, imie, klasa, ocena):
-        self.imie = imie
-        self.klasa = klasa
-        self.ocena = ocena
+import json
 
-    def dostac_ocene(self, new_ocena):
-        self.ocena.append(new_ocena)
+# ob = {'imie':'ania', 'nazwisko':'Kowalska', 'wiek':20}
+# with open ('pliczek.json', 'w') as file:
+#     json.dump(ob,file)
 
-    def wyswietl_oceny(self):
-        print(f'oceny: {self.ocena}')
-
-    def wyswietl_srednia(self):
-        srednia = sum(self.ocena) / len(self.ocena)
-        print(f" Srednia ocen ucznie {self.imie} wynosi {srednia}")
-
-
-
-class Nauczyciel:
-    def __init__(self, imie):
-        self.imie = imie
-
-    def dac_ocene(self, new_ocena, imie):
-        imie.ocena.append(new_ocena)
-
-
-class School:
-    pass
-
-
-
-uczen1 = Student('Ania','1b', [5,4,5])
-nauczyciel1 = Nauczyciel("Pani Asia")
-uczen1.wyswietl_srednia()
-uczen1.wyswietl_oceny()
-uczen1.dostac_ocene(6)
-uczen1.wyswietl_oceny()
-nauczyciel1.dac_ocene(3,"Ania")
+with open('pliczek.json', 'r') as file:
+    f = json.load(file)
+print(f)
