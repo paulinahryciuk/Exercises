@@ -1428,12 +1428,61 @@
 # uczen1.wyswietl_oceny()
 
 
-import json
+# import json
+#
+# # ob = {'imie':'ania', 'nazwisko':'Kowalska', 'wiek':20}
+# # with open ('pliczek.json', 'w') as file:
+# #     json.dump(ob,file)
+#
+# with open('pliczek.json', 'r') as file:
+#     f = json.load(file)
+# print(f)
 
-# ob = {'imie':'ania', 'nazwisko':'Kowalska', 'wiek':20}
-# with open ('pliczek.json', 'w') as file:
-#     json.dump(ob,file)
+# import requests
+# from typing import List
+#
+# url = 'https://restcountries.com/v3.1/name/Poland'
+# # sprawdzic jaka odpowiedź przyszła z serwera
+# # odczytac wybrne dane
+# # name -> common, official
+# # capital
+# # population
+#
+# odp = requests.get(url)
+# print(odp)
+#
+# odp_json = odp.json()
+# data = odp_json[0]
+# print(data['name'])
+# print(data['name']['common'])
+# print(data['name']['official'])
 
-with open('pliczek.json', 'r') as file:
-    f = json.load(file)
-print(f)
+
+url = 'https://randomuser.me/api/'
+
+import requests
+
+response = requests.get(url)
+print(response)
+print(type(response))
+data = response.json()
+print(type(data))
+# data1 = data[0]
+# print(data1)
+print(data)
+# {'results': [{'gender': 'male', 'name': {'title': 'Mr', 'first': 'Fredericus', 'last': 'Vijgen'}, 'location': {'street':
+# {'number': 2080, 'name': 'Kommerweg'}, 'city': 'Starnmeer', 'state': 'Gelderland', 'country': 'Netherlands', 'postcode':
+# '8665 XG', 'coordinates': {'latitude': '34.4452', 'longitude': '-121.1101'}, 'timezone': {'offset': '-1:00', 'description':
+# 'Azores, Cape Verde Islands'}}, 'email': 'fredericus.vijgen@example.com', 'login': {'uuid': '4e63fc43-31b1-4828-8ca4-08644b05ca98',
+# 'username': 'redelephant109', 'password': 'rupert', 'salt': 'ngTfHjGF', 'md5': '7824bcba0b8d69baac3f9e15c8dfaa77', 'sha1':
+# '05caa1388abad4cd1364545db7c41555e2df5abf', 'sha256': '6475fbb2fbff295ebd86e0d7d6856d2def33053239c8d5fd4e5e7d99c9f2f935'},
+# 'dob': {'date': '1974-05-13T00:47:46.717Z', 'age': 50}, 'registered': {'date': '2010-06-03T07:56:08.142Z', 'age': 14}, 'phone':
+# '(0059) 502779', 'cell': '(06) 88557761', 'id': {'name': 'BSN', 'value': '43167203'},
+# 'picture': {'large': 'https://randomuser.me/api/portraits/men/26.jpg', 'medium': 'https://randomuser.me/api/portraits/med/men/26.jpg', 'thumbnail': 'https://randomuser.me/api/portraits/thumb/men/26.jpg'}, 'nat': 'NL'}], 'info': {'seed': 'd94f416bef5290a0', 'results': 1, 'page': 1, 'version': '1.4'}}
+
+#picture large
+pict = data['results'][0]['picture']['large']
+print(pict)
+
+with open ('picture_api', 'w') as file:
+    file.write(pict)
