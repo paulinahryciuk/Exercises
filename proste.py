@@ -1478,11 +1478,35 @@ print(data)
 # '05caa1388abad4cd1364545db7c41555e2df5abf', 'sha256': '6475fbb2fbff295ebd86e0d7d6856d2def33053239c8d5fd4e5e7d99c9f2f935'},
 # 'dob': {'date': '1974-05-13T00:47:46.717Z', 'age': 50}, 'registered': {'date': '2010-06-03T07:56:08.142Z', 'age': 14}, 'phone':
 # '(0059) 502779', 'cell': '(06) 88557761', 'id': {'name': 'BSN', 'value': '43167203'},
-# 'picture': {'large': 'https://randomuser.me/api/portraits/men/26.jpg', 'medium': 'https://randomuser.me/api/portraits/med/men/26.jpg', 'thumbnail': 'https://randomuser.me/api/portraits/thumb/men/26.jpg'}, 'nat': 'NL'}], 'info': {'seed': 'd94f416bef5290a0', 'results': 1, 'page': 1, 'version': '1.4'}}
+# 'picture': {'large': 'https://randomuser.me/api/portraits/men/26.jpg', 'medium': 'https://randomuser.me/api/portraits/med/men/26.jpg',
+# 'thumbnail': 'https://randomuser.me/api/portraits/thumb/men/26.jpg'}, 'nat': 'NL'}], 'info': {'seed': 'd94f416bef5290a0',
+# 'results': 1, 'page': 1, 'version': '1.4'}}
 
 #picture large
-pict = data['results'][0]['picture']['large']
-print(pict)
+# pict = data['results'][0]['picture']['large']
+# print(pict)
+#
+# with open ('picture_api', 'w') as file:
+#     file.write(pict)
 
-with open ('picture_api', 'w') as file:
-    file.write(pict)
+# zbudowac schemat klas dla name(first,last), email, picture(large)
+
+from pydantic import BaseModel
+
+class Name(BaseModel):
+    title: str
+    first: str
+    last:str
+
+# class Email(BaseModel):
+
+
+class Picture(BaseModel):
+    large:str
+    medium:str
+    thumbnail:str
+
+class User(BaseModel):
+    name: Name
+    email: str
+    picture: Picture
