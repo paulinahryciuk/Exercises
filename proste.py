@@ -1458,18 +1458,18 @@
 # print(data['name']['official'])
 
 
-url = 'https://randomuser.me/api/'
-
-import requests
-
-response = requests.get(url)
-print(response)
-print(type(response))
-data = response.json()
-print(type(data))
-# data1 = data[0]
-# print(data1)
-print(data)
+# url = 'https://randomuser.me/api/'
+#
+# import requests
+#
+# response = requests.get(url)
+# print(response)
+# print(type(response))
+# data = response.json()
+# print(type(data))
+# # data1 = data[0]
+# # print(data1)
+# print(data)
 # {'results': [{'gender': 'male', 'name': {'title': 'Mr', 'first': 'Fredericus', 'last': 'Vijgen'}, 'location': {'street':
 # {'number': 2080, 'name': 'Kommerweg'}, 'city': 'Starnmeer', 'state': 'Gelderland', 'country': 'Netherlands', 'postcode':
 # '8665 XG', 'coordinates': {'latitude': '34.4452', 'longitude': '-121.1101'}, 'timezone': {'offset': '-1:00', 'description':
@@ -1491,22 +1491,47 @@ print(data)
 
 # zbudowac schemat klas dla name(first,last), email, picture(large)
 
+# from pydantic import BaseModel
+#
+# class Name(BaseModel):
+#     title: str
+#     first: str
+#     last:str
+#
+# # class Email(BaseModel):
+#
+#
+# class Picture(BaseModel):
+#     large:str
+#     medium:str
+#     thumbnail:str
+#
+# class User(BaseModel):
+#     name: Name
+#     email: str
+#     picture: Picture
+
+
+
+# http://api.nbp.pl/api/exchangerates/rates/{table}/{code}/
+url = 'http://api.nbp.pl/api/exchangerates/rates/A/EUR/'
+
+import requests
+odp = requests.get(url)
+print(odp)
+dane = odp.json()
+print(dane)
+kurs = dane['rates'][0]['mid']
+print(f'Aktualny kurs EUR wynosi: {kurs}')
+
 from pydantic import BaseModel
 
-class Name(BaseModel):
-    title: str
-    first: str
-    last:str
-
-# class Email(BaseModel):
-
-
-class Picture(BaseModel):
-    large:str
-    medium:str
-    thumbnail:str
-
-class User(BaseModel):
-    name: Name
-    email: str
-    picture: Picture
+class Rates(BaseModel):
+    no:str
+    effectiveDate:str
+    mid:float
+class Exch(BaseModel):
+    table:str
+    currency:str
+    code:str
+    rates:list(Rates)
