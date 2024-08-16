@@ -1482,7 +1482,7 @@
 # 'thumbnail': 'https://randomuser.me/api/portraits/thumb/men/26.jpg'}, 'nat': 'NL'}], 'info': {'seed': 'd94f416bef5290a0',
 # 'results': 1, 'page': 1, 'version': '1.4'}}
 
-#picture large
+# picture large
 # pict = data['results'][0]['picture']['large']
 # print(pict)
 #
@@ -1512,7 +1512,6 @@
 #     picture: Picture
 
 
-
 # http://api.nbp.pl/api/exchangerates/rates/{table}/{code}/
 url = 'http://api.nbp.pl/api/exchangerates/rates/A/EUR/'
 
@@ -1520,18 +1519,26 @@ import requests
 odp = requests.get(url)
 print(odp)
 dane = odp.json()
-print(dane)
-kurs = dane['rates'][0]['mid']
-print(f'Aktualny kurs EUR wynosi: {kurs}')
+# print(dane)
+# kurs = dane['rates'][0]['mid']
+# print(f'Aktualny kurs EUR wynosi: {kurs}')
 
 from pydantic import BaseModel
+from typing import List
+
 
 class Rates(BaseModel):
-    no:str
-    effectiveDate:str
-    mid:float
+    no: str
+    effectiveDate: str
+    mid: float
+
+
 class Exch(BaseModel):
-    table:str
-    currency:str
-    code:str
-    rates:list(Rates)
+    table: str
+    currency: str
+    code: str
+    rates: List[Rates]
+
+
+exchange = Exch(**dane)
+print(exchange)
