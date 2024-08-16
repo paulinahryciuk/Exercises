@@ -1513,32 +1513,60 @@
 
 
 # http://api.nbp.pl/api/exchangerates/rates/{table}/{code}/
-url = 'http://api.nbp.pl/api/exchangerates/rates/A/EUR/'
+# url = 'http://api.nbp.pl/api/exchangerates/rates/A/EUR/'
+#
+# import requests
+# odp = requests.get(url)
+# print(odp)
+# dane = odp.json()
+# # print(dane)
+# # kurs = dane['rates'][0]['mid']
+# # print(f'Aktualny kurs EUR wynosi: {kurs}')
+#
+# from pydantic import BaseModel
+# from typing import List
+#
+#
+# class Rates(BaseModel):
+#     no: str
+#     effectiveDate: str
+#     mid: float
+#
+#
+# class Exch(BaseModel):
+#     table: str
+#     currency: str
+#     code: str
+#     rates: List[Rates]
+#
+#
+# exchange = Exch(**dane)
+# print(exchange)
 
-import requests
-odp = requests.get(url)
-print(odp)
-dane = odp.json()
-# print(dane)
-# kurs = dane['rates'][0]['mid']
-# print(f'Aktualny kurs EUR wynosi: {kurs}')
+import sqlite3
+try:
+    polaczenie = sqlite3.connect('testowa.db')
+    kursor = polaczenie.cursor()
+    print('baza polaczona')
 
-from pydantic import BaseModel
-from typing import List
+    # query = '''
+    # CREATE TABLE tabelka(
+    # id INTEGER PRIMARY KEY,
+    # name TEXT NOT NULL UNIQUE
+    # );'''
+    #
+    # kursor.execute(query)
+    # polaczenie.commit()
+
+    insert = '''
+    INSERT INTO tabelka(
+    '''
+
+except polaczenie.Error as e:
+    print('blad', e)
+finally:
+    if polaczenie:
+        polaczenie.close()
+        print('baza zamknieta')
 
 
-class Rates(BaseModel):
-    no: str
-    effectiveDate: str
-    mid: float
-
-
-class Exch(BaseModel):
-    table: str
-    currency: str
-    code: str
-    rates: List[Rates]
-
-
-exchange = Exch(**dane)
-print(exchange)
