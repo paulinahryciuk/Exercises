@@ -1558,9 +1558,34 @@ try:
     # kursor.execute(query)
     # polaczenie.commit()
 
-    insert = '''
-    INSERT INTO tabelka(
+    # insert = '''
+    # INSERT INTO tabelka
+    # (id,name) VALUES (1,'Asia');
+    # '''
+    #
+    # insert2 = '''
+    # INSERT INTO tabelka
+    # (id,name) VALUES (2,'Ania');
+    # '''
+    #
+    # kursor.executescript(insert2)
+    # kursor.executescript(insert)
+    # polaczenie.commit()
+
+    # insert3 = '''
+    # INSERT INTO tabelka (id, name) VALUES (?,?)
+    # '''
+    #
+    # kursor.execute(insert3,(3,'Ola'))
+    # polaczenie.commit()
+
+    insert4 = '''
+    INSERT INTO tabelka (id, name) VALUES (?,?)
     '''
+    lista = [(4, 'Basia')]
+    kursor.executemany(insert4,lista)
+    polaczenie.commit()
+
 
 except polaczenie.Error as e:
     print('blad', e)
