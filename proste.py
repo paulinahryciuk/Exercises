@@ -1543,14 +1543,14 @@
 # exchange = Exch(**dane)
 # print(exchange)
 
-import sqlite3
-
-lista = []
-try:
-    polaczenie = sqlite3.connect('testowa.db')
-    polaczenie.row_factory = sqlite3.Row
-    kursor = polaczenie.cursor()
-    print('baza polaczona')
+# import sqlite3
+#
+# lista = []
+# try:
+#     polaczenie = sqlite3.connect('testowa.db')
+#     polaczenie.row_factory = sqlite3.Row
+#     kursor = polaczenie.cursor()
+#     print('baza polaczona')
 
     # query = '''
     # CREATE TABLE tabelka(
@@ -1596,13 +1596,13 @@ try:
     # polaczenie.commit()
 
 
-    select = '''
-    SELECT * FROM tabelka;
-    '''
-    for row in kursor.execute(select):
-        print(row)
-        lista.append(dict(row))
-    print(lista)
+    # select = '''
+    # SELECT * FROM tabelka;
+    # '''
+    # for row in kursor.execute(select):
+    #     print(row)
+    #     lista.append(dict(row))
+    # print(lista)
 
     # select2 = '''
     #    SELECT name FROM tabelka;
@@ -1623,11 +1623,33 @@ try:
     # polaczenie.commit()
 
 
-except polaczenie.Error as e:
-    print('blad', e)
-finally:
-    if polaczenie:
-        polaczenie.close()
-        print('baza zamknieta')
+# except polaczenie.Error as e:
+#     print('blad', e)
+# finally:
+#     if polaczenie:
+#         polaczenie.close()
+#         print('baza zamknieta')
 
 
+
+
+from sqlalchemy import create_engine,Column,Integer,String
+from sqlalchemy.orm import sessionmaker,declarative_base
+
+Base = declarative_base()
+class User (Base):
+    __tablename__ = 'tab_test'
+    id = Column(Integer,primary_key=True)
+    name = Column(String)
+
+engine = create_engine('sqlite:///baza_test.db', echo=True)
+
+Base.metadata.create_all(engine)
+
+Session = sessionmaker(bind=engine)
+session = Session()
+
+new_user = User(id = 1, name = "Kot")
+session.add(new_user)
+session.commit()
+session.close()
