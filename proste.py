@@ -1579,12 +1579,43 @@ try:
     # kursor.execute(insert3,(3,'Ola'))
     # polaczenie.commit()
 
-    insert4 = '''
-    INSERT INTO tabelka (id, name) VALUES (?,?)
-    '''
-    lista = [(4, 'Basia')]
-    kursor.executemany(insert4,lista)
-    polaczenie.commit()
+    # insert4 = '''
+    # INSERT INTO tabelka (id, name) VALUES (?,?)
+    # '''
+    # lista = [(4, 'Basia')]
+    # kursor.executemany(insert4,lista)
+    # polaczenie.commit()
+
+    # insert5 = '''
+    # INSERT INTO tabelka (id, name) VALUES (?,?)
+    # '''
+    # kursor.execute(insert5, (5, 'Kasia'))
+    # polaczenie.commit()
+
+
+    # select = '''
+    # SELECT * FROM tabelka;
+    # '''
+    # for row in kursor.execute(select):
+    #     print(row)
+    #
+    # select2 = '''
+    #    SELECT name FROM tabelka;
+    #    '''
+    # for row in kursor.execute(select2):
+    #     print(row)
+
+    # delete = '''
+    # DELETE from tabelka WHERE id=4
+    # '''
+    # kursor.execute(delete)
+    # polaczenie.commit()
+    #
+    # update = '''
+    # UPDATE tabelka SET name = 'Adam' WHERE id=1
+    # '''
+    # kursor.execute(update)
+    # polaczenie.commit()
 
 
 except polaczenie.Error as e:
