@@ -1544,8 +1544,11 @@
 # print(exchange)
 
 import sqlite3
+
+lista = []
 try:
     polaczenie = sqlite3.connect('testowa.db')
+    polaczenie.row_factory = sqlite3.Row
     kursor = polaczenie.cursor()
     print('baza polaczona')
 
@@ -1593,12 +1596,14 @@ try:
     # polaczenie.commit()
 
 
-    # select = '''
-    # SELECT * FROM tabelka;
-    # '''
-    # for row in kursor.execute(select):
-    #     print(row)
-    #
+    select = '''
+    SELECT * FROM tabelka;
+    '''
+    for row in kursor.execute(select):
+        print(row)
+        lista.append(dict(row))
+    print(lista)
+
     # select2 = '''
     #    SELECT name FROM tabelka;
     #    '''
