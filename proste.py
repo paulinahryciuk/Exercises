@@ -1642,6 +1642,9 @@ class User (Base):
     id = Column(Integer,primary_key=True)
     name = Column(String)
 
+    def __repr__(self):
+        return f"Obiek o id: {self.id} i nazwie: {self.name}"
+
 engine = create_engine('sqlite:///baza_test.db', echo=True)
 
 Base.metadata.create_all(engine)
@@ -1649,7 +1652,14 @@ Base.metadata.create_all(engine)
 Session = sessionmaker(bind=engine)
 session = Session()
 
-new_user = User(id = 1, name = "Kot")
-session.add(new_user)
-session.commit()
+# new_user = User(id = 1, name = "Kot")
+# new_user = User(id = 2, name = "Pies")
+# session.add(new_user)
+# session.commit()
 session.close()
+
+users = session.query(User).all()
+for user in users:
+    print(user)
+
+
