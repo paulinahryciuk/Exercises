@@ -1632,34 +1632,48 @@
 
 
 
+#
+# from sqlalchemy import create_engine,Column,Integer,String
+# from sqlalchemy.orm import sessionmaker,declarative_base
+#
+# Base = declarative_base()
+# class User (Base):
+#     __tablename__ = 'tab_test'
+#     id = Column(Integer,primary_key=True)
+#     name = Column(String)
+#
+#     def __repr__(self):
+#         return f"Obiek o id: {self.id} i nazwie: {self.name}"
+#
+# engine = create_engine('sqlite:///baza_test.db', echo=True)
+#
+# Base.metadata.create_all(engine)
+#
+# Session = sessionmaker(bind=engine)
+# session = Session()
+#
+# # new_user = User(id = 1, name = "Kot")
+# # new_user = User(id = 2, name = "Pies")
+# # session.add(new_user)
+# # session.commit()
+# session.close()
+#
+# users = session.query(User).all()
+# for user in users:
+#     print(user)
 
-from sqlalchemy import create_engine,Column,Integer,String
-from sqlalchemy.orm import sessionmaker,declarative_base
+from sqlite3 import create_engine, Column, Integer, String
+from sqlalchemy.orm import sessionmaker, declarative_base
 
 Base = declarative_base()
-class User (Base):
-    __tablename__ = 'tab_test'
-    id = Column(Integer,primary_key=True)
+
+class Person(Base):
+    __tablename__ = 'Ludzie'
+    id = Column(Integer, primary_key = True)
     name = Column(String)
-
-    def __repr__(self):
-        return f"Obiek o id: {self.id} i nazwie: {self.name}"
-
-engine = create_engine('sqlite:///baza_test.db', echo=True)
-
-Base.metadata.create_all(engine)
-
-Session = sessionmaker(bind=engine)
-session = Session()
-
-# new_user = User(id = 1, name = "Kot")
-# new_user = User(id = 2, name = "Pies")
-# session.add(new_user)
-# session.commit()
-session.close()
-
-users = session.query(User).all()
-for user in users:
-    print(user)
-
+    odnosnik = relationship('miasto')
+class Adresse(Base):
+    __tablename__ = 'Adres'
+    adres_id = Column(ForeignKey(ludzie.id)
+    miasto = relationship(Person,back_populates = 'odnosnik')
 
