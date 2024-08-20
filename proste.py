@@ -1552,75 +1552,75 @@
 #     kursor = polaczenie.cursor()
 #     print('baza polaczona')
 
-    # query = '''
-    # CREATE TABLE tabelka(
-    # id INTEGER PRIMARY KEY,
-    # name TEXT NOT NULL UNIQUE
-    # );'''
-    #
-    # kursor.execute(query)
-    # polaczenie.commit()
+# query = '''
+# CREATE TABLE tabelka(
+# id INTEGER PRIMARY KEY,
+# name TEXT NOT NULL UNIQUE
+# );'''
+#
+# kursor.execute(query)
+# polaczenie.commit()
 
-    # insert = '''
-    # INSERT INTO tabelka
-    # (id,name) VALUES (1,'Asia');
-    # '''
-    #
-    # insert2 = '''
-    # INSERT INTO tabelka
-    # (id,name) VALUES (2,'Ania');
-    # '''
-    #
-    # kursor.executescript(insert2)
-    # kursor.executescript(insert)
-    # polaczenie.commit()
+# insert = '''
+# INSERT INTO tabelka
+# (id,name) VALUES (1,'Asia');
+# '''
+#
+# insert2 = '''
+# INSERT INTO tabelka
+# (id,name) VALUES (2,'Ania');
+# '''
+#
+# kursor.executescript(insert2)
+# kursor.executescript(insert)
+# polaczenie.commit()
 
-    # insert3 = '''
-    # INSERT INTO tabelka (id, name) VALUES (?,?)
-    # '''
-    #
-    # kursor.execute(insert3,(3,'Ola'))
-    # polaczenie.commit()
+# insert3 = '''
+# INSERT INTO tabelka (id, name) VALUES (?,?)
+# '''
+#
+# kursor.execute(insert3,(3,'Ola'))
+# polaczenie.commit()
 
-    # insert4 = '''
-    # INSERT INTO tabelka (id, name) VALUES (?,?)
-    # '''
-    # lista = [(4, 'Basia')]
-    # kursor.executemany(insert4,lista)
-    # polaczenie.commit()
+# insert4 = '''
+# INSERT INTO tabelka (id, name) VALUES (?,?)
+# '''
+# lista = [(4, 'Basia')]
+# kursor.executemany(insert4,lista)
+# polaczenie.commit()
 
-    # insert5 = '''
-    # INSERT INTO tabelka (id, name) VALUES (?,?)
-    # '''
-    # kursor.execute(insert5, (5, 'Kasia'))
-    # polaczenie.commit()
+# insert5 = '''
+# INSERT INTO tabelka (id, name) VALUES (?,?)
+# '''
+# kursor.execute(insert5, (5, 'Kasia'))
+# polaczenie.commit()
 
 
-    # select = '''
-    # SELECT * FROM tabelka;
-    # '''
-    # for row in kursor.execute(select):
-    #     print(row)
-    #     lista.append(dict(row))
-    # print(lista)
+# select = '''
+# SELECT * FROM tabelka;
+# '''
+# for row in kursor.execute(select):
+#     print(row)
+#     lista.append(dict(row))
+# print(lista)
 
-    # select2 = '''
-    #    SELECT name FROM tabelka;
-    #    '''
-    # for row in kursor.execute(select2):
-    #     print(row)
+# select2 = '''
+#    SELECT name FROM tabelka;
+#    '''
+# for row in kursor.execute(select2):
+#     print(row)
 
-    # delete = '''
-    # DELETE from tabelka WHERE id=4
-    # '''
-    # kursor.execute(delete)
-    # polaczenie.commit()
-    #
-    # update = '''
-    # UPDATE tabelka SET name = 'Adam' WHERE id=1
-    # '''
-    # kursor.execute(update)
-    # polaczenie.commit()
+# delete = '''
+# DELETE from tabelka WHERE id=4
+# '''
+# kursor.execute(delete)
+# polaczenie.commit()
+#
+# update = '''
+# UPDATE tabelka SET name = 'Adam' WHERE id=1
+# '''
+# kursor.execute(update)
+# polaczenie.commit()
 
 
 # except polaczenie.Error as e:
@@ -1629,7 +1629,6 @@
 #     if polaczenie:
 #         polaczenie.close()
 #         print('baza zamknieta')
-
 
 
 #
@@ -1662,18 +1661,35 @@
 # for user in users:
 #     print(user)
 
-from sqlite3 import create_engine, Column, Integer, String
-from sqlalchemy.orm import sessionmaker, declarative_base
+from sqlalchemy import create_engine, Column, Integer, String, ForeignKey
+from sqlalchemy.orm import sessionmaker, declarative_base, relationship
+
+engine = create_engine('sqlite:///adresowa.db', echo=True)
 
 Base = declarative_base()
 
+
 class Person(Base):
     __tablename__ = 'Ludzie'
-    id = Column(Integer, primary_key = True)
+    id = Column(Integer, primary_key=True)
     name = Column(String)
-    odnosnik = relationship('miasto')
+    odnosnik = relationship('Adresse',
+                            back_populates='osoba',
+                            cascade='all,delete-orphan')
+
+
 class Adresse(Base):
     __tablename__ = 'Adres'
-    adres_id = Column(ForeignKey(ludzie.id)
-    miasto = relationship(Person,back_populates = 'odnosnik')
+    id = Column(Integer, primary_key=True)
+    adres_id = Column(ForeignKey('Ludzie.id'))
+    miasto  = Column(String)
+    osoba= relationship('Person', back_populates='odnosnik')
 
+Base.metadata.create_all(engine)
+Session = sessionmaker(bind=engine)
+
+session = Session()
+osoba1 = Person(name = 'Anna')
+osoba1.odnosnik = [Adresse(miasto='Krakow')]
+session.add(osoba1)
+session.commit()
