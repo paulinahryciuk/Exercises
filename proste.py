@@ -1661,35 +1661,96 @@
 # for user in users:
 #     print(user)
 
-from sqlalchemy import create_engine, Column, Integer, String, ForeignKey
-from sqlalchemy.orm import sessionmaker, declarative_base, relationship
 
-engine = create_engine('sqlite:///adresowa.db', echo=True)
+# from sqlalchemy import create_engine, Column, Integer, String, ForeignKey
+# from sqlalchemy.orm import sessionmaker, declarative_base, relationship
+#
+# engine = create_engine('sqlite:///adresowa2.db', echo=True)
+#
+# Base = declarative_base()
+#
+#
+# class Person(Base):
+#     __tablename__ = 'Ludzie'
+#     id = Column(Integer, primary_key=True)
+#     name = Column(String)
+#     odnosnik = relationship('Adresse',
+#                             back_populates='miasto',
+#                             cascade='all,delete-orphan')
+#
+#
+# class Adresse(Base):
+#     __tablename__ = 'Adres'
+#     id = Column(Integer, primary_key=True)
+#     adres_id = Column(Integer, ForeignKey('Ludzie.id'))
+#     miasto = relationship('Person', back_populates='odnosnik')
+#
+# Base.metadata.create_all(engine)
+# Session = sessionmaker(bind=engine)
+#
+# session = Session()
+# osoba1 = Person(name='Anna')
+# osoba1.odnosnik = [Adresse(miasto='Krakow')]
+# session.add(osoba1)
+# session.commit()
 
-Base = declarative_base()
 
-
-class Person(Base):
-    __tablename__ = 'Ludzie'
-    id = Column(Integer, primary_key=True)
-    name = Column(String)
-    odnosnik = relationship('Adresse',
-                            back_populates='osoba',
-                            cascade='all,delete-orphan')
-
-
-class Adresse(Base):
-    __tablename__ = 'Adres'
-    id = Column(Integer, primary_key=True)
-    adres_id = Column(ForeignKey('Ludzie.id'))
-    miasto  = Column(String)
-    osoba= relationship('Person', back_populates='odnosnik')
-
-Base.metadata.create_all(engine)
-Session = sessionmaker(bind=engine)
-
-session = Session()
-osoba1 = Person(name = 'Anna')
-osoba1.odnosnik = [Adresse(miasto='Krakow')]
-session.add(osoba1)
-session.commit()
+# from sqlalchemy import (
+#     Column, Integer, String, ForeignKey, create_engine
+# )
+#
+# from sqlalchemy.orm import relationship, sessionmaker, declarative_base
+#
+# # engine = create_engine('sqlite:///:memory:')
+# engine = create_engine('sqlite:///adress_book.db', echo=True)
+# Base = declarative_base()
+#
+#
+# class Person(Base):
+#     __tablename__ = 'person'
+#     id = Column(Integer, primary_key=True)
+#     name = Column(String)
+#     age = Column(String)
+#     addresses = relationship(
+#         'Address',
+#         back_populates='person',
+#         order_by='Address.email',
+#         cascade='all, delete-orphan'
+#     )
+#
+#     def __repr__(self):
+#         return f"{self.name} (id={self.id})"  # Anakin(id=2)
+#
+#
+# class Address(Base):
+#     __tablename__ = 'address'
+#     id = Column(Integer, primary_key=True)
+#     email = Column(String)
+#     person_id = Column(ForeignKey('person.id'))
+#     person = relationship("Person", back_populates='addresses')
+#
+#     def __str__(self):
+#         return self.email
+#
+#     __repr__ = __str__  # a = 7
+#
+#
+# Base.metadata.create_all(engine)
+# Session = sessionmaker(bind=engine)
+#
+# session = Session()
+#
+# anakin = Person(name='Anakin', age='38')
+# anakin2 = Person(name='Anakin Akakin', age=38)
+# anakin2.addresses = [Address(email='anakinkakin@wp.pl')]
+# obi = Person(name="Obi Wan Kenobi", age=45)
+# obi.addresses = [
+#     Address(email='obi@example.com'),
+#     Address(email='waaka@example.com')
+# ]
+#
+# session.add(anakin)
+# session.add(anakin2)
+# session.add(obi)
+#
+# session.commit()
