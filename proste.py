@@ -1754,3 +1754,44 @@
 # session.add(obi)
 #
 # session.commit()
+
+
+
+
+
+
+
+
+# Zadanie:
+# Napisz program, który obliczy całkowity koszt zakupu produktów w sklepie. Każdy produkt ma swoją cenę oraz ilość.
+# Wszystkie ceny i obliczenia muszą być dokładne, więc użyj modułu decimal do obliczeń. Program powinien:
+#
+# Wczytać listę produktów, gdzie każdy produkt ma cenę (jako ciąg znaków) i ilość.
+# Obliczyć całkowity koszt zakupu każdego produktu (cena * ilość).
+# Zsumować koszty wszystkich produktów, aby uzyskać łączny koszt zakupów.
+# Wydrukować dokładny całkowity koszt.
+
+products = [
+    {"name": "Jabłka", "price": "0.99", "quantity": 10},
+    {"name": "Chleb", "price": "2.49", "quantity": 2},
+    {"name": "Mleko", "price": "1.89", "quantity": 3},
+    {"name": "Masło", "price": "4.99", "quantity": 1}
+]
+
+from decimal import Decimal
+
+# cena = Decimal('0.00')
+# for product in products:
+#     cena = product['price'] * product['quantity']
+#     # cena = product['price'](Decimal) * product['quantity']
+# print(f"Koszta zakupow: {cena}")
+# print(cena.quantize())
+
+cena = Decimal('0.00')
+cena_all = Decimal('0.00')
+for product in products:
+    price = Decimal(product['price'])
+    quantity = Decimal(product['quantity'])
+    cena = price * quantity
+    cena_all += cena
+print(f"Koszta zakupow: {cena_all}")
