@@ -1771,27 +1771,81 @@
 # Zsumować koszty wszystkich produktów, aby uzyskać łączny koszt zakupów.
 # Wydrukować dokładny całkowity koszt.
 
-products = [
-    {"name": "Jabłka", "price": "0.99", "quantity": 10},
-    {"name": "Chleb", "price": "2.49", "quantity": 2},
-    {"name": "Mleko", "price": "1.89", "quantity": 3},
-    {"name": "Masło", "price": "4.99", "quantity": 1}
-]
-
-from decimal import Decimal
-
+# products = [
+#     {"name": "Jabłka", "price": "0.99", "quantity": 10},
+#     {"name": "Chleb", "price": "2.49", "quantity": 2},
+#     {"name": "Mleko", "price": "1.89", "quantity": 3},
+#     {"name": "Masło", "price": "4.99", "quantity": 1}
+# ]
+#
+# from decimal import Decimal
+#
+# # cena = Decimal('0.00')
+# # for product in products:
+# #     cena = product['price'] * product['quantity']
+# #     # cena = product['price'](Decimal) * product['quantity']
+# # print(f"Koszta zakupow: {cena}")
+# # print(cena.quantize())
+#
 # cena = Decimal('0.00')
+# cena_all = Decimal('0.00')
 # for product in products:
-#     cena = product['price'] * product['quantity']
-#     # cena = product['price'](Decimal) * product['quantity']
-# print(f"Koszta zakupow: {cena}")
-# print(cena.quantize())
+#     price = Decimal(product['price'])
+#     quantity = Decimal(product['quantity'])
+#     cena = price * quantity
+#     cena_all += cena
+# print(f"Koszta zakupow: {cena_all}")
 
-cena = Decimal('0.00')
-cena_all = Decimal('0.00')
-for product in products:
-    price = Decimal(product['price'])
-    quantity = Decimal(product['quantity'])
-    cena = price * quantity
-    cena_all += cena
-print(f"Koszta zakupow: {cena_all}")
+
+# from unittest import TestCase
+#
+# class Obliczenia:
+#     def dodaj(self,a,b):
+#         return a+b
+#
+# class Test_Oliczenia(TestCase):
+#     def test_dodaj(self):
+#         o1 = Obliczenia()
+#         wynik = o1.dodaj(2,3)
+#         self.assertEquals(wynik,5)
+
+
+
+# Zadanie
+# Napisz funkcję is_palindrome(s: str) -> bool, która sprawdza, czy dany ciąg znaków jest palindromem. Palindrom to słowo,
+# fraza, liczba lub inny ciąg znaków, który czyta się tak samo od przodu i od tyłu (z pominięciem spacji, znaków
+# interpunkcyjnych i różnicy między małymi i wielkimi literami).
+
+# class Wyraz:
+#     def is_polindrome(self,x):
+#         dl = len(x)
+#         # print(f"dlugosc slowa: {dl}")
+#
+#
+# w1 = Wyraz()
+# w1.is_polindrome('oko')
+
+# Zadanie
+# Napisz funkcję is_even(n: int) -> bool, która przyjmuje liczbę całkowitą i zwraca True, jeśli liczba jest parzysta,
+# a False w przeciwnym wypadku.
+
+class Obliczenia:
+    def czy_parzysta(self,x):
+        if x % 2 ==0:
+            return True
+        else:
+            return False
+
+o1 = Obliczenia()
+print(o1.czy_parzysta(8))
+print(o1.czy_parzysta(3))
+
+from unittest import TestCase
+
+class Test(TestCase):
+    def test_czy_parzyste(self):
+            result = o1.czy_parzysta(8)
+            self.assertTrue(result)
+
+
+
