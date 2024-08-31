@@ -1829,23 +1829,48 @@
 # Napisz funkcję is_even(n: int) -> bool, która przyjmuje liczbę całkowitą i zwraca True, jeśli liczba jest parzysta,
 # a False w przeciwnym wypadku.
 
-class Obliczenia:
-    def czy_parzysta(self,x):
-        if x % 2 ==0:
-            return True
-        else:
-            return False
+# class Obliczenia:
+#     def czy_parzysta(self,x):
+#         if x % 2 ==0:
+#             return True
+#         else:
+#             return False
+#
+# o1 = Obliczenia()
+# print(o1.czy_parzysta(8))
+# print(o1.czy_parzysta(3))
+#
+# from unittest import TestCase
+#
+# class Test(TestCase):
+#     def test_czy_parzyste(self):
+#             result = o1.czy_parzysta(8)
+#             self.assertTrue(result)
+#
 
-o1 = Obliczenia()
-print(o1.czy_parzysta(8))
-print(o1.czy_parzysta(3))
 
-from unittest import TestCase
+# pip install pyinstaller
 
-class Test(TestCase):
-    def test_czy_parzyste(self):
-            result = o1.czy_parzysta(8)
-            self.assertTrue(result)
 
+import tkinter as tk
+
+def show_click():
+    print("Hello")
+
+app = tk.Tk()
+app.title("Okienko")
+
+button = tk.Button(app, text="Kliknij", command=show_click)
+
+# button.pack(side=tk.RIGHT)
+button.pack(pady=10)
+
+lebelka = tk.Label(app, text="taka labelka")
+lebelka.pack(side=tk.LEFT)
+
+tekst = tk.Entry(app)
+tekst.pack(pady = 20)
+
+app.mainloop()
 
 
