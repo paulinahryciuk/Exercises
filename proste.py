@@ -1852,25 +1852,59 @@
 # pip install pyinstaller
 
 
+# import tkinter as tk
+#
+# def show_click():
+#     print("Hello")
+#
+# app = tk.Tk()
+# app.title("Okienko")
+#
+# button = tk.Button(app, text="Kliknij", command=show_click)
+#
+# # button.pack(side=tk.RIGHT)
+# button.pack(pady=10)
+#
+# lebelka = tk.Label(app, text="taka labelka")
+# lebelka.pack(side=tk.LEFT)
+#
+# tekst = tk.Entry(app)
+# tekst.pack(pady = 20)
+#
+# suwak = tk.Scale(app, from_=0, to=10, orient=tk.HORIZONTAL, command=show_click)
+# suwak.pack(pady = 100)
+#
+# app.mainloop()
+
+
+# Zadanie: Kalkulator
+# Cel: Stwórz prosty kalkulator, który umożliwia wykonywanie podstawowych operacji matematycznych (dodawanie, odejmowanie,
+# mnożenie, dzielenie) na dwóch liczbach. Użytkownik wprowadza liczby w odpowiednie pola, wybiera operację za pomocą
+# przycisków, a wynik jest wyświetlany na ekranie.
+
 import tkinter as tk
 
-def show_click():
-    print("Hello")
-
 app = tk.Tk()
-app.title("Okienko")
+app.title("Kalkulator")
 
-button = tk.Button(app, text="Kliknij", command=show_click)
+def dodaj(a,b):
+    a = int(liczba1.get())
+    b= int(liczba2.get())
+    print(a+b)
 
-# button.pack(side=tk.RIGHT)
-button.pack(pady=10)
+def odejmij(a,b):
+    a = int(liczba1.get())
+    b = int(liczba2.get())
+    print(a-b)
 
-lebelka = tk.Label(app, text="taka labelka")
-lebelka.pack(side=tk.LEFT)
-
-tekst = tk.Entry(app)
-tekst.pack(pady = 20)
+liczba1 = tk.Entry(app)
+liczba1.pack(tk.TOP)
+liczba2 = tk.Entry(app)
+liczba2.pack(tk.TOP)
+bottom_add = tk.BOTTOM(app,text="+", command = dodaj)
+bottom_add.pack(tk.LEFT)
+bottom_odejmij = tk.BOTTOM(app,text="-", command = odejmij)
+bottom_odejmij.pack(tk.RIGHT)
 
 app.mainloop()
-
 
