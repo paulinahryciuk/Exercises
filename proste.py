@@ -1882,29 +1882,30 @@
 # mnożenie, dzielenie) na dwóch liczbach. Użytkownik wprowadza liczby w odpowiednie pola, wybiera operację za pomocą
 # przycisków, a wynik jest wyświetlany na ekranie.
 
-import tkinter as tk
+# import tkinter as tk
+#
+# app = tk.Tk()
+# app.title("Kalkulator")
+#
+# def dodaj(a,b):
+#     a = int(liczba1.get())
+#     b= int(liczba2.get())
+#     print(a+b)
+#
+# def odejmij(a,b):
+#     a = int(liczba1.get())
+#     b = int(liczba2.get())
+#     print(a-b)
+#
+# liczba1 = tk.Entry(app)
+# liczba1.pack(tk.TOP)
+# liczba2 = tk.Entry(app)
+# liczba2.pack(tk.TOP)
+# bottom_add = tk.BOTTOM(app,text="+", command = dodaj)
+# bottom_add.pack(tk.LEFT)
+# bottom_odejmij = tk.BOTTOM(app,text="-", command = odejmij)
+# bottom_odejmij.pack(tk.RIGHT)
+#
+# app.mainloop()
 
-app = tk.Tk()
-app.title("Kalkulator")
-
-def dodaj(a,b):
-    a = int(liczba1.get())
-    b= int(liczba2.get())
-    print(a+b)
-
-def odejmij(a,b):
-    a = int(liczba1.get())
-    b = int(liczba2.get())
-    print(a-b)
-
-liczba1 = tk.Entry(app)
-liczba1.pack(tk.TOP)
-liczba2 = tk.Entry(app)
-liczba2.pack(tk.TOP)
-bottom_add = tk.BOTTOM(app,text="+", command = dodaj)
-bottom_add.pack(tk.LEFT)
-bottom_odejmij = tk.BOTTOM(app,text="-", command = odejmij)
-bottom_odejmij.pack(tk.RIGHT)
-
-app.mainloop()
 
