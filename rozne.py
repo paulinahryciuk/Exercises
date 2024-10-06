@@ -64,10 +64,11 @@ czy_anagr("silent","listen")
 #  Suma liczb w macierzy
 # Napisz funkcję, która zwraca sumę wszystkich liczb w macierzy 2D.
 
-def suma(m):
+def suma(matr):
     suma = 0
-    for i in m:
-        suma+=i
+    for row in matr:
+        for i in row:
+            suma+=i
     print(f"suma macierzy wynios: {suma}")
 
 matr = [
@@ -77,3 +78,43 @@ matr = [
 ]
 
 suma(matr)
+
+# 7. Fibonacci – dynamiczne programowanie
+# Napisz funkcję, która zwraca n-ty element ciągu Fibonacciego, wykorzystując dynamiczne programowanie.
+
+# 8. Sortowanie zliczające (Counting Sort)
+# Napisz funkcję, która implementuje algorytm sortowania zliczającego.
+
+lista = ['ada','adam','ola','ada','ada','adam']
+
+
+def zlicz(lista):
+    lista2 = []
+    for i in lista:
+        ilosc=lista.count(i)
+        a = f"{i}:{ilosc}"
+        lista2.append(a)
+        #if a not in lista2
+    dupp_usun = set(lista2)
+    return dupp_usun
+
+print(zlicz(lista))
+
+
+# 9. Znajdowanie najdłuższego wspólnego prefiksu
+# Napisz funkcję, która znajduje najdłuższy wspólny prefiks z listy ciągów znaków.
+
+lista=['abcaaaa','abcabbb','abccccc']
+
+def znajdz_pref(z):
+    a =0
+    lista2 = []
+    while a<=len(z[0]):
+        for i in z:
+            znak = i[a]
+            znak2 = f"{a}:{znak}"
+            lista2.append(znak2)
+        a+=1
+    return lista2
+
+print(znajdz_pref(lista))
