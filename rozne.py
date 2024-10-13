@@ -101,20 +101,50 @@ def zlicz(lista):
 print(zlicz(lista))
 
 
-# 9. Znajdowanie najdłuższego wspólnego prefiksu
+# 9. Znajdowanie najdłuższego wspólnego prefiksu WROCIC
 # Napisz funkcję, która znajduje najdłuższy wspólny prefiks z listy ciągów znaków.
 
-lista=['abcaaaa','abcabbb','abccccc']
+# lista=['abcaaaa','abcabbb','abccccc']
+#
+# def znajdz_pref(z):
+#     a =0
+#     lista2 = []
+#     while a<=len(z[0]):
+#         for i in z:
+#             znak = i[a]
+#             znak2 = f"{a}:{znak}"
+#             lista2.append(znak2)
+#         a+=1
+#     return lista2
+#
+# print(znajdz_pref(lista))
 
-def znajdz_pref(z):
-    a =0
-    lista2 = []
-    while a<=len(z[0]):
-        for i in z:
-            znak = i[a]
-            znak2 = f"{a}:{znak}"
-            lista2.append(znak2)
-        a+=1
-    return lista2
+# 8. Funkcje i praca z plikami
+# Zadanie: Napisz funkcję, która odczytuje plik tekstowy i zwraca liczbę linii w tym pliku.
 
-print(znajdz_pref(lista))
+with open('rozne_txt.csv','r') as text:
+    odczyt = text.readlines()
+    print(odczyt)
+    # print(odczyt.index(','))
+    print(len(odczyt))
+
+
+# 9. Obsługa wyjątków
+# Zadanie: Napisz funkcję, która dzieli dwie liczby, ale obsługuje wyjątek, gdy użytkownik podzieli przez zero.
+
+def podziel(a,b):
+    try:
+        wynik = a/b
+        # return wynik
+    except ZeroDivisionError:
+        print("Nie dzieli sie przes zero")
+    else:
+        print("dobrze ze pamietales ze nie dzielimy przez sero")
+        print(f"wynik:{wynik}")
+    finally:
+        print("koniec obliczen")
+
+
+
+podziel(4,2)
+podziel(5,0)
