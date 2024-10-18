@@ -148,3 +148,84 @@ def podziel(a,b):
 
 podziel(4,2)
 podziel(5,0)
+
+
+
+
+# Przykład 1: Zbalansowane nawiasy
+# Sprawdź, czy dany ciąg nawiasów jest poprawnie zbalansowany. Użyj stosu.
+
+# python
+# Skopiuj kod
+def is_balanced(expression):
+    stack = []
+    for char in expression:
+        if char in "({[":
+            stack.append(char)
+        elif char in ")}]":
+            if not stack:
+                return False
+            top = stack.pop()
+            if not ((top == '(' and char == ')') or
+                    (top == '{' and char == '}') or
+                    (top == '[' and char == ']')):
+                return False
+    return not stack
+
+def is_balanced(expression):
+    stack = []  # stos do przechowywania otwierających nawiasów
+    for char in expression:
+        if char in "({[":  # sprawdzamy otwierające nawiasy
+            stack.append(char)
+        elif char in ")}]":  # sprawdzamy zamykające nawiasy
+            if not stack:  # jeśli stos jest pusty, to mamy błąd
+                return False
+            top = stack.pop()  # zdejmujemy ostatni otwierający nawias
+            if not ((top == '(' and char == ')') or
+                    (top == '{' and char == '}') or
+                    (top == '[' and char == ']')):  # sprawdzamy dopasowanie par
+                return False
+    return not stack  # jeśli stos jest pusty na koniec, nawiasy są zbalansowane
+
+def balans(ciag):
+    stos = []
+    for i in ciag:
+        if i in "({[":
+            stos.append(i)
+        elif i in ")}]":
+            stos.append(i)
+        else:
+            print("Nie ma nawiasow")
+    for x in stos:
+        if x =="(":
+            if ")" in stos:
+                stos.remove("(")
+                stos.remove(")")
+            # else:
+            #     print("Nnie jest zachowany balan nawiasow")
+
+    for x in stos:
+        if x =="[":
+            if "]" in stos:
+                stos.remove("[")
+                stos.remove("]")
+            # else:
+            #     print("Nnie jest zachowany balan nawiasow")
+
+    for x in stos:
+        if "{" in stos:
+            if x =="}":
+                stos.remove("{")
+                stos.remove("}")
+            # else:
+                # print("Nnie jest zachowany balan nawiasow")
+    # print(f"stos:{stos}")
+    if len(stos)==0:
+        print("balans nawiasow zosatl zachowany")
+    else:
+        print("balans nawiasow nie zosatl zachowany")
+
+
+balans(")([]")
+balans(")([")
+balans(")([}")
