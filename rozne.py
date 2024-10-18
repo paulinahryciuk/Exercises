@@ -151,7 +151,7 @@ podziel(5,0)
 
 
 
-
+#################  STOS   ################
 # Przykład 1: Zbalansowane nawiasy
 # Sprawdź, czy dany ciąg nawiasów jest poprawnie zbalansowany. Użyj stosu.
 
@@ -229,3 +229,36 @@ def balans(ciag):
 balans(")([]")
 balans(")([")
 balans(")([}")
+
+
+# Przykład 2: Najdłuższy wspólny podciąg (dynamiczne programowanie)
+# Znajdź długość najdłuższego wspólnego podciągu dla dwóch ciągów znaków.
+
+a = 'abcdef'
+b= 'hhhhhuuuudeffff'
+
+# for x in a:
+#     if x in b:
+#         l=a[x]
+#         print(l)
+
+
+# Przykład 3: Problem "Two Sum"
+# Znajdź dwie liczby w liście, które sumują się do podanej wartości.
+
+# import copy
+
+lista1 = [0,1,2,3,4,5]
+suma = 4
+def spr_sume(suma,lista1):
+    for i in lista1:
+        lista2 = []
+        # lista2=copy.copy(lista1)
+        lista2 = lista2+lista1
+        lista2.remove(i)
+        wartosc = int(suma) - int(i)
+        if wartosc in lista2:
+            print(f"{suma} rowna sie sumie liczb {i} i {wartosc}")
+    print("koniec obliczen")
+
+spr_sume(suma,lista1)
