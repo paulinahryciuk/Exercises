@@ -262,3 +262,29 @@ def spr_sume(suma,lista1):
     print("koniec obliczen")
 
 spr_sume(suma,lista1)
+
+# trojkat pascala
+#
+#             1
+#            1  1
+#         1    2   1
+#       1    3   3   1
+
+def trojkat(n):
+    for i in range(1,1+n):
+         print(i*"1")
+
+def trojkat_pascala(n):
+    rzad = [1]
+    for i in range(n):
+        print(rzad)
+        nowy_rzad = [1] + [rzad[j] + rzad[j+1] for j in range (len(rzad)-1)] + [1]
+        rzad = nowy_rzad
+
+
+
+
+trojkat(3)
+trojkat_pascala(3)
+trojkat_pascala(5)
+
