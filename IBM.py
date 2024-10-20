@@ -56,3 +56,13 @@ import random
 for i in skills2:
     team = random.sample(skills2,k = minPlayers)
 print(team)
+
+###########
+
+import itertools
+
+druzyna = list(itertools.accumulate(skills2))
+print( f"druzyna: {druzyna} ")
+
+druzyna2 = list(itertools.combinations(skills2,3))
+print(f"druzyny to :{druzyna2}")

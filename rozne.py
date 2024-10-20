@@ -288,3 +288,34 @@ trojkat(3)
 trojkat_pascala(3)
 trojkat_pascala(5)
 
+# Znajdowanie maksimum w liście
+# Napisz funkcję, która zwróci maksymalny element w liście bez użycia wbudowanej funkcji max().
+
+lista = [3, 1, 4, 1, 5, 9]
+
+# def znajdz_najwiekszy(lista):
+#     # for i in lista:
+#     #     for k in range(0,(len(lista)-2)):
+#     #         if lista[k]>lista[k+1]:
+#     #             lista.remove(lista[k+1])
+#     #         else:
+#     #             lista.remove(lista[k])
+#     # print(f"max: {lista}")
+#
+#     for k in range(1,(len(lista))):
+#             if lista[k]>lista[k-1]:
+#                 # lista.remove(lista[k-1])
+#             else:
+#                 lista.remove(lista[k])
+#     print(f"max: {lista}")
+#
+# znajdz_najwiekszy(lista)
+
+def znajdz_max(lista):
+    max = lista[0]
+    for k in range(1, len(lista)):
+        if lista[k]>max:
+            max=lista[k]
+    print(f"max: {max}")
+
+znajdz_max(lista)
