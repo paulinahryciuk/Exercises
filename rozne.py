@@ -319,3 +319,5 @@ def znajdz_max(lista):
     print(f"max: {max}")
 
 znajdz_max(lista)
+
+##
