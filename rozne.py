@@ -3,36 +3,43 @@
 
 def odw_ciagu(x):
     print(x[::-1])
+
+
 odw_ciagu("abc")
+
 
 # Sprawdzenie liczby pierwszej
 # Napisz funkcję, która sprawdzi, czy dana liczba jest liczbą pierwszą.
 
 def czy_parzysta(y):
-    if y%2==0:
+    if y % 2 == 0:
         print(f"Liczba {y} jest liczba parzysta.")
     else:
         print(f"Liczba {y} nie jest liczba parzysta.")
 
+
 czy_parzysta(4)
 czy_parzysta(5)
 
+
 def czy_pierwsza(z):
     lista = []
-    a=1
-    while a <=z:
-        if z%a==0:
+    a = 1
+    while a <= z:
+        if z % a == 0:
             lista.append(a)
         a += 1
-    if len(lista)==2:
+    if len(lista) == 2:
         print(f"{z}:pierwsza")
     else:
         print(f"{z}:nie jest pierwsza")
+
 
 czy_pierwsza(3)
 czy_pierwsza(4)
 czy_pierwsza(20)
 czy_pierwsza(23)
+
 
 # 3. Suma liczb parzystych
 # Napisz funkcję, która zwraca sumę liczb parzystych z listy.
@@ -40,23 +47,27 @@ czy_pierwsza(23)
 def suma_parz(i):
     suma = 0
     for k in i:
-        if k%2==0:
-            suma+=k
+        if k % 2 == 0:
+            suma += k
     print(f" suma liczb parz wynosi {suma}")
 
-suma_parz([2,3,4])
+
+suma_parz([2, 3, 4])
+
 
 # 4. Znajdowanie anagramów
 # Napisz funkcję, która sprawdza, czy dwa ciągi znaków są anagramami.
 
-def czy_anagr(x,y):
-    if sorted(x)==sorted(y):
+def czy_anagr(x, y):
+    if sorted(x) == sorted(y):
         print("anagram")
     else:
         print("nie anagram")
 
-czy_anagr("ala ma kota","ale makota")
-czy_anagr("silent","listen")
+
+czy_anagr("ala ma kota", "ale makota")
+czy_anagr("silent", "listen")
+
 
 # 5. Zliczanie słów w tekście
 # Napisz funkcję, która zlicza liczbę wystąpień każdego słowa w danym tekście.
@@ -68,8 +79,9 @@ def suma(matr):
     suma = 0
     for row in matr:
         for i in row:
-            suma+=i
+            suma += i
     print(f"suma macierzy wynios: {suma}")
+
 
 matr = [
     [1, 2, 3],
@@ -85,21 +97,21 @@ suma(matr)
 # 8. Sortowanie zliczające (Counting Sort)
 # Napisz funkcję, która implementuje algorytm sortowania zliczającego.
 
-lista = ['ada','adam','ola','ada','ada','adam']
+lista = ['ada', 'adam', 'ola', 'ada', 'ada', 'adam']
 
 
 def zlicz(lista):
     lista2 = []
     for i in lista:
-        ilosc=lista.count(i)
+        ilosc = lista.count(i)
         a = f"{i}:{ilosc}"
         lista2.append(a)
-        #if a not in lista2
+        # if a not in lista2
     dupp_usun = set(lista2)
     return dupp_usun
 
-print(zlicz(lista))
 
+print(zlicz(lista))
 
 # 9. Znajdowanie najdłuższego wspólnego prefiksu WROCIC
 # Napisz funkcję, która znajduje najdłuższy wspólny prefiks z listy ciągów znaków.
@@ -122,7 +134,7 @@ print(zlicz(lista))
 # 8. Funkcje i praca z plikami
 # Zadanie: Napisz funkcję, która odczytuje plik tekstowy i zwraca liczbę linii w tym pliku.
 
-with open('rozne_txt.csv','r') as text:
+with open('rozne_txt.csv', 'r') as text:
     odczyt = text.readlines()
     print(odczyt)
     # print(odczyt.index(','))
@@ -132,9 +144,9 @@ with open('rozne_txt.csv','r') as text:
 # 9. Obsługa wyjątków
 # Zadanie: Napisz funkcję, która dzieli dwie liczby, ale obsługuje wyjątek, gdy użytkownik podzieli przez zero.
 
-def podziel(a,b):
+def podziel(a, b):
     try:
-        wynik = a/b
+        wynik = a / b
         # return wynik
     except ZeroDivisionError:
         print("Nie dzieli sie przes zero")
@@ -145,10 +157,8 @@ def podziel(a,b):
         print("koniec obliczen")
 
 
-
-podziel(4,2)
-podziel(5,0)
-
+podziel(4, 2)
+podziel(5, 0)
 
 
 #################  STOS   ################
@@ -172,6 +182,7 @@ def is_balanced(expression):
                 return False
     return not stack
 
+
 def is_balanced(expression):
     stack = []  # stos do przechowywania otwierających nawiasów
     for char in expression:
@@ -187,6 +198,7 @@ def is_balanced(expression):
                 return False
     return not stack  # jeśli stos jest pusty na koniec, nawiasy są zbalansowane
 
+
 def balans(ciag):
     stos = []
     for i in ciag:
@@ -197,7 +209,7 @@ def balans(ciag):
         else:
             print("Nie ma nawiasow")
     for x in stos:
-        if x =="(":
+        if x == "(":
             if ")" in stos:
                 stos.remove("(")
                 stos.remove(")")
@@ -205,7 +217,7 @@ def balans(ciag):
             #     print("Nnie jest zachowany balan nawiasow")
 
     for x in stos:
-        if x =="[":
+        if x == "[":
             if "]" in stos:
                 stos.remove("[")
                 stos.remove("]")
@@ -214,13 +226,13 @@ def balans(ciag):
 
     for x in stos:
         if "{" in stos:
-            if x =="}":
+            if x == "}":
                 stos.remove("{")
                 stos.remove("}")
             # else:
-                # print("Nnie jest zachowany balan nawiasow")
+            # print("Nnie jest zachowany balan nawiasow")
     # print(f"stos:{stos}")
-    if len(stos)==0:
+    if len(stos) == 0:
         print("balans nawiasow zosatl zachowany")
     else:
         print("balans nawiasow nie zosatl zachowany")
@@ -230,12 +242,11 @@ balans(")([]")
 balans(")([")
 balans(")([}")
 
-
 # Przykład 2: Najdłuższy wspólny podciąg (dynamiczne programowanie)
 # Znajdź długość najdłuższego wspólnego podciągu dla dwóch ciągów znaków.
 
 a = 'abcdef'
-b= 'hhhhhuuuudeffff'
+b = 'hhhhhuuuudeffff'
 
 # for x in a:
 #     if x in b:
@@ -248,20 +259,24 @@ b= 'hhhhhuuuudeffff'
 
 # import copy
 
-lista1 = [0,1,2,3,4,5]
+lista1 = [0, 1, 2, 3, 4, 5]
 suma = 4
-def spr_sume(suma,lista1):
+
+
+def spr_sume(suma, lista1):
     for i in lista1:
         lista2 = []
         # lista2=copy.copy(lista1)
-        lista2 = lista2+lista1
+        lista2 = lista2 + lista1
         lista2.remove(i)
         wartosc = int(suma) - int(i)
         if wartosc in lista2:
             print(f"{suma} rowna sie sumie liczb {i} i {wartosc}")
     print("koniec obliczen")
 
-spr_sume(suma,lista1)
+
+spr_sume(suma, lista1)
+
 
 # trojkat pascala
 #
@@ -271,17 +286,16 @@ spr_sume(suma,lista1)
 #       1    3   3   1
 
 def trojkat(n):
-    for i in range(1,1+n):
-         print(i*"1")
+    for i in range(1, 1 + n):
+        print(i * "1")
+
 
 def trojkat_pascala(n):
     rzad = [1]
     for i in range(n):
         print(rzad)
-        nowy_rzad = [1] + [rzad[j] + rzad[j+1] for j in range (len(rzad)-1)] + [1]
+        nowy_rzad = [1] + [rzad[j] + rzad[j + 1] for j in range(len(rzad) - 1)] + [1]
         rzad = nowy_rzad
-
-
 
 
 trojkat(3)
@@ -292,6 +306,7 @@ trojkat_pascala(5)
 # Napisz funkcję, która zwróci maksymalny element w liście bez użycia wbudowanej funkcji max().
 
 lista = [3, 1, 4, 1, 5, 9]
+
 
 # def znajdz_najwiekszy(lista):
 #     # for i in lista:
@@ -314,10 +329,42 @@ lista = [3, 1, 4, 1, 5, 9]
 def znajdz_max(lista):
     max = lista[0]
     for k in range(1, len(lista)):
-        if lista[k]>max:
-            max=lista[k]
+        if lista[k] > max:
+            max = lista[k]
     print(f"max: {max}")
+
 
 znajdz_max(lista)
 
-##
+
+# Zadanie: Napisz funkcję suma_cyfr(n), która przyjmuje liczbę całkowitą i zwraca sumę jej cyfr (np. dla 123 zwróci 6,
+# bo 1 + 2 + 3 = 6).
+
+def suma_cyfr(n):
+    lista = []
+    dl = len(str(n))
+    for i in range(0, dl):
+        cyfra = str(n)[i]
+        lista.append(cyfra)
+        wynik = 0
+    for n in lista:
+        wynik += int(n)
+    print(wynik)
+
+
+suma_cyfr(123)
+suma_cyfr(15)
+
+#Zadanie: Napisz program, który przyjmuje od użytkownika zdanie, a następnie wyświetla liczbę słów w zdaniu.
+
+def ile_slow_w_zd(n):
+    if len(n)>0:
+        liczba = 1
+        czyste =n.strip()
+        a= czyste.count(" ")
+        liczba+=a
+    print(f"slow w zdanie: {liczba}")
+
+
+ile_slow_w_zd("Ola ma kota.")
+ile_slow_w_zd("  Ola ma kota.")
