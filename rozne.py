@@ -368,3 +368,87 @@ def ile_slow_w_zd(n):
 
 ile_slow_w_zd("Ola ma kota.")
 ile_slow_w_zd("  Ola ma kota.")
+
+# Zadanie: Napisz program, który prosi użytkownika o podanie liczby, a jeśli użytkownik wpisze coś innego,
+# program wyświetla wiadomość o błędzie i prosi o poprawne dane.
+
+while True:
+    try:
+        liczba = input("Podaj liczbe: ")
+    # except liczba is digit:
+    # except liczba.isdigit():
+        if not liczba.isdigit():
+            raise ValueError("To nie jest liczba calkowita")
+    except ValueError:
+        print("Sprobuj jeszcze raz")
+    else:
+        print(f"liczba: {liczba}")
+        break
+    # finally:
+    #     print("KOniec obliczen")
+
+
+# Napisz program, który pobiera od użytkownika listę imion, a następnie wyświetla każde imię z przypisanym do niego
+# numerem porządkowym.
+
+lista_imion = []
+while True:
+    imie = input('''Podaj imie
+(Aby zakonczyc wybierz 1):''')
+    if imie==str(1):
+        break
+    lista_imion.append(imie)
+
+
+for i in enumerate(lista_imion,start=1):
+    print(i)
+
+
+# Funkcje anonimowe i lambdy:
+#
+# Zadanie: Użyj lambda, map i filter, aby w liście liczb [1, 2, 3, 4, 5, 6, 7, 8, 9] znaleźć liczby parzyste, a następnie podnieść je do kwadratu.
+# List Comprehensions:
+#
+# Zadanie: Napisz list comprehension, który wygeneruje listę kwadratów liczb od 1 do 10.
+# Praca z plikami:
+#
+# Zadanie: Napisz program, który tworzy plik tekstowy liczby.txt i zapisuje w nim liczby od 1 do 20. Następnie otwiera plik i wyświetla jego zawartość.
+# Poziom Zaawansowany
+# Klasy i obiekty (OOP):
+#
+# Zadanie: Napisz klasę Samochod, która ma atrybuty marka, model, rok. Klasa powinna mieć metodę opis, która zwraca opis samochodu w formie: "Marka: ... Model: ... Rok: ...".
+# Iteratory i generatory:
+#
+# Zadanie: Napisz generator fib, który generuje liczby Fibonacciego do określonej liczby (np. do 100). Użyj go, aby wypisać liczby Fibonacciego w zakresie do 100.
+# Dekoratory:
+#
+# Zadanie: Napisz dekorator logowanie, który wyświetla informacje o nazwie wywołanej funkcji oraz o jej argumentach. Użyj dekoratora, aby "ozdobić" przykładową funkcję przywitaj(imie).
+# Rekurencja:
+#
+# Zadanie: Napisz funkcję rekurencyjną, która oblicza n-ty element ciągu Fibonacciego.
+# Zaawansowane sortowanie:
+#
+# Zadanie: Napisz program, który sortuje listę słowników według określonego klucza. Lista zawiera słowniki z informacjami o osobach, np.: osoby = [{'imie': 'Adam', 'wiek': 30}, {'imie': 'Ewa', 'wiek': 25}]. Posortuj według wieku.
+# Ekspert: Data Science i Machine Learning (opcjonalne)
+# NumPy – operacje na tablicach:
+#
+# Zadanie: Używając biblioteki NumPy, utwórz macierz 3x3 wypełnioną losowymi liczbami. Następnie znajdź sumę wszystkich elementów w macierzy.
+# Pandas – analiza danych:
+#
+# Zadanie: Utwórz DataFrame z listą danych o pracownikach, np. kolumny "Imię", "Wiek", "Stanowisko". Zastosuj filtrowanie, aby znaleźć wszystkich pracowników w wieku powyżej 30 lat.
+# Wizualizacja – Matplotlib:
+#
+# Zadanie: Stwórz wykres słupkowy pokazujący liczbę osób w różnych grupach wiekowych (np. 20-30, 31-40, 41-50). Skorzystaj z biblioteki Matplotlib.
+# Uczenie maszynowe – klasyfikacja:
+#
+# Zadanie: Użyj scikit-learn do stworzenia prostego modelu klasyfikacyjnego, np. drzewa decyzyjnego, które na podstawie zestawu danych klasyfikuje gatunki kwiatów Iris (korzystając z wbudowanego zestawu danych load_iris).
+# Natural Language Processing (NLP):
+#
+# Zadanie: Użyj nltk do przetworzenia tekstu, np. zdania: "Python jest świetnym językiem!". Przetwórz tekst do formatu tokenów, usuń tzw. "stop words" i wykonaj stemming.
+
+
+# Zadanie: Użyj lambda, map i filter, aby w liście liczb [1, 2, 3, 4, 5, 6, 7, 8, 9] znaleźć liczby parzyste,
+# a następnie podnieść je do kwadratu.
+
+lista= [1, 2, 3, 4, 5, 6, 7, 8, 9]
+lambda x:
