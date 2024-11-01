@@ -1,72 +1,72 @@
 # 1. Odwrócenie ciągu znaków
 # Napisz funkcję, która przyjmuje ciąg znaków i zwraca go odwrócony.
 
-def odw_ciagu(x):
-    print(x[::-1])
-
-
-odw_ciagu("abc")
+# def odw_ciagu(x):
+#     print(x[::-1])
+#
+#
+# odw_ciagu("abc")
 
 
 # Sprawdzenie liczby pierwszej
 # Napisz funkcję, która sprawdzi, czy dana liczba jest liczbą pierwszą.
 
-def czy_parzysta(y):
-    if y % 2 == 0:
-        print(f"Liczba {y} jest liczba parzysta.")
-    else:
-        print(f"Liczba {y} nie jest liczba parzysta.")
+# def czy_parzysta(y):
+#     if y % 2 == 0:
+#         print(f"Liczba {y} jest liczba parzysta.")
+#     else:
+#         print(f"Liczba {y} nie jest liczba parzysta.")
+#
+#
+# czy_parzysta(4)
+# czy_parzysta(5)
 
 
-czy_parzysta(4)
-czy_parzysta(5)
-
-
-def czy_pierwsza(z):
-    lista = []
-    a = 1
-    while a <= z:
-        if z % a == 0:
-            lista.append(a)
-        a += 1
-    if len(lista) == 2:
-        print(f"{z}:pierwsza")
-    else:
-        print(f"{z}:nie jest pierwsza")
-
-
-czy_pierwsza(3)
-czy_pierwsza(4)
-czy_pierwsza(20)
-czy_pierwsza(23)
+# def czy_pierwsza(z):
+#     lista = []
+#     a = 1
+#     while a <= z:
+#         if z % a == 0:
+#             lista.append(a)
+#         a += 1
+#     if len(lista) == 2:
+#         print(f"{z}:pierwsza")
+#     else:
+#         print(f"{z}:nie jest pierwsza")
+#
+#
+# czy_pierwsza(3)
+# czy_pierwsza(4)
+# czy_pierwsza(20)
+# czy_pierwsza(23)
 
 
 # 3. Suma liczb parzystych
 # Napisz funkcję, która zwraca sumę liczb parzystych z listy.
 
-def suma_parz(i):
-    suma = 0
-    for k in i:
-        if k % 2 == 0:
-            suma += k
-    print(f" suma liczb parz wynosi {suma}")
-
-
-suma_parz([2, 3, 4])
+# def suma_parz(i):
+#     suma = 0
+#     for k in i:
+#         if k % 2 == 0:
+#             suma += k
+#     print(f" suma liczb parz wynosi {suma}")
+#
+#
+# suma_parz([2, 3, 4])
 
 
 # 4. Znajdowanie anagramów
 # Napisz funkcję, która sprawdza, czy dwa ciągi znaków są anagramami.
 
-def czy_anagr(x, y):
-    if sorted(x) == sorted(y):
-        print("anagram")
-    else:
-        print("nie anagram")
-
-
-czy_anagr("ala ma kota", "ale makota")
-czy_anagr("silent", "listen")
+# def czy_anagr(x, y):
+#     if sorted(x) == sorted(y):
+#         print("anagram")
+#     else:
+#         print("nie anagram")
+#
+#
+# czy_anagr("ala ma kota", "ale makota")
+# czy_anagr("silent", "listen")
 
 
 # 5. Zliczanie słów w tekście
@@ -75,21 +75,21 @@ czy_anagr("silent", "listen")
 #  Suma liczb w macierzy
 # Napisz funkcję, która zwraca sumę wszystkich liczb w macierzy 2D.
 
-def suma(matr):
-    suma = 0
-    for row in matr:
-        for i in row:
-            suma += i
-    print(f"suma macierzy wynios: {suma}")
-
-
-matr = [
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9]
-]
-
-suma(matr)
+# def suma(matr):
+#     suma = 0
+#     for row in matr:
+#         for i in row:
+#             suma += i
+#     print(f"suma macierzy wynios: {suma}")
+#
+#
+# matr = [
+#     [1, 2, 3],
+#     [4, 5, 6],
+#     [7, 8, 9]
+# ]
+#
+# suma(matr)
 
 # 7. Fibonacci – dynamiczne programowanie
 # Napisz funkcję, która zwraca n-ty element ciągu Fibonacciego, wykorzystując dynamiczne programowanie.
@@ -97,21 +97,21 @@ suma(matr)
 # 8. Sortowanie zliczające (Counting Sort)
 # Napisz funkcję, która implementuje algorytm sortowania zliczającego.
 
-lista = ['ada', 'adam', 'ola', 'ada', 'ada', 'adam']
-
-
-def zlicz(lista):
-    lista2 = []
-    for i in lista:
-        ilosc = lista.count(i)
-        a = f"{i}:{ilosc}"
-        lista2.append(a)
-        # if a not in lista2
-    dupp_usun = set(lista2)
-    return dupp_usun
-
-
-print(zlicz(lista))
+# lista = ['ada', 'adam', 'ola', 'ada', 'ada', 'adam']
+#
+#
+# def zlicz(lista):
+#     lista2 = []
+#     for i in lista:
+#         ilosc = lista.count(i)
+#         a = f"{i}:{ilosc}"
+#         lista2.append(a)
+#         # if a not in lista2
+#     dupp_usun = set(lista2)
+#     return dupp_usun
+#
+#
+# print(zlicz(lista))
 
 # 9. Znajdowanie najdłuższego wspólnego prefiksu WROCIC
 # Napisz funkcję, która znajduje najdłuższy wspólny prefiks z listy ciągów znaków.
@@ -134,31 +134,31 @@ print(zlicz(lista))
 # 8. Funkcje i praca z plikami
 # Zadanie: Napisz funkcję, która odczytuje plik tekstowy i zwraca liczbę linii w tym pliku.
 
-with open('rozne_txt.csv', 'r') as text:
-    odczyt = text.readlines()
-    print(odczyt)
-    # print(odczyt.index(','))
-    print(len(odczyt))
+# with open('rozne_txt.csv', 'r') as text:
+#     odczyt = text.readlines()
+#     print(odczyt)
+#     # print(odczyt.index(','))
+#     print(len(odczyt))
 
 
 # 9. Obsługa wyjątków
 # Zadanie: Napisz funkcję, która dzieli dwie liczby, ale obsługuje wyjątek, gdy użytkownik podzieli przez zero.
 
-def podziel(a, b):
-    try:
-        wynik = a / b
-        # return wynik
-    except ZeroDivisionError:
-        print("Nie dzieli sie przes zero")
-    else:
-        print("dobrze ze pamietales ze nie dzielimy przez sero")
-        print(f"wynik:{wynik}")
-    finally:
-        print("koniec obliczen")
-
-
-podziel(4, 2)
-podziel(5, 0)
+# def podziel(a, b):
+#     try:
+#         wynik = a / b
+#         # return wynik
+#     except ZeroDivisionError:
+#         print("Nie dzieli sie przes zero")
+#     else:
+#         print("dobrze ze pamietales ze nie dzielimy przez sero")
+#         print(f"wynik:{wynik}")
+#     finally:
+#         print("koniec obliczen")
+#
+#
+# podziel(4, 2)
+# podziel(5, 0)
 
 
 #################  STOS   ################
@@ -167,86 +167,86 @@ podziel(5, 0)
 
 # python
 # Skopiuj kod
-def is_balanced(expression):
-    stack = []
-    for char in expression:
-        if char in "({[":
-            stack.append(char)
-        elif char in ")}]":
-            if not stack:
-                return False
-            top = stack.pop()
-            if not ((top == '(' and char == ')') or
-                    (top == '{' and char == '}') or
-                    (top == '[' and char == ']')):
-                return False
-    return not stack
+# def is_balanced(expression):
+#     stack = []
+#     for char in expression:
+#         if char in "({[":
+#             stack.append(char)
+#         elif char in ")}]":
+#             if not stack:
+#                 return False
+#             top = stack.pop()
+#             if not ((top == '(' and char == ')') or
+#                     (top == '{' and char == '}') or
+#                     (top == '[' and char == ']')):
+#                 return False
+#     return not stack
+#
+#
+# def is_balanced(expression):
+#     stack = []  # stos do przechowywania otwierających nawiasów
+#     for char in expression:
+#         if char in "({[":  # sprawdzamy otwierające nawiasy
+#             stack.append(char)
+#         elif char in ")}]":  # sprawdzamy zamykające nawiasy
+#             if not stack:  # jeśli stos jest pusty, to mamy błąd
+#                 return False
+#             top = stack.pop()  # zdejmujemy ostatni otwierający nawias
+#             if not ((top == '(' and char == ')') or
+#                     (top == '{' and char == '}') or
+#                     (top == '[' and char == ']')):  # sprawdzamy dopasowanie par
+#                 return False
+#     return not stack  # jeśli stos jest pusty na koniec, nawiasy są zbalansowane
 
 
-def is_balanced(expression):
-    stack = []  # stos do przechowywania otwierających nawiasów
-    for char in expression:
-        if char in "({[":  # sprawdzamy otwierające nawiasy
-            stack.append(char)
-        elif char in ")}]":  # sprawdzamy zamykające nawiasy
-            if not stack:  # jeśli stos jest pusty, to mamy błąd
-                return False
-            top = stack.pop()  # zdejmujemy ostatni otwierający nawias
-            if not ((top == '(' and char == ')') or
-                    (top == '{' and char == '}') or
-                    (top == '[' and char == ']')):  # sprawdzamy dopasowanie par
-                return False
-    return not stack  # jeśli stos jest pusty na koniec, nawiasy są zbalansowane
-
-
-def balans(ciag):
-    stos = []
-    for i in ciag:
-        if i in "({[":
-            stos.append(i)
-        elif i in ")}]":
-            stos.append(i)
-        else:
-            print("Nie ma nawiasow")
-    for x in stos:
-        if x == "(":
-            if ")" in stos:
-                stos.remove("(")
-                stos.remove(")")
-            # else:
-            #     print("Nnie jest zachowany balan nawiasow")
-
-    for x in stos:
-        if x == "[":
-            if "]" in stos:
-                stos.remove("[")
-                stos.remove("]")
-            # else:
-            #     print("Nnie jest zachowany balan nawiasow")
-
-    for x in stos:
-        if "{" in stos:
-            if x == "}":
-                stos.remove("{")
-                stos.remove("}")
-            # else:
-            # print("Nnie jest zachowany balan nawiasow")
-    # print(f"stos:{stos}")
-    if len(stos) == 0:
-        print("balans nawiasow zosatl zachowany")
-    else:
-        print("balans nawiasow nie zosatl zachowany")
-
-
-balans(")([]")
-balans(")([")
-balans(")([}")
+# def balans(ciag):
+#     stos = []
+#     for i in ciag:
+#         if i in "({[":
+#             stos.append(i)
+#         elif i in ")}]":
+#             stos.append(i)
+#         else:
+#             print("Nie ma nawiasow")
+#     for x in stos:
+#         if x == "(":
+#             if ")" in stos:
+#                 stos.remove("(")
+#                 stos.remove(")")
+#             # else:
+#             #     print("Nnie jest zachowany balan nawiasow")
+#
+#     for x in stos:
+#         if x == "[":
+#             if "]" in stos:
+#                 stos.remove("[")
+#                 stos.remove("]")
+#             # else:
+#             #     print("Nnie jest zachowany balan nawiasow")
+#
+#     for x in stos:
+#         if "{" in stos:
+#             if x == "}":
+#                 stos.remove("{")
+#                 stos.remove("}")
+#             # else:
+#             # print("Nnie jest zachowany balan nawiasow")
+#     # print(f"stos:{stos}")
+#     if len(stos) == 0:
+#         print("balans nawiasow zosatl zachowany")
+#     else:
+#         print("balans nawiasow nie zosatl zachowany")
+#
+#
+# balans(")([]")
+# balans(")([")
+# balans(")([}")
 
 # Przykład 2: Najdłuższy wspólny podciąg (dynamiczne programowanie)
 # Znajdź długość najdłuższego wspólnego podciągu dla dwóch ciągów znaków.
 
-a = 'abcdef'
-b = 'hhhhhuuuudeffff'
+# a = 'abcdef'
+# b = 'hhhhhuuuudeffff'
 
 # for x in a:
 #     if x in b:
@@ -259,23 +259,23 @@ b = 'hhhhhuuuudeffff'
 
 # import copy
 
-lista1 = [0, 1, 2, 3, 4, 5]
-suma = 4
-
-
-def spr_sume(suma, lista1):
-    for i in lista1:
-        lista2 = []
-        # lista2=copy.copy(lista1)
-        lista2 = lista2 + lista1
-        lista2.remove(i)
-        wartosc = int(suma) - int(i)
-        if wartosc in lista2:
-            print(f"{suma} rowna sie sumie liczb {i} i {wartosc}")
-    print("koniec obliczen")
-
-
-spr_sume(suma, lista1)
+# lista1 = [0, 1, 2, 3, 4, 5]
+# suma = 4
+#
+#
+# def spr_sume(suma, lista1):
+#     for i in lista1:
+#         lista2 = []
+#         # lista2=copy.copy(lista1)
+#         lista2 = lista2 + lista1
+#         lista2.remove(i)
+#         wartosc = int(suma) - int(i)
+#         if wartosc in lista2:
+#             print(f"{suma} rowna sie sumie liczb {i} i {wartosc}")
+#     print("koniec obliczen")
+#
+#
+# spr_sume(suma, lista1)
 
 
 # trojkat pascala
@@ -285,22 +285,22 @@ spr_sume(suma, lista1)
 #         1    2   1
 #       1    3   3   1
 
-def trojkat(n):
-    for i in range(1, 1 + n):
-        print(i * "1")
-
-
-def trojkat_pascala(n):
-    rzad = [1]
-    for i in range(n):
-        print(rzad)
-        nowy_rzad = [1] + [rzad[j] + rzad[j + 1] for j in range(len(rzad) - 1)] + [1]
-        rzad = nowy_rzad
-
-
-trojkat(3)
-trojkat_pascala(3)
-trojkat_pascala(5)
+# def trojkat(n):
+#     for i in range(1, 1 + n):
+#         print(i * "1")
+#
+#
+# def trojkat_pascala(n):
+#     rzad = [1]
+#     for i in range(n):
+#         print(rzad)
+#         nowy_rzad = [1] + [rzad[j] + rzad[j + 1] for j in range(len(rzad) - 1)] + [1]
+#         rzad = nowy_rzad
+#
+#
+# trojkat(3)
+# trojkat_pascala(3)
+# trojkat_pascala(5)
 
 # Znajdowanie maksimum w liście
 # Napisz funkcję, która zwróci maksymalny element w liście bez użycia wbudowanej funkcji max().
@@ -326,82 +326,82 @@ lista = [3, 1, 4, 1, 5, 9]
 #
 # znajdz_najwiekszy(lista)
 
-def znajdz_max(lista):
-    max = lista[0]
-    for k in range(1, len(lista)):
-        if lista[k] > max:
-            max = lista[k]
-    print(f"max: {max}")
-
-
-znajdz_max(lista)
+# def znajdz_max(lista):
+#     max = lista[0]
+#     for k in range(1, len(lista)):
+#         if lista[k] > max:
+#             max = lista[k]
+#     print(f"max: {max}")
+#
+#
+# znajdz_max(lista)
 
 
 # Zadanie: Napisz funkcję suma_cyfr(n), która przyjmuje liczbę całkowitą i zwraca sumę jej cyfr (np. dla 123 zwróci 6,
 # bo 1 + 2 + 3 = 6).
 
-def suma_cyfr(n):
-    lista = []
-    dl = len(str(n))
-    for i in range(0, dl):
-        cyfra = str(n)[i]
-        lista.append(cyfra)
-        wynik = 0
-    for n in lista:
-        wynik += int(n)
-    print(wynik)
-
-
-suma_cyfr(123)
-suma_cyfr(15)
+# def suma_cyfr(n):
+#     lista = []
+#     dl = len(str(n))
+#     for i in range(0, dl):
+#         cyfra = str(n)[i]
+#         lista.append(cyfra)
+#         wynik = 0
+#     for n in lista:
+#         wynik += int(n)
+#     print(wynik)
+#
+#
+# suma_cyfr(123)
+# suma_cyfr(15)
 
 #Zadanie: Napisz program, który przyjmuje od użytkownika zdanie, a następnie wyświetla liczbę słów w zdaniu.
 
-def ile_slow_w_zd(n):
-    if len(n)>0:
-        liczba = 1
-        czyste =n.strip()
-        a= czyste.count(" ")
-        liczba+=a
-    print(f"slow w zdanie: {liczba}")
-
-
-ile_slow_w_zd("Ola ma kota.")
-ile_slow_w_zd("  Ola ma kota.")
+# def ile_slow_w_zd(n):
+#     if len(n)>0:
+#         liczba = 1
+#         czyste =n.strip()
+#         a= czyste.count(" ")
+#         liczba+=a
+#     print(f"slow w zdanie: {liczba}")
+#
+#
+# ile_slow_w_zd("Ola ma kota.")
+# ile_slow_w_zd("  Ola ma kota.")
 
 # Zadanie: Napisz program, który prosi użytkownika o podanie liczby, a jeśli użytkownik wpisze coś innego,
 # program wyświetla wiadomość o błędzie i prosi o poprawne dane.
 
-while True:
-    try:
-        liczba = input("Podaj liczbe: ")
-    # except liczba is digit:
-    # except liczba.isdigit():
-        if not liczba.isdigit():
-            raise ValueError("To nie jest liczba calkowita")
-    except ValueError:
-        print("Sprobuj jeszcze raz")
-    else:
-        print(f"liczba: {liczba}")
-        break
-    # finally:
-    #     print("KOniec obliczen")
+# while True:
+#     try:
+#         liczba = input("Podaj liczbe: ")
+#     # except liczba is digit:
+#     # except liczba.isdigit():
+#         if not liczba.isdigit():
+#             raise ValueError("To nie jest liczba calkowita")
+#     except ValueError:
+#         print("Sprobuj jeszcze raz")
+#     else:
+#         print(f"liczba: {liczba}")
+#         break
+#     # finally:
+#     #     print("KOniec obliczen")
 
 
 # Napisz program, który pobiera od użytkownika listę imion, a następnie wyświetla każde imię z przypisanym do niego
 # numerem porządkowym.
 
-lista_imion = []
-while True:
-    imie = input('''Podaj imie
-(Aby zakonczyc wybierz 1):''')
-    if imie==str(1):
-        break
-    lista_imion.append(imie)
-
-
-for i in enumerate(lista_imion,start=1):
-    print(i)
+# lista_imion = []
+# while True:
+#     imie = input('''Podaj imie
+# (Aby zakonczyc wybierz 1):''')
+#     if imie==str(1):
+#         break
+#     lista_imion.append(imie)
+#
+#
+# for i in enumerate(lista_imion,start=1):
+#     print(i)
 
 
 # Funkcje anonimowe i lambdy:
@@ -447,8 +447,52 @@ for i in enumerate(lista_imion,start=1):
 # Zadanie: Użyj nltk do przetworzenia tekstu, np. zdania: "Python jest świetnym językiem!". Przetwórz tekst do formatu tokenów, usuń tzw. "stop words" i wykonaj stemming.
 
 
+
+# Zadanie:
+# Napisz program, który przyjmuje zdanie od użytkownika, a następnie wypisuje każdą literę tego zdania wraz z jej pozycją
+# w tekście. Numerowanie liter powinno zaczynać się od 1, a spacje należy pominąć.
+
+# tekst = input("Podaj zdanie: ")
+# # tekst2 = tekst.strip(" ")
+# tekst2 = tekst.replace(" ","")
+# print(tekst2)
+# print(list((enumerate(tekst2, 1))))
+#
+# for i,j in enumerate(tekst2,1):
+#     print(f"{i} : {j}")
+
+
 # Zadanie: Użyj lambda, map i filter, aby w liście liczb [1, 2, 3, 4, 5, 6, 7, 8, 9] znaleźć liczby parzyste,
 # a następnie podnieść je do kwadratu.
 
-lista= [1, 2, 3, 4, 5, 6, 7, 8, 9]
-lambda x:
+# lista= [1, 2, 3, 4, 5, 6, 7, 8, 9]
+# # lambda x: x^x
+# # filter(x%2==0)
+# # map(lambda x: x^x),filter(x%2==0))
+#
+# parzyste = filter(lambda x: x%2==0,lista)
+# kwadrat = list(map(lambda x: x**2, parzyste))
+#
+# print(kwadrat)
+
+# List Comprehensions:
+# Zadanie: Napisz list comprehension, który wygeneruje listę kwadratów liczb od 1 do 10.
+
+# kwad = [x**2 for x in range(1,11)]
+# print(kwad)
+
+# Praca z plikami:
+# Zadanie: Napisz program, który tworzy plik tekstowy liczby.txt i zapisuje w nim liczby od 1 do 20. Następnie otwiera
+# plik i wyświetla jego zawartość.
+
+liczby = "liczby"
+# for x in range (1,21):
+#     lista.append(x)
+
+with open("liczby.txt","w") as ft:
+    ft.write(liczby)
+
+with open("liczby.txt","r") as ft:
+    ft.read()
+
+
