@@ -355,7 +355,7 @@ lista = [3, 1, 4, 1, 5, 9]
 # suma_cyfr(123)
 # suma_cyfr(15)
 
-#Zadanie: Napisz program, który przyjmuje od użytkownika zdanie, a następnie wyświetla liczbę słów w zdaniu.
+# Zadanie: Napisz program, który przyjmuje od użytkownika zdanie, a następnie wyświetla liczbę słów w zdaniu.
 
 # def ile_slow_w_zd(n):
 #     if len(n)>0:
@@ -447,7 +447,6 @@ lista = [3, 1, 4, 1, 5, 9]
 # Zadanie: Użyj nltk do przetworzenia tekstu, np. zdania: "Python jest świetnym językiem!". Przetwórz tekst do formatu tokenów, usuń tzw. "stop words" i wykonaj stemming.
 
 
-
 # Zadanie:
 # Napisz program, który przyjmuje zdanie od użytkownika, a następnie wypisuje każdą literę tego zdania wraz z jej pozycją
 # w tekście. Numerowanie liter powinno zaczynać się od 1, a spacje należy pominąć.
@@ -485,14 +484,57 @@ lista = [3, 1, 4, 1, 5, 9]
 # Zadanie: Napisz program, który tworzy plik tekstowy liczby.txt i zapisuje w nim liczby od 1 do 20. Następnie otwiera
 # plik i wyświetla jego zawartość.
 
-liczby = "liczby"
-# for x in range (1,21):
-#     lista.append(x)
+# liczby = "liczby"
+# # for x in range (1,21):
+# #     lista.append(x)
+#
+# with open("liczby.txt","w") as ft:
+#     ft.write(liczby)
+#
+# with open("liczby.txt","w") as ft:
+#     for x in range(1,21):
+#         ft.write(str(x))
+#         ft.write("\n")
+#
+#
+# with open("liczby.txt","r") as ft:
+#     zawartosc = ft.read()
+#     print(zawartosc)
 
-with open("liczby.txt","w") as ft:
-    ft.write(liczby)
+# Klasy i obiekty (OOP):
+# Zadanie: Napisz klasę Samochod, która ma atrybuty marka, model, rok. Klasa powinna mieć metodę opis, która zwraca opis
+# samochodu w formie: "Marka: ... Model: ... Rok: ...".
 
-with open("liczby.txt","r") as ft:
-    ft.read()
+# class Samochod:
+#     def __init__(self, marka, model, rok):
+#         if __name__ == '__main__':
+#             self.marka = marka
+#             self.model = model
+#             self.rok = rok
+#
+#     def opis(self):
+#         print(f"Marka: {self.marka} Model: {self.model} Rok: {self.rok}")
+#
+#
+# o1 = Samochod("Audi", "A1", 2000)
+# o1.opis()
 
+# Dekoratory:
+# Zadanie: Napisz dekorator logowanie, który wyświetla informacje o nazwie wywołanej funkcji oraz o jej argumentach.
+# Użyj dekoratora, aby "ozdobić" przykładową funkcję przywitaj(imie).
+
+class Osoba:
+    def __init__(self, imie):
+        self.imie = imie
+
+    def logowanie(funkcja):
+        print(f" Argumenty: {self.imie}")
+    @logowanie
+    def Przywitaj(self):
+        print(f"Witaj {self.imie}")
+
+
+
+o2 = Osoba("ola")
+o2.przywitaj()
 
