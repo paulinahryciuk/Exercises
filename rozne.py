@@ -523,18 +523,55 @@ lista = [3, 1, 4, 1, 5, 9]
 # Zadanie: Napisz dekorator logowanie, który wyświetla informacje o nazwie wywołanej funkcji oraz o jej argumentach.
 # Użyj dekoratora, aby "ozdobić" przykładową funkcję przywitaj(imie).
 
-class Osoba:
-    def __init__(self, imie):
-        self.imie = imie
 
-    def logowanie(funkcja):
-        print(f" Argumenty: {self.imie}")
-    @logowanie
-    def Przywitaj(self):
-        print(f"Witaj {self.imie}")
+# def logowanie(funkcja):
+#     print(f" Argumenty: {self.imie}")
+#
+#
+# class Osoba:
+#     def __init__(self, imie):
+#         self.imie = imie
+#
+#
+#     @logowanie
+#     def Przywitaj(self):
+#         print(f"Witaj {self.imie}")
+#
+#
+#
+# o2 = Osoba("ola")
+# o2.przywitaj()
 
 
+# Zadanie:
+# Z danej listy liczb [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] wybierz tylko liczby podzielne przez 3, a następnie oblicz
+# ich sześciany.
 
-o2 = Osoba("ola")
-o2.przywitaj()
+# liczby = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+# podzielne = list(filter(lambda x: x%3==0, liczby))
+# print(podzielne)
+# wynik = list(map(lambda x: x**3,podzielne))
+# print(wynik)
+#
+# nowa = [x**3 for x in liczby if x%3==0]
+# print(nowa)
+
+# Zadanie:
+# Stwórz słownik, który zawiera imiona jako klucze oraz ich wiek jako wartości. Następnie napisz program, który:
+# Wyświetli wszystkie imiona osób starszych niż 18 lat.
+# Doda nową osobę do słownika i wyświetli zaktualizowaną listę osób.
+
+osoby = {"ALa":20, "Adam":30, "Ola":15}
+# if osoby.values>18:
+#     print(osoby.items())
+
+for j,k in osoby.items():
+    if k >18:
+        print(j)
+
+osoby["Jan"]=25
+print(osoby.keys())
+
+# nowa = [i for i,j in osoby.items if j>18]
+# print(nowa)
 
