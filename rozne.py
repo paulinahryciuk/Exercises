@@ -575,3 +575,56 @@ print(osoby.keys())
 # nowa = [i for i,j in osoby.items if j>18]
 # print(nowa)
 
+# Zadanie:
+# Masz słownik z ocenami uczniów, gdzie klucz to imię ucznia, a wartość to lista ocen. Napisz program, który:
+#
+# Obliczy średnią ocen dla każdego ucznia i zapisze te wartości w nowym słowniku.
+# Wyświetli imiona uczniów, którzy mają średnią ocen wyższą niż 4.0.
+
+dziennk={
+"Ala":[5,5,5,5],
+"Iga":[4,4,3,3],
+"Olaf":[6,5,4]
+}
+
+def policz_srednia(x):
+    suma = 0
+    # for i in dziennk.get(x):
+    for i in dziennk[x]:
+        suma+=int(i)
+    srednia = suma/len(dziennk.get(x))
+    print(f"Srenia {x} wynosi: {srednia}")
+
+policz_srednia('Ala')
+policz_srednia('Olaf')
+
+# Masz dwie listy: imiona uczniów oraz ich oceny końcowe. Napisz program, który połączy te dwie listy w słownik,
+# gdzie imię ucznia jest kluczem, a jego ocena wartością. Użyj funkcji zip.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
