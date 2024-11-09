@@ -601,7 +601,11 @@ policz_srednia('Olaf')
 # Masz dwie listy: imiona uczniów oraz ich oceny końcowe. Napisz program, który połączy te dwie listy w słownik,
 # gdzie imię ucznia jest kluczem, a jego ocena wartością. Użyj funkcji zip.
 
+imiona = ["Ania", "Jan", "Ola", "Marek"]
+oceny = [5, 4, 3, 5]
 
+baza = dict(zip(imiona,oceny))
+print(baza)
 
 
 
