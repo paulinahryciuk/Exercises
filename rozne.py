@@ -307,6 +307,7 @@
 
 lista = [3, 1, 4, 1, 5, 9]
 
+
 # def znajdz_najwiekszy(lista):
 #     # for i in lista:
 #     #     for k in range(0,(len(lista)-2)):
@@ -560,16 +561,16 @@ lista = [3, 1, 4, 1, 5, 9]
 # Wyświetli wszystkie imiona osób starszych niż 18 lat.
 # Doda nową osobę do słownika i wyświetli zaktualizowaną listę osób.
 
-osoby = {"ALa": 20, "Adam": 30, "Ola": 15}
-# if osoby.values>18:
-#     print(osoby.items())
-
-for j, k in osoby.items():
-    if k > 18:
-        print(j)
-
-osoby["Jan"] = 25
-print(osoby.keys())
+# osoby = {"ALa": 20, "Adam": 30, "Ola": 15}
+# # if osoby.values>18:
+# #     print(osoby.items())
+#
+# for j, k in osoby.items():
+#     if k > 18:
+#         print(j)
+#
+# osoby["Jan"] = 25
+# print(osoby.keys())
 
 # nowa = [i for i,j in osoby.items if j>18]
 # print(nowa)
@@ -580,33 +581,33 @@ print(osoby.keys())
 # Obliczy średnią ocen dla każdego ucznia i zapisze te wartości w nowym słowniku.
 # Wyświetli imiona uczniów, którzy mają średnią ocen wyższą niż 4.0.
 
-dziennk = {
-    "Ala": [5, 5, 5, 5],
-    "Iga": [4, 4, 3, 3],
-    "Olaf": [6, 5, 4]
-}
-
-
-def policz_srednia(x):
-    suma = 0
-    # for i in dziennk.get(x):
-    for i in dziennk[x]:
-        suma += int(i)
-    srednia = suma / len(dziennk.get(x))
-    print(f"Srenia {x} wynosi: {srednia}")
-
-
-policz_srednia('Ala')
-policz_srednia('Olaf')
+# dziennk = {
+#     "Ala": [5, 5, 5, 5],
+#     "Iga": [4, 4, 3, 3],
+#     "Olaf": [6, 5, 4]
+# }
+#
+#
+# def policz_srednia(x):
+#     suma = 0
+#     # for i in dziennk.get(x):
+#     for i in dziennk[x]:
+#         suma += int(i)
+#     srednia = suma / len(dziennk.get(x))
+#     print(f"Srenia {x} wynosi: {srednia}")
+#
+#
+# policz_srednia('Ala')
+# policz_srednia('Olaf')
 
 # Masz dwie listy: imiona uczniów oraz ich oceny końcowe. Napisz program, który połączy te dwie listy w słownik,
 # gdzie imię ucznia jest kluczem, a jego ocena wartością. Użyj funkcji zip.
 
-imiona = ["Ania", "Jan", "Ola", "Marek"]
-oceny = [5, 4, 3, 5]
-
-baza = dict(zip(imiona, oceny))
-print(baza)
+# imiona = ["Ania", "Jan", "Ola", "Marek"]
+# oceny = [5, 4, 3, 5]
+#
+# baza = dict(zip(imiona, oceny))
+# print(baza)
 
 # Zadanie:
 # Napisz program, który prosi użytkownika o podanie liczby i dzieli 100 przez tę liczbę. Obsłuż przypadki, gdy:
@@ -615,17 +616,17 @@ print(baza)
 # Użytkownik poda 0, co spowoduje błąd dzielenia przez zero (ZeroDivisionError).
 
 
-liczba = input('Podaj liczbe: ')
-try:
-    wynik = 100 / int(liczba)
-except ValueError:
-    print("nie podales liczbu")
-except ZeroDivisionError:
-    print("nie dzielimy przez 0")
-else:
-    print(f"wynokL {wynik}")
-finally:
-    print("KOniec obliczen")
+# liczba = input('Podaj liczbe: ')
+# try:
+#     wynik = 100 / int(liczba)
+# except ValueError:
+#     print("nie podales liczbu")
+# except ZeroDivisionError:
+#     print("nie dzielimy przez 0")
+# else:
+#     print(f"wynokL {wynik}")
+# finally:
+#     print("KOniec obliczen")
 
 
 # Zadanie:
@@ -634,13 +635,29 @@ finally:
 # Wypisać sumę wszystkich argumentów pozycyjnych.
 # Wyświetlić wszystkie argumenty nazwane w formacie klucz: wartość.
 
-def policz_sume(*args, **kwargs):
-    wynik = sum(args)
-    print(f"suma wynosi: {wynik}")
-def wyswietl(kwargs):
-    for k,v in kwargs.itemas:
-        print(k,v)
+# def policz_sume(*args, **kwargs):
+#     wynik = sum(args)
+#     print(f"suma wynosi: {wynik}")
+# def wyswietl(*args, **kwargs):
+#     for k,v in kwargs.items():
+#         print(f"{k} : {v}")
+#
+#
+# policz_sume(2,4,6,a=3, b=7)
+# wyswietl(2,4,6,a=3, b=7)
+
+# Zadanie:
+# Napisz funkcję, która przyjmuje dowolną liczbę argumentów pozycyjnych (*args) i nazwanych (**kwargs). Funkcja powinna:
+#
+# Pomnożyć wszystkie argumenty pozycyjne.
+# Sprawdzić, czy w argumentach nazwanych (**kwargs) znajduje się klucz o nazwie "dzielnik". Jeśli tak, to podziel wynik
+# mnożenia przez tę wartość i zwróć wynik dzielenia. Jeśli klucz nie istnieje, zwróć wynik mnożenia bez dzielenia.
+
+def dzialania(*args, **kwargs):
+    mnozenie = 1
+    for i in args.items():
+        wynik = mnozenie * i
+    print(f"wynik dzielenia to: {wynik}")
 
 
-policz_sume(2,4,6,a=3, b=7)
-wyswietl(2,4,6,a=3, b=7)
+dzialania(2, 5, 6, a=5)
