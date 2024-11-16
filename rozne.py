@@ -655,9 +655,33 @@ lista = [3, 1, 4, 1, 5, 9]
 
 def dzialania(*args, **kwargs):
     mnozenie = 1
-    for i in args.items():
-        wynik = mnozenie * i
-    print(f"wynik dzielenia to: {wynik}")
-
+    dzielenie =1
+    for i in args:
+        mnozenie *= i
+    # print(f"wynik mnozenia to: {wynik}")
+    #     for k in kwargs.keys():
+    #         if k == 'dzielnik':
+    #             wynik_final = wynik / kwargs[k]
+    #             print(f"wynik dzialania to: {wynik_final}")
+    #         else:
+    #             print(f"wynik mnozenia to: {wynik}")
+    if 'dzielnik' in kwargs.keys():
+        dzielenie=mnozenie/kwargs["dzielnik"]
+        print(f"wynik dzialania to: {dzielenie}")
+    else:
+        print(f"wynik mnozenia to: {mnozenie}")
 
 dzialania(2, 5, 6, a=5)
+dzialania(2, 5, 6, a=5, dzielnik=10)
+
+# Zadanie:
+# Napisz program, który korzysta z funkcji reduce, aby:
+# Obliczyć iloczyn wszystkich liczb w podanej liście.
+# Znaleźć największą liczbę w tej liście.
+
+lista = [2,3,6,9,2]
+from functools import reduce
+
+iloczyn = reduce(lambda a,b:a*b,lista)
+print(iloczyn)
+max = reduce(lambda a,b:a if a>b,else b,lista)
