@@ -684,4 +684,23 @@ from functools import reduce
 
 iloczyn = reduce(lambda a,b:a*b,lista)
 print(iloczyn)
-max = reduce(lambda a,b:a if a>b,else b,lista)
+max = reduce(lambda a,b:a if a>b else b,lista)
+print(f"max: {max}")
+
+# Zadanie:
+# Napisz dekorator, który zwiększa wartość wyniku o 10.
+
+def zwiekszacz(funk):
+    def wrapper(*args, **kwargs):
+        result= funk(*args, **kwargs)
+        return result +10
+    return wrapper
+
+@zwiekszacz
+def suma(a,b):
+    wynik = a+b
+    return wynik
+
+
+print(suma(1, 2))
+
