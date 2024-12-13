@@ -655,7 +655,7 @@ lista = [3, 1, 4, 1, 5, 9]
 
 def dzialania(*args, **kwargs):
     mnozenie = 1
-    dzielenie =1
+    dzielenie = 1
     for i in args:
         mnozenie *= i
     # print(f"wynik mnozenia to: {wynik}")
@@ -666,10 +666,11 @@ def dzialania(*args, **kwargs):
     #         else:
     #             print(f"wynik mnozenia to: {wynik}")
     if 'dzielnik' in kwargs.keys():
-        dzielenie=mnozenie/kwargs["dzielnik"]
+        dzielenie = mnozenie / kwargs["dzielnik"]
         print(f"wynik dzialania to: {dzielenie}")
     else:
         print(f"wynik mnozenia to: {mnozenie}")
+
 
 dzialania(2, 5, 6, a=5)
 dzialania(2, 5, 6, a=5, dzielnik=10)
@@ -679,32 +680,33 @@ dzialania(2, 5, 6, a=5, dzielnik=10)
 # Obliczyć iloczyn wszystkich liczb w podanej liście.
 # Znaleźć największą liczbę w tej liście.
 
-lista = [2,3,6,9,2]
+lista = [2, 3, 6, 9, 2]
 from functools import reduce
 
-iloczyn = reduce(lambda a,b:a*b,lista)
+iloczyn = reduce(lambda a, b: a * b, lista)
 print(iloczyn)
-max = reduce(lambda a,b:a if a>b else b,lista)
+max = reduce(lambda a, b: a if a > b else b, lista)
 print(f"max: {max}")
+
 
 # Zadanie:
 # Napisz dekorator, który zwiększa wartość wyniku o 10.
 
 def zwiekszacz(funk):
     def wrapper(*args, **kwargs):
-        result= funk(*args, **kwargs)
-        return result +10
+        result = funk(*args, **kwargs)
+        return result + 10
+
     return wrapper
 
+
 @zwiekszacz
-def suma(a,b):
-    wynik = a+b
+def suma(a, b):
+    wynik = a + b
     return wynik
 
 
 print(suma(1, 2))
-
-
 
 
 # Zadanie: Odwracanie tekstu
@@ -713,8 +715,10 @@ print(suma(1, 2))
 def odwroc(tskst):
     print(tskst[::-1])
 
+
 a = "ola ma kota"
 odwroc(a)
+
 
 # Zadanie: Liczenie samogłosek w tekście
 # Napisz funkcję, która zlicza liczbę samogłosek w podanym tekście.
@@ -728,20 +732,50 @@ def licz_samogloski(x):
     liczba += x.count('e')
     print(liczba)
 
+
 x = 'ala ma oko'
 licz_samogloski(x)
+
 
 # Rozbuduj funkcję tak, aby zwracała liczbę samogłosek i spółgłosek osobno.
 def licz_spolg_i_samogl(x):
     samogl = 0
     for i in x:
         if i in ("aeiouyąęóAEIOUYĄĘÓ"):
-            samogl+=1
-    litery =0
+            samogl += 1
+    litery = 0
     for i in x:
         if i.isalpha():
-            litery+=1
-    spolgl = litery- samogl
+            litery += 1
+    spolgl = litery - samogl
     print(f" w teksie wystepuje {samogl} samoglosek i {spolgl} spolglosek")
 
+
 licz_spolg_i_samogl('ala ma oko')
+
+
+# Zadanie: System zarządzania kontami bankowymi
+# Napisz klasę KontoBankowe, która będzie symulować proste konto bankowe.
+
+class KontoBankowe:
+    def __init__(self, nr_konta, wlasciciel, saldo):
+        self.nr_konta = nr_konta
+        self.wlasciciel = wlasciciel
+        self.saldo = saldo
+
+    def wplac(self, wplata):
+        self.saldo += wplata
+
+    def wyplac(self, wyplata):
+        if wyplata <= self.saldo:
+            self.saldo -= wyplata
+        else:
+            print("Nie masz wystarczajo srodkow na koncie")
+
+    def wyswietl_info(self):
+        print(f"Wlasicielem konta {self.nr_konta} jest {self.wlasciciel}, saldo wynosi: {self.saldo}")
+
+k1 = KontoBankowe(123456, 'Paula', 2000)
+k1.wplac(1000)
+k1.wyplac(200)
+k1.wyswietl_info()
