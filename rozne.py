@@ -653,129 +653,172 @@ lista = [3, 1, 4, 1, 5, 9]
 # Sprawdzić, czy w argumentach nazwanych (**kwargs) znajduje się klucz o nazwie "dzielnik". Jeśli tak, to podziel wynik
 # mnożenia przez tę wartość i zwróć wynik dzielenia. Jeśli klucz nie istnieje, zwróć wynik mnożenia bez dzielenia.
 
-def dzialania(*args, **kwargs):
-    mnozenie = 1
-    dzielenie = 1
-    for i in args:
-        mnozenie *= i
-    # print(f"wynik mnozenia to: {wynik}")
-    #     for k in kwargs.keys():
-    #         if k == 'dzielnik':
-    #             wynik_final = wynik / kwargs[k]
-    #             print(f"wynik dzialania to: {wynik_final}")
-    #         else:
-    #             print(f"wynik mnozenia to: {wynik}")
-    if 'dzielnik' in kwargs.keys():
-        dzielenie = mnozenie / kwargs["dzielnik"]
-        print(f"wynik dzialania to: {dzielenie}")
-    else:
-        print(f"wynik mnozenia to: {mnozenie}")
-
-
-dzialania(2, 5, 6, a=5)
-dzialania(2, 5, 6, a=5, dzielnik=10)
+# def dzialania(*args, **kwargs):
+#     mnozenie = 1
+#     dzielenie = 1
+#     for i in args:
+#         mnozenie *= i
+#     # print(f"wynik mnozenia to: {wynik}")
+#     #     for k in kwargs.keys():
+#     #         if k == 'dzielnik':
+#     #             wynik_final = wynik / kwargs[k]
+#     #             print(f"wynik dzialania to: {wynik_final}")
+#     #         else:
+#     #             print(f"wynik mnozenia to: {wynik}")
+#     if 'dzielnik' in kwargs.keys():
+#         dzielenie = mnozenie / kwargs["dzielnik"]
+#         print(f"wynik dzialania to: {dzielenie}")
+#     else:
+#         print(f"wynik mnozenia to: {mnozenie}")
+#
+#
+# dzialania(2, 5, 6, a=5)
+# dzialania(2, 5, 6, a=5, dzielnik=10)
 
 # Zadanie:
 # Napisz program, który korzysta z funkcji reduce, aby:
 # Obliczyć iloczyn wszystkich liczb w podanej liście.
 # Znaleźć największą liczbę w tej liście.
 
-lista = [2, 3, 6, 9, 2]
-from functools import reduce
-
-iloczyn = reduce(lambda a, b: a * b, lista)
-print(iloczyn)
-max = reduce(lambda a, b: a if a > b else b, lista)
-print(f"max: {max}")
+# lista = [2, 3, 6, 9, 2]
+# from functools import reduce
+#
+# iloczyn = reduce(lambda a, b: a * b, lista)
+# print(iloczyn)
+# max = reduce(lambda a, b: a if a > b else b, lista)
+# print(f"max: {max}")
 
 
 # Zadanie:
 # Napisz dekorator, który zwiększa wartość wyniku o 10.
 
-def zwiekszacz(funk):
-    def wrapper(*args, **kwargs):
-        result = funk(*args, **kwargs)
-        return result + 10
-
-    return wrapper
-
-
-@zwiekszacz
-def suma(a, b):
-    wynik = a + b
-    return wynik
-
-
-print(suma(1, 2))
-
-
-# Zadanie: Odwracanie tekstu
-# Napisz funkcję, która odwraca podany tekst.
-
-def odwroc(tskst):
-    print(tskst[::-1])
-
-
-a = "ola ma kota"
-odwroc(a)
-
-
-# Zadanie: Liczenie samogłosek w tekście
-# Napisz funkcję, która zlicza liczbę samogłosek w podanym tekście.
-
-def licz_samogloski(x):
-    liczba = 0
-    liczba += x.count('a')
-    liczba += x.count('i')
-    liczba += x.count('o')
-    liczba += x.count('y')
-    liczba += x.count('e')
-    print(liczba)
-
-
-x = 'ala ma oko'
-licz_samogloski(x)
+# def zwiekszacz(funk):
+#     def wrapper(*args, **kwargs):
+#         result = funk(*args, **kwargs)
+#         return result + 10
+#
+#     return wrapper
+#
+#
+# @zwiekszacz
+# def suma(a, b):
+#     wynik = a + b
+#     return wynik
+#
+#
+# print(suma(1, 2))
+#
+#
+# # Zadanie: Odwracanie tekstu
+# # Napisz funkcję, która odwraca podany tekst.
+#
+# def odwroc(tskst):
+#     print(tskst[::-1])
+#
+#
+# a = "ola ma kota"
+# odwroc(a)
+#
+#
+# # Zadanie: Liczenie samogłosek w tekście
+# # Napisz funkcję, która zlicza liczbę samogłosek w podanym tekście.
+#
+# def licz_samogloski(x):
+#     liczba = 0
+#     liczba += x.count('a')
+#     liczba += x.count('i')
+#     liczba += x.count('o')
+#     liczba += x.count('y')
+#     liczba += x.count('e')
+#     print(liczba)
+#
+#
+# x = 'ala ma oko'
+# licz_samogloski(x)
 
 
 # Rozbuduj funkcję tak, aby zwracała liczbę samogłosek i spółgłosek osobno.
-def licz_spolg_i_samogl(x):
-    samogl = 0
-    for i in x:
-        if i in ("aeiouyąęóAEIOUYĄĘÓ"):
-            samogl += 1
-    litery = 0
-    for i in x:
-        if i.isalpha():
-            litery += 1
-    spolgl = litery - samogl
-    print(f" w teksie wystepuje {samogl} samoglosek i {spolgl} spolglosek")
-
-
-licz_spolg_i_samogl('ala ma oko')
+# def licz_spolg_i_samogl(x):
+#     samogl = 0
+#     for i in x:
+#         if i in ("aeiouyąęóAEIOUYĄĘÓ"):
+#             samogl += 1
+#     litery = 0
+#     for i in x:
+#         if i.isalpha():
+#             litery += 1
+#     spolgl = litery - samogl
+#     print(f" w teksie wystepuje {samogl} samoglosek i {spolgl} spolglosek")
+#
+#
+# licz_spolg_i_samogl('ala ma oko')
 
 
 # Zadanie: System zarządzania kontami bankowymi
 # Napisz klasę KontoBankowe, która będzie symulować proste konto bankowe.
 
-class KontoBankowe:
-    def __init__(self, nr_konta, wlasciciel, saldo):
-        self.nr_konta = nr_konta
-        self.wlasciciel = wlasciciel
-        self.saldo = saldo
+# class KontoBankowe:
+#     def __init__(self, nr_konta, wlasciciel, saldo):
+#         self.nr_konta = nr_konta
+#         self.wlasciciel = wlasciciel
+#         self.saldo = saldo
+#
+#     def wplac(self, wplata):
+#         self.saldo += wplata
+#
+#     def wyplac(self, wyplata):
+#         if wyplata <= self.saldo:
+#             self.saldo -= wyplata
+#         else:
+#             print("Nie masz wystarczajo srodkow na koncie")
+#
+#     def wyswietl_info(self):
+#         print(f"Wlasicielem konta {self.nr_konta} jest {self.wlasciciel}, saldo wynosi: {self.saldo}")
+#
+# k1 = KontoBankowe(123456, 'Paula', 2000)
+# k1.wplac(1000)
+# k1.wyplac(200)
+# k1.wyswietl_info()
 
-    def wplac(self, wplata):
-        self.saldo += wplata
+# Zadanie: Zarządzanie pracownikami w firmie
+# Napisz program w Pythonie, który zarządza danymi pracowników w firmie z użyciem klas i dziedziczenia.
 
-    def wyplac(self, wyplata):
-        if wyplata <= self.saldo:
-            self.saldo -= wyplata
-        else:
-            print("Nie masz wystarczajo srodkow na koncie")
+class Pracownik:
+    def __init__(self, imie, nazwisko, wynagrodzenie=3000):
+        self.imie = imie
+        self.nazwisko = nazwisko
+        self.wynagrodzenie = wynagrodzenie
 
-    def wyswietl_info(self):
-        print(f"Wlasicielem konta {self.nr_konta} jest {self.wlasciciel}, saldo wynosi: {self.saldo}")
+    def wyswietl_inf(self):
+        print(f"Pracownik: {self.imie} {self.nazwisko} wynagrodznie: {self.wynagrodzenie}")
 
-k1 = KontoBankowe(123456, 'Paula', 2000)
-k1.wplac(1000)
-k1.wyplac(200)
-k1.wyswietl_info()
+
+class Manager(Pracownik):
+    def __init__(self, imie, nazwisko, wynagrodzenie, dzial):
+        super().__init__(imie, nazwisko, wynagrodzenie)
+        self.dzial = dzial
+
+    def wyswietl_inf(self):
+        print(
+            f"Pracownik: {self.imie} {self.nazwisko} wynagrodznie: {self.wynagrodzenie}, dzial: {self.dzial}")
+
+
+class PracownikGodzinowy(Pracownik):
+    def __init__(self, imie, nazwisko, stawka):
+        super().__init__(imie, nazwisko)
+        self.stawka = stawka
+
+    def oblicz_wyplate(self, godziny):
+       self.wynagrodzenie= godziny * self.stawka
+
+
+    def wyswietl_inf(self):
+        print(f"Pracownik: {self.imie} {self.nazwisko} wynagrodznie: {self.wynagrodzenie}")
+
+p1 = Pracownik('Ala', 'B.')
+p1.wyswietl_inf()
+m1 = Manager("Jan", "z", 5000, 'importu')
+m1.wyswietl_inf()
+g1 = PracownikGodzinowy("Ela",'I.',25)
+g1.oblicz_wyplate(100)
+g1.wyswietl_inf()
