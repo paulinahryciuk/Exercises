@@ -704,3 +704,44 @@ def suma(a,b):
 
 print(suma(1, 2))
 
+
+
+
+# Zadanie: Odwracanie tekstu
+# Napisz funkcję, która odwraca podany tekst.
+
+def odwroc(tskst):
+    print(tskst[::-1])
+
+a = "ola ma kota"
+odwroc(a)
+
+# Zadanie: Liczenie samogłosek w tekście
+# Napisz funkcję, która zlicza liczbę samogłosek w podanym tekście.
+
+def licz_samogloski(x):
+    liczba = 0
+    liczba += x.count('a')
+    liczba += x.count('i')
+    liczba += x.count('o')
+    liczba += x.count('y')
+    liczba += x.count('e')
+    print(liczba)
+
+x = 'ala ma oko'
+licz_samogloski(x)
+
+# Rozbuduj funkcję tak, aby zwracała liczbę samogłosek i spółgłosek osobno.
+def licz_spolg_i_samogl(x):
+    samogl = 0
+    for i in x:
+        if i in ("aeiouyąęóAEIOUYĄĘÓ"):
+            samogl+=1
+    litery =0
+    for i in x:
+        if i.isalpha():
+            litery+=1
+    spolgl = litery- samogl
+    print(f" w teksie wystepuje {samogl} samoglosek i {spolgl} spolglosek")
+
+licz_spolg_i_samogl('ala ma oko')
