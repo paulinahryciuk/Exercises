@@ -792,6 +792,9 @@ class Pracownik:
     def wyswietl_inf(self):
         print(f"Pracownik: {self.imie} {self.nazwisko} wynagrodznie: {self.wynagrodzenie}")
 
+    def podwyzka(self, kwota_podwyzki):
+        self.wynagrodzenie += kwota_podwyzki
+
 
 class Manager(Pracownik):
     def __init__(self, imie, nazwisko, wynagrodzenie, dzial):
@@ -802,6 +805,9 @@ class Manager(Pracownik):
         print(
             f"Pracownik: {self.imie} {self.nazwisko} wynagrodznie: {self.wynagrodzenie}, dzial: {self.dzial}")
 
+    def zmien_dzial(self, nowy_dzial):
+        self.dzial = nowy_dzial
+
 
 class PracownikGodzinowy(Pracownik):
     def __init__(self, imie, nazwisko, stawka):
@@ -809,16 +815,46 @@ class PracownikGodzinowy(Pracownik):
         self.stawka = stawka
 
     def oblicz_wyplate(self, godziny):
-       self.wynagrodzenie= godziny * self.stawka
-
+        self.wynagrodzenie = godziny * self.stawka
 
     def wyswietl_inf(self):
         print(f"Pracownik: {self.imie} {self.nazwisko} wynagrodznie: {self.wynagrodzenie}")
+
 
 p1 = Pracownik('Ala', 'B.')
 p1.wyswietl_inf()
 m1 = Manager("Jan", "z", 5000, 'importu')
 m1.wyswietl_inf()
-g1 = PracownikGodzinowy("Ela",'I.',25)
+g1 = PracownikGodzinowy("Ela", 'I.', 25)
 g1.oblicz_wyplate(100)
 g1.wyswietl_inf()
+m1.zmien_dzial('reklamy')
+m1.wyswietl_inf()
+p1.podwyzka(1000)
+p1.wyswietl_inf()
+# Rozszerzenie 1: Dodanie metod do podwyżek i zmiany danych
+# Dodamy metodę podwyzka w klasie Pracownik oraz metodę zmien_dzial w klasie Manager, aby umożliwić modyfikację atrybutów obiektów.
+
+# Rozszerzenie 2: Klasa do zarządzania zespołem pracowników
+# Dodajmy klasę Firma, która będzie przechowywać listę pracowników i umożliwi zarządzanie nimi, np. dodawanie, usuwanie i wyświetlanie.
+
+class Firma:
+    def __init__(self, nazwa):
+        self.nazwa = nazwa
+        self.lista_pracow = []
+
+    def dodaj(self, pracownik):
+        self.lista_pracow.append(pracownik)
+
+    def usun(self,pracownik):
+        self.lista_pracow.remove(pracownik)
+
+    def wyswietl(self):
+        print(f"aktualna lisat pracownikow firmy {self.nazwa} to:{self.lista_pracow} ")
+
+f1 = Firma('ABC')
+f1.dodaj('Adam')
+f1.dodaj('Ola')
+f1.dodaj('Ala')
+f1.usun("Ola")
+f1.wyswietl()
