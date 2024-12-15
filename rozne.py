@@ -782,79 +782,160 @@ lista = [3, 1, 4, 1, 5, 9]
 
 # Zadanie: Zarządzanie pracownikami w firmie
 # Napisz program w Pythonie, który zarządza danymi pracowników w firmie z użyciem klas i dziedziczenia.
+#
+# class Pracownik:
+#     def __init__(self, imie, nazwisko, wynagrodzenie=3000):
+#         self.imie = imie
+#         self.nazwisko = nazwisko
+#         self.wynagrodzenie = wynagrodzenie
+#
+#     def wyswietl_inf(self):
+#         print(f"Pracownik: {self.imie} {self.nazwisko} wynagrodznie: {self.wynagrodzenie}")
+#
+#     def podwyzka(self, kwota_podwyzki):
+#         self.wynagrodzenie += kwota_podwyzki
+#
+#     def roczne_wynagrodzenie(self):
+#         r_wynag = self.wynagrodzenie * 12
+#         print(f"Roczne wynagrodzenie pracpwnika {self.imie} wynosi : {r_wynag   }")
+#
+#
+# class Manager(Pracownik):
+#     def __init__(self, imie, nazwisko, wynagrodzenie, dzial):
+#         super().__init__(imie, nazwisko, wynagrodzenie)
+#         self.dzial = dzial
+#
+#     def wyswietl_inf(self):
+#         print(
+#             f"Pracownik: {self.imie} {self.nazwisko} wynagrodznie: {self.wynagrodzenie}, dzial: {self.dzial}")
+#
+#     def zmien_dzial(self, nowy_dzial):
+#         self.dzial = nowy_dzial
+#
+#
+# class PracownikGodzinowy(Pracownik):
+#     def __init__(self, imie, nazwisko, stawka):
+#         super().__init__(imie, nazwisko)
+#         self.stawka = stawka
+#
+#     def oblicz_wyplate(self, godziny):
+#         self.wynagrodzenie = godziny * self.stawka
+#
+#     def wyswietl_inf(self):
+#         print(f"Pracownik: {self.imie} {self.nazwisko} wynagrodznie: {self.wynagrodzenie}")
+#
+#
+# p1 = Pracownik('Ala', 'B.')
+# p1.wyswietl_inf()
+# m1 = Manager("Jan", "z", 5000, 'importu')
+# m1.wyswietl_inf()
+# g1 = PracownikGodzinowy("Ela", 'I.', 25)
+# g1.oblicz_wyplate(100)
+# g1.wyswietl_inf()
+# m1.zmien_dzial('reklamy')
+# m1.wyswietl_inf()
+# p1.podwyzka(1000)
+# p1.wyswietl_inf()
+# # Rozszerzenie 1: Dodanie metod do podwyżek i zmiany danych
+# # Dodamy metodę podwyzka w klasie Pracownik oraz metodę zmien_dzial w klasie Manager, aby umożliwić modyfikację atrybutów obiektów.
+#
+# # Rozszerzenie 2: Klasa do zarządzania zespołem pracowników
+# # Dodajmy klasę Firma, która będzie przechowywać listę pracowników i umożliwi zarządzanie nimi, np. dodawanie, usuwanie i wyświetlanie.
+#
+# class Firma:
+#     def __init__(self, nazwa):
+#         self.nazwa = nazwa
+#         self.lista_pracow = []
+#
+#     def dodaj(self, pracownik):
+#         self.lista_pracow.append(pracownik)
+#
+#     def usun(self,pracownik):
+#         self.lista_pracow.remove(pracownik)
+#
+#     def wyswietl(self):
+#         print(f"aktualna lisat pracownikow firmy {self.nazwa} to:{self.lista_pracow} ")
+#
+# f1 = Firma('ABC')
+# f1.dodaj('Adam')
+# f1.dodaj('Ola')
+# f1.dodaj('Ala')
+# f1.usun("Ola")
+# f1.wyswietl()
+#
+# # Rozszerzenie 3: Dodanie rocznego wynagrodzenia
+# # Możemy dodać metodę roczne_wynagrodzenie do klasy Pracownik, aby obliczać roczny dochód pracownika.
+#
+# p1.roczne_wynagrodzenie()
 
-class Pracownik:
-    def __init__(self, imie, nazwisko, wynagrodzenie=3000):
+
+
+# Zadanie: System Biblioteczny
+# Zadanie polega na stworzeniu prostego systemu bibliotecznego, który będzie umożliwiał zarządzanie książkami oraz użytkownikami biblioteki.
+
+class Ksiazka:
+    def __init__(self, tytul, autor, rok_wydania):
+        self.tytul = tytul
+        self.autor = autor
+        self.rok_wydanie = rok_wydania
+        self.dostepna = True
+
+    def wyswietl_info(self):
+        print(f"Ksiazka {self.tytul} autora {self.autor} rok wydanie {self.rok_wydanie} dostpenosc: {self.dostepna}")
+
+class Uzytkownik:
+    def __init__(self, imie, nazwisko):
         self.imie = imie
         self.nazwisko = nazwisko
-        self.wynagrodzenie = wynagrodzenie
+        self.wypozyczone_ksiazki = []
 
-    def wyswietl_inf(self):
-        print(f"Pracownik: {self.imie} {self.nazwisko} wynagrodznie: {self.wynagrodzenie}")
+    def wyswietl_wypozyczone(self):
+        print(f"Uzytkownik {self.imie} {self.nazwisko} ma wypozyczone ksiazki: {self.wypozyczone_ksiazki}")
 
-    def podwyzka(self, kwota_podwyzki):
-        self.wynagrodzenie += kwota_podwyzki
+    def wypozycz(self,tytul):
+        self.wypozyczone_ksiazki.append(tytul)
+        Ksiazka.dostepna = False
 
-
-class Manager(Pracownik):
-    def __init__(self, imie, nazwisko, wynagrodzenie, dzial):
-        super().__init__(imie, nazwisko, wynagrodzenie)
-        self.dzial = dzial
-
-    def wyswietl_inf(self):
-        print(
-            f"Pracownik: {self.imie} {self.nazwisko} wynagrodznie: {self.wynagrodzenie}, dzial: {self.dzial}")
-
-    def zmien_dzial(self, nowy_dzial):
-        self.dzial = nowy_dzial
+    def oddaj(self, tytul):
+        self.wypozyczone_ksiazki.remove(tytul)
+        Ksiazka.dostepna = True
 
 
-class PracownikGodzinowy(Pracownik):
-    def __init__(self, imie, nazwisko, stawka):
-        super().__init__(imie, nazwisko)
-        self.stawka = stawka
-
-    def oblicz_wyplate(self, godziny):
-        self.wynagrodzenie = godziny * self.stawka
-
-    def wyswietl_inf(self):
-        print(f"Pracownik: {self.imie} {self.nazwisko} wynagrodznie: {self.wynagrodzenie}")
-
-
-p1 = Pracownik('Ala', 'B.')
-p1.wyswietl_inf()
-m1 = Manager("Jan", "z", 5000, 'importu')
-m1.wyswietl_inf()
-g1 = PracownikGodzinowy("Ela", 'I.', 25)
-g1.oblicz_wyplate(100)
-g1.wyswietl_inf()
-m1.zmien_dzial('reklamy')
-m1.wyswietl_inf()
-p1.podwyzka(1000)
-p1.wyswietl_inf()
-# Rozszerzenie 1: Dodanie metod do podwyżek i zmiany danych
-# Dodamy metodę podwyzka w klasie Pracownik oraz metodę zmien_dzial w klasie Manager, aby umożliwić modyfikację atrybutów obiektów.
-
-# Rozszerzenie 2: Klasa do zarządzania zespołem pracowników
-# Dodajmy klasę Firma, która będzie przechowywać listę pracowników i umożliwi zarządzanie nimi, np. dodawanie, usuwanie i wyświetlanie.
-
-class Firma:
-    def __init__(self, nazwa):
+class Biblioteka:
+    def __init__(self,nazwa):
         self.nazwa = nazwa
-        self.lista_pracow = []
+        self.lista_ksiazek = []
+        self.uzytkownicy = []
 
-    def dodaj(self, pracownik):
-        self.lista_pracow.append(pracownik)
+    def dodaj_ksiazke(self,tytul):
+        self.lista_ksiazek.append(tytul)
 
-    def usun(self,pracownik):
-        self.lista_pracow.remove(pracownik)
+    def dodaj_uzytkownika(self,uzytkownik):
+        self.uzytkownicy.append(uzytkownik)
 
-    def wyswietl(self):
-        print(f"aktualna lisat pracownikow firmy {self.nazwa} to:{self.lista_pracow} ")
+    def wyswietl_dostepne_ksiazki(self):
+        print(f"Dostepne ksiazki to: {self.lista_ksiazek}")
 
-f1 = Firma('ABC')
-f1.dodaj('Adam')
-f1.dodaj('Ola')
-f1.dodaj('Ala')
-f1.usun("Ola")
-f1.wyswietl()
+biblioteka = Biblioteka("Biblioteka Miejska")
+
+# Dodawanie książek
+ksiazka1 = Ksiazka("Harry Potter i Kamień Filozoficzny", "J.K. Rowling", 1997)
+ksiazka2 = Ksiazka("Władca Pierścieni", "J.R.R. Tolkien", 1954)
+biblioteka.dodaj_ksiazke(ksiazka1)
+biblioteka.dodaj_ksiazke(ksiazka2)
+
+# Dodawanie użytkownika
+uzytkownik1 = Uzytkownik("Jan", "Kowalski")
+biblioteka.dodaj_uzytkownika(uzytkownik1)
+
+# Wypożyczanie książki
+biblioteka.wyswietl_dostepne_ksiazki()
+uzytkownik1.wypozycz(ksiazka1)
+
+# Wyświetlanie po wypożyczeniu
+biblioteka.wyswietl_dostepne_ksiazki()
+uzytkownik1.wyswietl_wypozyczone()
+
+# Oddawanie książki
+uzytkownik1.oddaj(ksiazka1)
+biblioteka.wyswietl_dostepne_ksiazki()
