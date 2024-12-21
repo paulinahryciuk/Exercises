@@ -890,8 +890,9 @@ class Uzytkownik:
         self.wypozyczone_ksiazki = []
 
     def wyswietl_wypozyczone(self):
-        print(f"Uzytkownik {self.imie} {self.nazwisko} ma wypozyczone ksiazki: {self.wypozyczone_ksiazki}")
-
+        # print(f"Uzytkownik {self.imie} {self.nazwisko} ma wypozyczone ksiazki: {self.wypozyczone_ksiazki}")
+        for i in self.wypozyczone_ksiazki:
+            print(i)
     def wypozycz(self,tytul):
         self.wypozyczone_ksiazki.append(tytul)
         Ksiazka.dostepna = False
@@ -938,4 +939,15 @@ uzytkownik1.wyswietl_wypozyczone()
 
 # Oddawanie książki
 uzytkownik1.oddaj(ksiazka1)
+biblioteka.wyswietl_dostepne_ksiazki()
+
+ksiazka1.wyswietl_info()
+uzytkownik1.wypozycz("Harry Potter i Kamień Filozoficzny")
+uzytkownik1.wyswietl_wypozyczone()
+uzytkownik1.wypozycz("Władca Pierścieni")
+uzytkownik1.wyswietl_wypozyczone()
+uzytkownik1.oddaj("Władca Pierścieni")
+uzytkownik1.wyswietl_wypozyczone()
+biblioteka.dodaj_ksiazke("xxx")
+biblioteka.dodaj_uzytkownika('uz2')
 biblioteka.wyswietl_dostepne_ksiazki()
