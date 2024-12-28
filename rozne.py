@@ -951,3 +951,45 @@ uzytkownik1.wyswietl_wypozyczone()
 biblioteka.dodaj_ksiazke("xxx")
 biblioteka.dodaj_uzytkownika('uz2')
 biblioteka.wyswietl_dostepne_ksiazki()
+
+
+# Zadanie: System rezerwacji stolików w restauracji
+# Twoim zadaniem jest stworzenie systemu, który pozwala zarządzać rezerwacjami stolików w restauracji.
+
+class Stolik:
+    def __init__(self,numer, ile_os):
+        self.ile_os = ile_os
+        self.numer = numer
+        wolny = True
+
+ # def rezerwuj_stoklik:
+ #        for x in self.number:
+ #            if wolny is True:
+ #                if Client.l_gosci =< self.ile_os:
+ #                    print("Stolik zarezerwowany")
+ #                    Stolik.wolny = False
+
+    def rezerwuj_stolik(self,miejsc,imie):
+        for x in self.number:
+            if self.wolny is True:
+                if miejsc =< self.ile_os:
+                    print("Stolik zarezerwowany")
+                    Stolik.wolny = False
+                    osoba_rezerw = imie
+
+
+    def odwolanie_rezerwacji(self,imie):
+        if imie == osoba.rezerw:
+            Stolik.wolny = True
+
+
+class Restuaracja:
+    def __init__(self,stoliki):
+        self.stoliki = stoliki
+
+    def dodanie_stolika(self,numer, ile_os):
+
+    def pokaz_wolne(self):
+        for i in self.stoliki:
+            if wolny = True:
+                print()
