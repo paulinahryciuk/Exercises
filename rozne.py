@@ -960,36 +960,44 @@ class Stolik:
     def __init__(self,numer, ile_os):
         self.ile_os = ile_os
         self.numer = numer
-        wolny = True
+        self.wolny = True
+        self.osoba_rezerwujaca = None
 
- # def rezerwuj_stoklik:
- #        for x in self.number:
- #            if wolny is True:
- #                if Client.l_gosci =< self.ile_os:
- #                    print("Stolik zarezerwowany")
- #                    Stolik.wolny = False
 
     def rezerwuj_stolik(self,miejsc,imie):
-        for x in self.number:
-            if self.wolny is True:
-                if miejsc =< self.ile_os:
-                    print("Stolik zarezerwowany")
-                    Stolik.wolny = False
-                    osoba_rezerw = imie
+        # for x in self.number:
+        if self.wolny is True:
+            if miejsc =< self.ile_os:
+                self.miejsc = miejsc
+                self.imie = imie
+                print("Stolik zarezerwowany")
+                Stolik.wolny = False
+                self.osoba_rezerw = imie
+            else:
+                print("Stolik juz wczesniej zarezerwowony")
 
 
     def odwolanie_rezerwacji(self,imie):
-        if imie == osoba.rezerw:
-            Stolik.wolny = True
+        if self.wolny is False:
+            if imie == self.osoba_rezerw:
+                self.wolny = True
+                self.osoba_rezerwujaca = None
+                print("Rezerwacja zostala odwolona")
+            else:
+                print("Nie irtnijeje taka rezerwacja")
 
 
 class Restuaracja:
-    def __init__(self,stoliki):
-        self.stoliki = stoliki
+    def __init__(self):
+        self.stoliki = []
 
     def dodanie_stolika(self,numer, ile_os):
+        self.ile_os = ile_os
+        self.numer = numer
+        wolny = True
+        self.stoliki.append(self.numer,self,ile_os)
 
     def pokaz_wolne(self):
         for i in self.stoliki:
-            if wolny = True:
-                print()
+            if self.wolny == True:
+                print(self.stoliki)
