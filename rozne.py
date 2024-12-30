@@ -986,6 +986,12 @@ class Stolik:
         else:
             print("Nie irtnijeje taka rezerwacja")
 
+    def __str__(self):
+        if self.wolny is False:
+            return (f"Stolik numer {self.numer} jest zarezerpwany przez: {self.osoba_rezerwujaca}")
+        else:
+            return (f"Stolik numer {self.numer} jest wolny")
+
 
 class Restuaracja:
     def __init__(self):
