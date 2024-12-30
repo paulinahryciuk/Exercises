@@ -873,84 +873,84 @@ lista = [3, 1, 4, 1, 5, 9]
 # Zadanie: System Biblioteczny
 # Zadanie polega na stworzeniu prostego systemu bibliotecznego, który będzie umożliwiał zarządzanie książkami oraz użytkownikami biblioteki.
 
-class Ksiazka:
-    def __init__(self, tytul, autor, rok_wydania):
-        self.tytul = tytul
-        self.autor = autor
-        self.rok_wydanie = rok_wydania
-        self.dostepna = True
-
-    def wyswietl_info(self):
-        print(f"Ksiazka {self.tytul} autora {self.autor} rok wydanie {self.rok_wydanie} dostpenosc: {self.dostepna}")
-
-class Uzytkownik:
-    def __init__(self, imie, nazwisko):
-        self.imie = imie
-        self.nazwisko = nazwisko
-        self.wypozyczone_ksiazki = []
-
-    def wyswietl_wypozyczone(self):
-        # print(f"Uzytkownik {self.imie} {self.nazwisko} ma wypozyczone ksiazki: {self.wypozyczone_ksiazki}")
-        for i in self.wypozyczone_ksiazki:
-            print(i)
-    def wypozycz(self,tytul):
-        self.wypozyczone_ksiazki.append(tytul)
-        Ksiazka.dostepna = False
-
-    def oddaj(self, tytul):
-        self.wypozyczone_ksiazki.remove(tytul)
-        Ksiazka.dostepna = True
-
-
-class Biblioteka:
-    def __init__(self,nazwa):
-        self.nazwa = nazwa
-        self.lista_ksiazek = []
-        self.uzytkownicy = []
-
-    def dodaj_ksiazke(self,tytul):
-        self.lista_ksiazek.append(tytul)
-
-    def dodaj_uzytkownika(self,uzytkownik):
-        self.uzytkownicy.append(uzytkownik)
-
-    def wyswietl_dostepne_ksiazki(self):
-        print(f"Dostepne ksiazki to: {self.lista_ksiazek}")
-
-biblioteka = Biblioteka("Biblioteka Miejska")
-
-# Dodawanie książek
-ksiazka1 = Ksiazka("Harry Potter i Kamień Filozoficzny", "J.K. Rowling", 1997)
-ksiazka2 = Ksiazka("Władca Pierścieni", "J.R.R. Tolkien", 1954)
-biblioteka.dodaj_ksiazke(ksiazka1)
-biblioteka.dodaj_ksiazke(ksiazka2)
-
-# Dodawanie użytkownika
-uzytkownik1 = Uzytkownik("Jan", "Kowalski")
-biblioteka.dodaj_uzytkownika(uzytkownik1)
-
-# Wypożyczanie książki
-biblioteka.wyswietl_dostepne_ksiazki()
-uzytkownik1.wypozycz(ksiazka1)
-
-# Wyświetlanie po wypożyczeniu
-biblioteka.wyswietl_dostepne_ksiazki()
-uzytkownik1.wyswietl_wypozyczone()
-
-# Oddawanie książki
-uzytkownik1.oddaj(ksiazka1)
-biblioteka.wyswietl_dostepne_ksiazki()
-
-ksiazka1.wyswietl_info()
-uzytkownik1.wypozycz("Harry Potter i Kamień Filozoficzny")
-uzytkownik1.wyswietl_wypozyczone()
-uzytkownik1.wypozycz("Władca Pierścieni")
-uzytkownik1.wyswietl_wypozyczone()
-uzytkownik1.oddaj("Władca Pierścieni")
-uzytkownik1.wyswietl_wypozyczone()
-biblioteka.dodaj_ksiazke("xxx")
-biblioteka.dodaj_uzytkownika('uz2')
-biblioteka.wyswietl_dostepne_ksiazki()
+# class Ksiazka:
+#     def __init__(self, tytul, autor, rok_wydania):
+#         self.tytul = tytul
+#         self.autor = autor
+#         self.rok_wydanie = rok_wydania
+#         self.dostepna = True
+#
+#     def wyswietl_info(self):
+#         print(f"Ksiazka {self.tytul} autora {self.autor} rok wydanie {self.rok_wydanie} dostpenosc: {self.dostepna}")
+#
+# class Uzytkownik:
+#     def __init__(self, imie, nazwisko):
+#         self.imie = imie
+#         self.nazwisko = nazwisko
+#         self.wypozyczone_ksiazki = []
+#
+#     def wyswietl_wypozyczone(self):
+#         # print(f"Uzytkownik {self.imie} {self.nazwisko} ma wypozyczone ksiazki: {self.wypozyczone_ksiazki}")
+#         for i in self.wypozyczone_ksiazki:
+#             print(i)
+#     def wypozycz(self,tytul):
+#         self.wypozyczone_ksiazki.append(tytul)
+#         Ksiazka.dostepna = False
+#
+#     def oddaj(self, tytul):
+#         self.wypozyczone_ksiazki.remove(tytul)
+#         Ksiazka.dostepna = True
+#
+#
+# class Biblioteka:
+#     def __init__(self,nazwa):
+#         self.nazwa = nazwa
+#         self.lista_ksiazek = []
+#         self.uzytkownicy = []
+#
+#     def dodaj_ksiazke(self,tytul):
+#         self.lista_ksiazek.append(tytul)
+#
+#     def dodaj_uzytkownika(self,uzytkownik):
+#         self.uzytkownicy.append(uzytkownik)
+#
+#     def wyswietl_dostepne_ksiazki(self):
+#         print(f"Dostepne ksiazki to: {self.lista_ksiazek}")
+#
+# biblioteka = Biblioteka("Biblioteka Miejska")
+#
+# # Dodawanie książek
+# ksiazka1 = Ksiazka("Harry Potter i Kamień Filozoficzny", "J.K. Rowling", 1997)
+# ksiazka2 = Ksiazka("Władca Pierścieni", "J.R.R. Tolkien", 1954)
+# biblioteka.dodaj_ksiazke(ksiazka1)
+# biblioteka.dodaj_ksiazke(ksiazka2)
+#
+# # Dodawanie użytkownika
+# uzytkownik1 = Uzytkownik("Jan", "Kowalski")
+# biblioteka.dodaj_uzytkownika(uzytkownik1)
+#
+# # Wypożyczanie książki
+# biblioteka.wyswietl_dostepne_ksiazki()
+# uzytkownik1.wypozycz(ksiazka1)
+#
+# # Wyświetlanie po wypożyczeniu
+# biblioteka.wyswietl_dostepne_ksiazki()
+# uzytkownik1.wyswietl_wypozyczone()
+#
+# # Oddawanie książki
+# uzytkownik1.oddaj(ksiazka1)
+# biblioteka.wyswietl_dostepne_ksiazki()
+#
+# ksiazka1.wyswietl_info()
+# uzytkownik1.wypozycz("Harry Potter i Kamień Filozoficzny")
+# uzytkownik1.wyswietl_wypozyczone()
+# uzytkownik1.wypozycz("Władca Pierścieni")
+# uzytkownik1.wyswietl_wypozyczone()
+# uzytkownik1.oddaj("Władca Pierścieni")
+# uzytkownik1.wyswietl_wypozyczone()
+# biblioteka.dodaj_ksiazke("xxx")
+# biblioteka.dodaj_uzytkownika('uz2')
+# biblioteka.wyswietl_dostepne_ksiazki()
 
 
 # Zadanie: System rezerwacji stolików w restauracji
@@ -967,14 +967,14 @@ class Stolik:
     def rezerwuj_stolik(self,miejsc,imie):
         # for x in self.number:
         if self.wolny is True:
-            if miejsc =< self.ile_os:
+            if miejsc <= self.ile_os:
                 self.miejsc = miejsc
                 self.imie = imie
                 print("Stolik zarezerwowany")
-                Stolik.wolny = False
+                self.wolny = False
                 self.osoba_rezerw = imie
-            else:
-                print("Stolik juz wczesniej zarezerwowony")
+        else:
+            print("Stolik juz wczesniej zarezerwowony")
 
 
     def odwolanie_rezerwacji(self,imie):
@@ -983,8 +983,8 @@ class Stolik:
                 self.wolny = True
                 self.osoba_rezerwujaca = None
                 print("Rezerwacja zostala odwolona")
-            else:
-                print("Nie irtnijeje taka rezerwacja")
+        else:
+            print("Nie irtnijeje taka rezerwacja")
 
 
 class Restuaracja:
@@ -992,12 +992,24 @@ class Restuaracja:
         self.stoliki = []
 
     def dodanie_stolika(self,numer, ile_os):
-        self.ile_os = ile_os
-        self.numer = numer
-        wolny = True
-        self.stoliki.append(self.numer,self,ile_os)
+        # self.ile_os = ile_os
+        # self.numer = numer
+        # wolny = True
+        nowy = Stolik(numer, ile_os)
+        self.stoliki.append(nowy)
 
     def pokaz_wolne(self):
         for i in self.stoliki:
-            if self.wolny == True:
-                print(self.stoliki)
+            if i.wolny:
+                print(i)
+
+s1 = Stolik(1,2)
+s2 = Stolik(2,4)
+s1.rezerwuj_stolik(2,"Ala")
+s1.rezerwuj_stolik(2,"Ala")
+s1.odwolanie_rezerwacji("Ala")
+s1.rezerwuj_stolik(2,"Ala")
+s1.odwolanie_rezerwacji("Al")
+r1 = Restuaracja()
+r1.dodanie_stolika(3,3)
+r1.pokaz_wolne()
