@@ -1046,65 +1046,92 @@ class Kurs:
     #     else:
     #         print("Nie ma takiego kirsu na liscie")
 
-    def zapis(self, uczestnik):
-        if uczestnik in self.uczestnicy:
-            print("Uczetnik jest juz na liscie")
-        else:
-            print(f"{uczestnik} zpstal zapisane na kurs {self.nazwa}")
-            self.uczestnicy.append(uczestnik)
+#     def zapis(self, uczestnik):
+#         if uczestnik in self.uczestnicy:
+#             print("Uczetnik jest juz na liscie")
+#         else:
+#             print(f"{uczestnik} zpstal zapisane na kurs {self.nazwa}")
+#             self.uczestnicy.append(uczestnik)
+#
+#     def wypis(self, uczestnik):
+#         if uczestnik in self.uczestnicy:
+#             self.uczestnicy.remove(uczestnik)
+#             print(f"{uczestnik} zpstal wypisany z kursu {self.nazwa}")
+#         else:
+#             print("Uczestnik nei byl zapisany na ten kurs")
+#
+#     def wyswietl_liste(self):
+#         print(f"Uczesrnicy kursu {self.nazwa} to {self.uczestnicy}")
+#
+#
+# class Platforma:
+#     """
+#     System Zarządzania Kursami Online
+#     """
+#     def __init__(self):
+#         self.kursy = []
+#
+#     def dodaj_kurs(self,nazwa):
+#         if nazwa in self.kursy:
+#             print("Taki kurs jzu jest na liscie")
+#         else:
+#             self.kursy.append(nazwa)
+#             print(f"Kurs {nazwa} zosatla dodany do listy kursow")
+#
+#
+#     def usun_kurs(self,nazwa):
+#         if nazwa in self.kursy:
+#             self.kursy.remove(nazwa)
+#             print(f"Kurs {nazwa} zosatl usuniety z listy kursow")
+#         else:
+#             print("Nie ma takiego kursu na liscie")
+#
+#     def wyswietl(self):
+#         for k in self.kursy:
+#             print(f"Dostepny kurs: {k}")
+#
+#
+# p1 = Platforma()
+# p1.dodaj_kurs("jezykowy ang")
+# p1.dodaj_kurs("jezykowy ang")
+# p1.dodaj_kurs("jezykowy niem")
+# p1.dodaj_kurs("jezykowy hisz")
+# p1.usun_kurs("jezykowy hisz")
+# p1.usun_kurs("jezykowy hisz")
+# p1.wyswietl()
+# k1 = Kurs("jezykowy niem")
+# k1.zapis("Iza")
+# k1.zapis("Iza")
+# k1.zapis("Aga")
+# k1.wyswietl_liste()
+# k1.wypis("Iza")
+# k1.wyswietl_liste()
 
-    def wypis(self, uczestnik):
-        if uczestnik in self.uczestnicy:
-            self.uczestnicy.remove(uczestnik)
-            print(f"{uczestnik} zpstal wypisany z kursu {self.nazwa}")
-        else:
-            print("Uczestnik nei byl zapisany na ten kurs")
-
-    def wyswietl_liste(self):
-        print(f"Uczesrnicy kursu {self.nazwa} to {self.uczestnicy}")
 
 
-class Platforma:
-    """
-    System Zarządzania Kursami Online
-    """
+# Zadanie: System Wypożyczalni Samochodów
+#
+# Twoim zadaniem jest stworzenie systemu zarządzania wypożyczalnią samochodów. System pozwala na:
+#
+# Dodawanie nowych samochodów do bazy wypożyczalni.
+# Wypożyczanie samochodów klientom.
+# Zwracanie samochodów po wypożyczeniu.
+# Wyświetlanie listy dostępnych samochodów.
+# Wyświetlanie historii wypożyczeń dla konkretnego samochodu.
+
+class Wypozyczalnia:
     def __init__(self):
-        self.kursy = []
+        self.auta = []
 
-    def dodaj_kurs(self,nazwa):
-        if nazwa in self.kursy:
-            print("Taki kurs jzu jest na liscie")
-        else:
-            self.kursy.append(nazwa)
-            print(f"Kurs {nazwa} zosatla dodany do listy kursow")
+    def pokaz_baze(self):
+        print(f"Wszystkie samochody: {self.auta}")
 
+class Auto:
+    def __init__(self,marka):
+        self.marka = marka
+        self.wolny = True
 
-    def usun_kurs(self,nazwa):
-        if nazwa in self.kursy:
-            self.kursy.remove(nazwa)
-            print(f"Kurs {nazwa} zosatl usuniety z listy kursow")
-        else:
-            print("Nie ma takiego kursu na liscie")
-
-    def wyswietl(self):
-        for k in self.kursy:
-            print(f"Dostepny kurs: {k}")
-
-
-p1 = Platforma()
-p1.dodaj_kurs("jezykowy ang")
-p1.dodaj_kurs("jezykowy ang")
-p1.dodaj_kurs("jezykowy niem")
-p1.dodaj_kurs("jezykowy hisz")
-p1.usun_kurs("jezykowy hisz")
-p1.usun_kurs("jezykowy hisz")
-p1.wyswietl()
-k1 = Kurs("jezykowy niem")
-k1.zapis("Iza")
-k1.zapis("Iza")
-k1.zapis("Aga")
-k1.wyswietl_liste()
-k1.wypis("Iza")
-k1.wyswietl_liste()
-
+    def wypozycz(self,imie):
+        if self.wolny:
+            print("Samochod wyporzyczony")
 
