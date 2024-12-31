@@ -956,66 +956,137 @@ lista = [3, 1, 4, 1, 5, 9]
 # Zadanie: System rezerwacji stolików w restauracji
 # Twoim zadaniem jest stworzenie systemu, który pozwala zarządzać rezerwacjami stolików w restauracji.
 
-class Stolik:
-    def __init__(self,numer, ile_os):
-        self.ile_os = ile_os
-        self.numer = numer
-        self.wolny = True
-        self.osoba_rezerwujaca = None
+# class Stolik:
+#     def __init__(self,numer, ile_os):
+#         self.ile_os = ile_os
+#         self.numer = numer
+#         self.wolny = True
+#         self.osoba_rezerwujaca = None
+#
+#
+#     def rezerwuj_stolik(self,miejsc,imie):
+#         # for x in self.number:
+#         if self.wolny is True:
+#             if miejsc <= self.ile_os:
+#                 self.miejsc = miejsc
+#                 self.imie = imie
+#                 print("Stolik zarezerwowany")
+#                 self.wolny = False
+#                 self.osoba_rezerw = imie
+#         else:
+#             print("Stolik juz wczesniej zarezerwowony")
+#
+#
+#     def odwolanie_rezerwacji(self,imie):
+#         if self.wolny is False:
+#             if imie == self.osoba_rezerw:
+#                 self.wolny = True
+#                 self.osoba_rezerwujaca = None
+#                 print("Rezerwacja zostala odwolona")
+#         else:
+#             print("Nie irtnijeje taka rezerwacja")
+#
+#     def __str__(self):
+#         if self.wolny is False:
+#             return (f"Stolik numer {self.numer} jest zarezerpwany przez: {self.osoba_rezerwujaca}")
+#         else:
+#             return (f"Stolik numer {self.numer} jest wolny")
+#
+#
+# class Restuaracja:
+#     def __init__(self):
+#         self.stoliki = []
+#
+#     def dodanie_stolika(self,numer, ile_os):
+#         # self.ile_os = ile_os
+#         # self.numer = numer
+#         # wolny = True
+#         nowy = Stolik(numer, ile_os)
+#         self.stoliki.append(nowy)
+#
+#     def pokaz_wolne(self):
+#         for i in self.stoliki:
+#             if i.wolny:
+#                 print(i)
+#
+# s1 = Stolik(1,2)
+# s2 = Stolik(2,4)
+# s1.rezerwuj_stolik(2,"Ala")
+# s1.rezerwuj_stolik(2,"Ala")
+# s1.odwolanie_rezerwacji("Ala")
+# s1.rezerwuj_stolik(2,"Ala")
+# s1.odwolanie_rezerwacji("Al")
+# r1 = Restuaracja()
+# r1.dodanie_stolika(3,3)
+# r1.pokaz_wolne()
 
 
-    def rezerwuj_stolik(self,miejsc,imie):
-        # for x in self.number:
-        if self.wolny is True:
-            if miejsc <= self.ile_os:
-                self.miejsc = miejsc
-                self.imie = imie
-                print("Stolik zarezerwowany")
-                self.wolny = False
-                self.osoba_rezerw = imie
+
+# Zadanie: System Zarządzania Kursami Online
+# Stwórz system zarządzania kursami online, który pozwoli na:
+#
+# Dodawanie kursów do platformy.
+# Rejestrowanie użytkowników na kursy.
+# Wyświetlanie listy wszystkich dostępnych kursów.
+# Wyświetlanie listy użytkowników zarejestrowanych na dany kurs.
+# Usuwanie użytkownika z kursu.
+class Kurs:
+    def __init__(self, nazwa):
+        self.nazwa = nazwa
+        uczestnicy =[]
+
+    def dodaj_kurs(self,nazwa):
+        Platforma.kursy.append(self.nazwa)
+        print(f"Kurs {self.nazwa} zosatla dodany do listy kursow")
+
+    def usun_kurs(self,nazwa):
+        if self.nazwa in Platforma.kursy:
+            Platforma.kursy.remove(self.nazwa)
+            print(f"Kurs {self.nazwa} zosatl usuniety z listy kursow")
         else:
-            print("Stolik juz wczesniej zarezerwowony")
+            print("Nie ma takiego kirsu na liscie")
+
+    def zapis(self, nazwa, uczestnik):
+                print(f"{uczestnik} zpstal zapisane na kurs {self.nazwa})"
+                self.uczestnicy.append(uczestnik)
+
+    def wypis(self, nazwa, uczestnik):
+                print(f"{uczestnik} zpstal wypisany z kursu {self.nazwa})"
+                if uczestnik in self.uczestnicy:
+                    self.uczestnicy.remove(uczestnik)
+
+    def wyswietl_liste(self,nazwa):
+        print(f"Uczesrnicy kursu {self.nazwa} to {self.uczestnicy}")
 
 
-    def odwolanie_rezerwacji(self,imie):
-        if self.wolny is False:
-            if imie == self.osoba_rezerw:
-                self.wolny = True
-                self.osoba_rezerwujaca = None
-                print("Rezerwacja zostala odwolona")
-        else:
-            print("Nie irtnijeje taka rezerwacja")
-
-    def __str__(self):
-        if self.wolny is False:
-            return (f"Stolik numer {self.numer} jest zarezerpwany przez: {self.osoba_rezerwujaca}")
-        else:
-            return (f"Stolik numer {self.numer} jest wolny")
-
-
-class Restuaracja:
+class Platforma:
+    """
+    System Zarządzania Kursami Online
+    """
     def __init__(self):
-        self.stoliki = []
+        pass
+    kursy = []
 
-    def dodanie_stolika(self,numer, ile_os):
-        # self.ile_os = ile_os
-        # self.numer = numer
-        # wolny = True
-        nowy = Stolik(numer, ile_os)
-        self.stoliki.append(nowy)
+    def dodaj_kurs(self,nazwa):
+        self.kursy.append(Kurs.nazwa)
+        print(f"Kurs {Kurs.nazwa} zosatla dodany do listy kursow")
 
-    def pokaz_wolne(self):
-        for i in self.stoliki:
-            if i.wolny:
-                print(i)
 
-s1 = Stolik(1,2)
-s2 = Stolik(2,4)
-s1.rezerwuj_stolik(2,"Ala")
-s1.rezerwuj_stolik(2,"Ala")
-s1.odwolanie_rezerwacji("Ala")
-s1.rezerwuj_stolik(2,"Ala")
-s1.odwolanie_rezerwacji("Al")
-r1 = Restuaracja()
-r1.dodanie_stolika(3,3)
-r1.pokaz_wolne()
+    def usun_kurs(self,nazwa):
+        if nazwa in self.kursy:
+            self.kursy.remove(Kurs.nazwa)
+            print(f"Kurs {Kurs.nazwa} zosatl usuniety z listy kursow")
+        else:
+            print("Nie ma takiego kirsu na liscie")
+
+    def wyswietl(self):
+        for k in self.kursy:
+            print(f"Dostepny kurs: {k})"
+
+
+p1 = Platforma()
+p1.dodaj_kurs("jezykowy ang")
+p1.dodaj_kurs("jezykowy niem")
+p1.dodaj_kurs("jezykowy hisz")
+p1.usun_kurs("jezykowy hisz")
+p1.wyswietl()
