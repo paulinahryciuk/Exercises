@@ -1031,34 +1031,36 @@ lista = [3, 1, 4, 1, 5, 9]
 # Wyświetlanie listy użytkowników zarejestrowanych na dany kurs.
 # Usuwanie użytkownika z kursu.
 class Kurs:
-    def __init__(self, nazwa):
+    def __init__(self,nazwa):
         self.nazwa = nazwa
-        uczestnicy =[]
+        self.uczestnicy =[]
 
-    def dodaj_kurs(self,nazwa):
-        Platforma.kursy.append(self.nazwa)
-        print(f"Kurs {self.nazwa} zosatla dodany do listy kursow")
+    # def dodaj_kurs(self,nazwa):
+    #     Platforma.kursy.append(self.nazwa)
+    #     print(f"Kurs {self.nazwa} zosatla dodany do listy kursow")
+    #
+    # def usun_kurs(self,nazwa):
+    #     if self.nazwa in Platforma.kursy:
+    #         Platforma.kursy.remove(self.nazwa)
+    #         print(f"Kurs {self.nazwa} zosatl usuniety z listy kursow")
+    #     else:
+    #         print("Nie ma takiego kirsu na liscie")
 
-    def usun_kurs(self,nazwa):
-        if self.nazwa in Platforma.kursy:
-            Platforma.kursy.remove(self.nazwa)
-            print(f"Kurs {self.nazwa} zosatl usuniety z listy kursow")
-        else:
-            print("Nie ma takiego kirsu na liscie")
-
-    def zapis(self, nazwa, uczestnik):
-        if self.uczestnik in self.uczestnicy:
+    def zapis(self, uczestnik):
+        if uczestnik in self.uczestnicy:
             print("Uczetnik jest juz na liscie")
         else:
             print(f"{uczestnik} zpstal zapisane na kurs {self.nazwa}")
             self.uczestnicy.append(uczestnik)
 
-    def wypis(self, nazwa, uczestnik):
-                print(f"{uczestnik} zpstal wypisany z kursu {self.nazwa}")
-                if uczestnik in self.uczestnicy:
-                    self.uczestnicy.remove(uczestnik)
+    def wypis(self, uczestnik):
+        if uczestnik in self.uczestnicy:
+            self.uczestnicy.remove(uczestnik)
+            print(f"{uczestnik} zpstal wypisany z kursu {self.nazwa}")
+        else:
+            print("Uczestnik nei byl zapisany na ten kurs")
 
-    def wyswietl_liste(self,nazwa):
+    def wyswietl_liste(self):
         print(f"Uczesrnicy kursu {self.nazwa} to {self.uczestnicy}")
 
 
@@ -1067,29 +1069,42 @@ class Platforma:
     System Zarządzania Kursami Online
     """
     def __init__(self):
-        pass
-    kursy = []
+        self.kursy = []
 
     def dodaj_kurs(self,nazwa):
-        self.kursy.append(Kurs.nazwa)
-        print(f"Kurs {Kurs.nazwa} zosatla dodany do listy kursow")
+        if nazwa in self.kursy:
+            print("Taki kurs jzu jest na liscie")
+        else:
+            self.kursy.append(nazwa)
+            print(f"Kurs {nazwa} zosatla dodany do listy kursow")
 
 
     def usun_kurs(self,nazwa):
         if nazwa in self.kursy:
-            self.kursy.remove(Kurs.nazwa)
-            print(f"Kurs {Kurs.nazwa} zosatl usuniety z listy kursow")
+            self.kursy.remove(nazwa)
+            print(f"Kurs {nazwa} zosatl usuniety z listy kursow")
         else:
-            print("Nie ma takiego kirsu na liscie")
+            print("Nie ma takiego kursu na liscie")
 
     def wyswietl(self):
         for k in self.kursy:
-            print(f"Dostepny kurs: {k})"
+            print(f"Dostepny kurs: {k}")
 
 
 p1 = Platforma()
 p1.dodaj_kurs("jezykowy ang")
+p1.dodaj_kurs("jezykowy ang")
 p1.dodaj_kurs("jezykowy niem")
 p1.dodaj_kurs("jezykowy hisz")
 p1.usun_kurs("jezykowy hisz")
+p1.usun_kurs("jezykowy hisz")
 p1.wyswietl()
+k1 = Kurs("jezykowy niem")
+k1.zapis("Iza")
+k1.zapis("Iza")
+k1.zapis("Aga")
+k1.wyswietl_liste()
+k1.wypis("Iza")
+k1.wyswietl_liste()
+
+
