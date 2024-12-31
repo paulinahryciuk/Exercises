@@ -1047,11 +1047,14 @@ class Kurs:
             print("Nie ma takiego kirsu na liscie")
 
     def zapis(self, nazwa, uczestnik):
-                print(f"{uczestnik} zpstal zapisane na kurs {self.nazwa})"
-                self.uczestnicy.append(uczestnik)
+        if self.uczestnik in self.uczestnicy:
+            print("Uczetnik jest juz na liscie")
+        else:
+            print(f"{uczestnik} zpstal zapisane na kurs {self.nazwa}")
+            self.uczestnicy.append(uczestnik)
 
     def wypis(self, nazwa, uczestnik):
-                print(f"{uczestnik} zpstal wypisany z kursu {self.nazwa})"
+                print(f"{uczestnik} zpstal wypisany z kursu {self.nazwa}")
                 if uczestnik in self.uczestnicy:
                     self.uczestnicy.remove(uczestnik)
 
