@@ -1126,12 +1126,65 @@ class Wypozyczalnia:
     def pokaz_baze(self):
         print(f"Wszystkie samochody: {self.auta}")
 
+    def dodaj_auto(self,marka):
+        self.marka = marka
+        self.auta.append(marka)
+        print("Auto zostalo dodane do bazy")
+
+    def usun_auto(self,marka):
+        if marka in self.auta:
+            self.auta.remove(marka)
+            print("Auto usuniete z bazy")
+        else:
+            print("Nie ma takiego auta w bazie")
+
+    # def pokaz_wolne(self):
+    #     if self.wolny:
+    #         print(f"dostepne samochody to:{self.marka}")
+
+
+
 class Auto:
     def __init__(self,marka):
         self.marka = marka
         self.wolny = True
+        self.histr=[]
 
     def wypozycz(self,imie):
         if self.wolny:
-            print("Samochod wyporzyczony")
+            print("Samochod wypozyczony")
+            self.wolny=False
+            self.histr.append(f"wypozyczony przez {imie}")
+        else:
+            print("Samochod nir jest dostepny")
 
+    def zwroc(self,imie):
+        if self.wolny:
+            print("Ten samochod nie jes wypozyczony")
+        else:
+            print("Samochpd oddany")
+            self.wolny=True
+            self.histr.append(f"oddany przez {imie}")
+
+    def wyswietl_histr(self):
+        print(f"Histroia wypozyczen to: {self.histr}")
+
+
+
+
+w1 = Wypozyczalnia()
+w1.dodaj_auto('bmw')
+w1.dodaj_auto('audi')
+w1.dodaj_auto('ford')
+w1.dodaj_auto('ww')
+w1.usun_auto("audi")
+w1.pokaz_baze()
+# w1.pokaz_wolne()
+
+
+a1 = Auto("bmw")
+a1.wypozycz("Ala")
+a1.wypozycz("Ola")
+a1.zwroc("Ala")
+a1.wypozycz("Ola")
+a1.wyswietl_histr()
