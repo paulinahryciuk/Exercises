@@ -1127,8 +1127,9 @@ class Wypozyczalnia:
         print(f"Wszystkie samochody: {self.auta}")
 
     def dodaj_auto(self,marka):
-        self.marka = marka
-        self.auta.append(marka)
+        # self.marka = marka
+        nowe_auto = Auto(marka)
+        self.auta.append(nowe_auto)
         print("Auto zostalo dodane do bazy")
 
     def usun_auto(self,marka):
@@ -1138,9 +1139,13 @@ class Wypozyczalnia:
         else:
             print("Nie ma takiego auta w bazie")
 
-    # def pokaz_wolne(self):
-    #     if self.wolny:
-    #         print(f"dostepne samochody to:{self.marka}")
+    def pokaz_wolne(self):
+        print("Dostepne samochody:")
+        # if Auto.wolny:
+        #     # print(f"dostepne samochody to:{Auto.marka}")
+        for a in self.auta:
+            if a.wolny:
+                print(a.marka)
 
 
 
@@ -1179,7 +1184,7 @@ w1.dodaj_auto('ford')
 w1.dodaj_auto('ww')
 w1.usun_auto("audi")
 w1.pokaz_baze()
-# w1.pokaz_wolne()
+w1.pokaz_wolne()
 
 
 a1 = Auto("bmw")
