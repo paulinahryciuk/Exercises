@@ -1119,77 +1119,138 @@ class Kurs:
 # Wyświetlanie listy dostępnych samochodów.
 # Wyświetlanie historii wypożyczeń dla konkretnego samochodu.
 
-class Wypozyczalnia:
+# class Wypozyczalnia:
+#     def __init__(self):
+#         self.auta = []
+#
+#     def pokaz_baze(self):
+#         print(f"Wszystkie samochody: {self.auta}")
+#
+#     def dodaj_auto(self,marka):
+#         # self.marka = marka
+#         nowe_auto = Auto(marka)
+#         self.auta.append(nowe_auto)
+#         print("Auto zostalo dodane do bazy")
+#
+#     def usun_auto(self,marka):
+#         if marka in self.auta:
+#             self.auta.remove(marka)
+#             print("Auto usuniete z bazy")
+#         else:
+#             print("Nie ma takiego auta w bazie")
+#
+#     def pokaz_wolne(self):
+#         print("Dostepne samochody:")
+#         # if Auto.wolny:
+#         #     # print(f"dostepne samochody to:{Auto.marka}")
+#         for a in self.auta:
+#             if a.wolny:
+#                 print(a.marka)
+#
+#
+#
+# class Auto:
+#     def __init__(self,marka):
+#         self.marka = marka
+#         self.wolny = True
+#         self.histr=[]
+#
+#     def wypozycz(self,imie):
+#         if self.wolny:
+#             print("Samochod wypozyczony")
+#             self.wolny=False
+#             self.histr.append(f"wypozyczony przez {imie}")
+#         else:
+#             print("Samochod nir jest dostepny")
+#
+#     def zwroc(self,imie):
+#         if self.wolny:
+#             print("Ten samochod nie jes wypozyczony")
+#         else:
+#             print("Samochpd oddany")
+#             self.wolny=True
+#             self.histr.append(f"oddany przez {imie}")
+#
+#     def wyswietl_histr(self):
+#         print(f"Histroia wypozyczen to: {self.histr}")
+#
+#
+#
+#
+# w1 = Wypozyczalnia()
+# w1.dodaj_auto('bmw')
+# w1.dodaj_auto('audi')
+# w1.dodaj_auto('ford')
+# w1.dodaj_auto('ww')
+# w1.usun_auto("audi")
+# w1.pokaz_baze()
+# w1.pokaz_wolne()
+#
+#
+# a1 = Auto("bmw")
+# a1.wypozycz("Ala")
+# a1.wypozycz("Ola")
+# a1.zwroc("Ala")
+# a1.wypozycz("Ola")
+# a1.wyswietl_histr()
+
+
+# Zadanie: System Zarządzania Biblioteką
+# Stwórz system zarządzania biblioteką, który pozwala na:
+#
+# Dodawanie książek do katalogu.
+# Usuwanie książek z katalogu.
+# Wypożyczanie książek przez użytkowników.
+# Zwracanie książek.
+# Wyświetlanie dostępnych książek.
+# Wyświetlanie historii wypożyczeń dla danej książki.
+
+class Ksiazka:
+    def __init__(self, tytul, autor):
+        self.tutul = tytul
+        self.autor = autor
+        self.wolna = True
+        self.historia = []
+
+    def wypozycz(self, osoba):
+        if self.wolna:
+            print(f"Ksiazka {self.tutul} zostala wypozyczone przez {osoba}")
+            self.wolna = False
+            self.historia.append(f"wypozyczona przez {osoba}")
+        else:
+            print(f"Ksiazka {self.tutul} nie jest dostepna")
+
+    def oddaj(self, osoba):
+        if self.wolna == False:
+            print(f"Ksiazka oddana")
+            self.wolna= True
+            self.historia.append(f"oddana przez {osoba}")
+        else:
+            print("ksiazka nei byla wypozyczona")
+
+    def wyswietl_historie(self):
+        for i in self.historia:
+            print(i)
+
+
+class Biblioteka:
     def __init__(self):
-        self.auta = []
+        self.ksiazki = []
 
-    def pokaz_baze(self):
-        print(f"Wszystkie samochody: {self.auta}")
+    def dodaj(self, tytul, autor):
+        book = Ksiazka(tytul,autor)
+        self.ksiazki.append(book)
+        print(f"Ksiazka {tytul} zostala dodana do bazy")
 
-    def dodaj_auto(self,marka):
-        # self.marka = marka
-        nowe_auto = Auto(marka)
-        self.auta.append(nowe_auto)
-        print("Auto zostalo dodane do bazy")
-
-    def usun_auto(self,marka):
-        if marka in self.auta:
-            self.auta.remove(marka)
-            print("Auto usuniete z bazy")
+    def usun(self, tytul):
+        if tytul in self.ksiazki:
+            self.ksiazki.remove(tytul)
+            print(f"ksiazka {tytul} zostala ususnieta z bazy")
         else:
-            print("Nie ma takiego auta w bazie")
+            print("Nie ma takiej ksiazki w bazie, nei mozna ususnac")
 
-    def pokaz_wolne(self):
-        print("Dostepne samochody:")
-        # if Auto.wolny:
-        #     # print(f"dostepne samochody to:{Auto.marka}")
-        for a in self.auta:
-            if a.wolny:
-                print(a.marka)
+    def wyswietl_dostepne(self):
+        for i in self.ksiazki:
+            if Ksiazka.wolna:
+                print(i)
 
-
-
-class Auto:
-    def __init__(self,marka):
-        self.marka = marka
-        self.wolny = True
-        self.histr=[]
-
-    def wypozycz(self,imie):
-        if self.wolny:
-            print("Samochod wypozyczony")
-            self.wolny=False
-            self.histr.append(f"wypozyczony przez {imie}")
-        else:
-            print("Samochod nir jest dostepny")
-
-    def zwroc(self,imie):
-        if self.wolny:
-            print("Ten samochod nie jes wypozyczony")
-        else:
-            print("Samochpd oddany")
-            self.wolny=True
-            self.histr.append(f"oddany przez {imie}")
-
-    def wyswietl_histr(self):
-        print(f"Histroia wypozyczen to: {self.histr}")
-
-
-
-
-w1 = Wypozyczalnia()
-w1.dodaj_auto('bmw')
-w1.dodaj_auto('audi')
-w1.dodaj_auto('ford')
-w1.dodaj_auto('ww')
-w1.usun_auto("audi")
-w1.pokaz_baze()
-w1.pokaz_wolne()
-
-
-a1 = Auto("bmw")
-a1.wypozycz("Ala")
-a1.wypozycz("Ola")
-a1.zwroc("Ala")
-a1.wypozycz("Ola")
-a1.wyswietl_histr()
