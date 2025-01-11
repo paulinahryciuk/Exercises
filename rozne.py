@@ -1207,21 +1207,21 @@ class Kurs:
 
 class Ksiazka:
     def __init__(self, tytul, autor):
-        self.tutul = tytul
+        self.tytul = tytul
         self.autor = autor
         self.wolna = True
         self.historia = []
 
     def wypozycz(self, osoba):
         if self.wolna:
-            print(f"Ksiazka {self.tutul} zostala wypozyczone przez {osoba}")
+            print(f"Ksiazka {self.tytul} zostala wypozyczone przez {osoba}")
             self.wolna = False
             self.historia.append(f"wypozyczona przez {osoba}")
         else:
-            print(f"Ksiazka {self.tutul} nie jest dostepna")
+            print(f"Ksiazka {self.tytul} nie jest dostepna")
 
     def oddaj(self, osoba):
-        if self.wolna == False:
+        if not self.wolna:
             print(f"Ksiazka oddana")
             self.wolna= True
             self.historia.append(f"oddana przez {osoba}")
@@ -1229,6 +1229,7 @@ class Ksiazka:
             print("ksiazka nei byla wypozyczona")
 
     def wyswietl_historie(self):
+        print("Historia wyporzyczen:")
         for i in self.historia:
             print(i)
 
@@ -1243,14 +1244,28 @@ class Biblioteka:
         print(f"Ksiazka {tytul} zostala dodana do bazy")
 
     def usun(self, tytul):
-        if tytul in self.ksiazki:
-            self.ksiazki.remove(tytul)
-            print(f"ksiazka {tytul} zostala ususnieta z bazy")
-        else:
-            print("Nie ma takiej ksiazki w bazie, nei mozna ususnac")
+        for x in self.ksiazki:
+            if tytul==x.tytul:
+                self.ksiazki.remove(x)
+                print(f"ksiazka {tytul} zostala ususnieta z bazy")
+        print("Nie ma takiej ksiazki w bazie, nei mozna ususnac")
 
     def wyswietl_dostepne(self):
+        print("Dostepne:")
         for i in self.ksiazki:
-            if Ksiazka.wolna:
-                print(i)
+            if i.wolna:
+                print(i.tytul)
 
+k1 = Ksiazka("Potop", "Sienkiewicz")
+k1.wypozycz("Ola")
+k1.wypozycz("Ala")
+k1.oddaj("Ola")
+k1.wyswietl_historie()
+
+b1 = Biblioteka()
+b1.dodaj("Ala ma kota","AB")
+b1.dodaj("Ala ma kota","AB")
+b1.dodaj("Atlas","DC")
+b1.usun("A")
+b1.usun("Atlas")
+b1.wyswietl_dostepne()
