@@ -1205,67 +1205,220 @@ class Kurs:
 # Wyświetlanie dostępnych książek.
 # Wyświetlanie historii wypożyczeń dla danej książki.
 
-class Ksiazka:
-    def __init__(self, tytul, autor):
-        self.tytul = tytul
-        self.autor = autor
-        self.wolna = True
-        self.historia = []
+# class Ksiazka:
+#     def __init__(self, tytul, autor):
+#         self.tytul = tytul
+#         self.autor = autor
+#         self.wolna = True
+#         self.historia = []
+#
+#     def wypozycz(self, osoba):
+#         if self.wolna:
+#             print(f"Ksiazka {self.tytul} zostala wypozyczone przez {osoba}")
+#             self.wolna = False
+#             self.historia.append(f"wypozyczona przez {osoba}")
+#         else:
+#             print(f"Ksiazka {self.tytul} nie jest dostepna")
+#
+#     def oddaj(self, osoba):
+#         if not self.wolna:
+#             print(f"Ksiazka oddana")
+#             self.wolna= True
+#             self.historia.append(f"oddana przez {osoba}")
+#         else:
+#             print("ksiazka nei byla wypozyczona")
+#
+#     def wyswietl_historie(self):
+#         print("Historia wyporzyczen:")
+#         for i in self.historia:
+#             print(i)
+#
+#
+# class Biblioteka:
+#     def __init__(self):
+#         self.ksiazki = []
+#
+#     def dodaj(self, tytul, autor):
+#         book = Ksiazka(tytul,autor)
+#         self.ksiazki.append(book)
+#         print(f"Ksiazka {tytul} zostala dodana do bazy")
+#
+#     def usun(self, tytul):
+#         for x in self.ksiazki:
+#             if tytul==x.tytul:
+#                 self.ksiazki.remove(x)
+#                 print(f"ksiazka {tytul} zostala ususnieta z bazy")
+#         print("Nie ma takiej ksiazki w bazie, nei mozna ususnac")
+#
+#     def wyswietl_dostepne(self):
+#         print("Dostepne:")
+#         for i in self.ksiazki:
+#             if i.wolna:
+#                 print(i.tytul)
+#
+# k1 = Ksiazka("Potop", "Sienkiewicz")
+# k1.wypozycz("Ola")
+# k1.wypozycz("Ala")
+# k1.oddaj("Ola")
+# k1.wyswietl_historie()
+#
+# b1 = Biblioteka()
+# b1.dodaj("Ala ma kota","AB")
+# b1.dodaj("Ala ma kota","AB")
+# b1.dodaj("Atlas","DC")
+# b1.usun("A")
+# b1.usun("Atlas")
+# b1.wyswietl_dostepne()
 
-    def wypozycz(self, osoba):
-        if self.wolna:
-            print(f"Ksiazka {self.tytul} zostala wypozyczone przez {osoba}")
-            self.wolna = False
-            self.historia.append(f"wypozyczona przez {osoba}")
-        else:
-            print(f"Ksiazka {self.tytul} nie jest dostepna")
-
-    def oddaj(self, osoba):
-        if not self.wolna:
-            print(f"Ksiazka oddana")
-            self.wolna= True
-            self.historia.append(f"oddana przez {osoba}")
-        else:
-            print("ksiazka nei byla wypozyczona")
-
-    def wyswietl_historie(self):
-        print("Historia wyporzyczen:")
-        for i in self.historia:
-            print(i)
 
 
-class Biblioteka:
-    def __init__(self):
-        self.ksiazki = []
+# Zadanie 1: System Zarządzania Produktami
+# Cel: Stwórz program, który umożliwi zarządzanie bazą produktów w sklepie.
+#
+# Stwórz klasę Produkt z właściwościami:
+#
+# nazwa
+# cena
+# ilosc (liczba sztuk w magazynie)
+# Dodaj metody:
+#
+# kup(sztuki): zmniejsza liczbę produktów w magazynie.
+# zobacz_stan(): wyświetla, ile sztuk jest dostępnych.
+# Stwórz klasę Magazyn, która zarządza listą produktów:
+#
+# Metoda dodaj_produkt(nazwa, cena, ilosc): dodaje nowy produkt do magazynu.
+# Metoda pokaz_produkt(nazwa): pokazuje szczegóły wybranego produktu.
 
-    def dodaj(self, tytul, autor):
-        book = Ksiazka(tytul,autor)
-        self.ksiazki.append(book)
-        print(f"Ksiazka {tytul} zostala dodana do bazy")
+# class Product:
+#     def __init__(self, nazwa, cena, ilosc):
+#         self.nazwa = nazwa
+#         self.cena = cena
+#         self.ilosc = ilosc
+#
+#     def kup(self, sztuki):
+#         self.ilosc -= sztuki
+#
+#     def zobacz_stan(self):
+#         print(f"Product {self.nazwa} jest dosteny w ilosci: {self.ilosc}")
+#
+# class Magazyn:
+#     def __init__(self):
+#         self.produkty = []
+#
+#     def dodaj_product(self, nazwa, cena, ilosc):
+#         nowy_product = Product(nazwa, cena, ilosc)
+#         self.produkty.append(nowy_product)
+#
+#
+#     def pokaz_product(self,produkt):
+#         for i in self.produkty:
+#             if i.nazwa == produkt:
+#                 print(f"Produkt {i.nazwa} kosztuje {i.cena}, ilosc na amgazynie: {i.ilosc}")
+#
+#
+# m1 = Magazyn()
+# m1.dodaj_product("komputer",2000, 5)
+# m1.dodaj_product("ksiazka",15,8)
+# m1.pokaz_product("komputer")
+# p1 = Product("komputer",2000, 5)
+# p1.kup(2)
+# p1.zobacz_stan()
+# m1.pokaz_product("komputer")
 
-    def usun(self, tytul):
-        for x in self.ksiazki:
-            if tytul==x.tytul:
-                self.ksiazki.remove(x)
-                print(f"ksiazka {tytul} zostala ususnieta z bazy")
-        print("Nie ma takiej ksiazki w bazie, nei mozna ususnac")
 
-    def wyswietl_dostepne(self):
-        print("Dostepne:")
-        for i in self.ksiazki:
-            if i.wolna:
-                print(i.tytul)
+# Zadanie 2: Symulator Zwierząt
+# Cel: Stwórz hierarchię zwierząt.
+#
+# Stwórz klasę Zwierze z metodą daj_glos(), która zwraca tekst: "Zwierzę wydaje dźwięk".
+# Utwórz klasy Pies, Kot, i Ptak, które dziedziczą po klasie Zwierze, ale implementują własną wersję metody daj_glos() (np. "Hau!", "Miau!", "Ćwir!").
+# Wykorzystaj polimorfizm, aby wywołać daj_glos() dla listy zwierząt.
 
-k1 = Ksiazka("Potop", "Sienkiewicz")
-k1.wypozycz("Ola")
-k1.wypozycz("Ala")
-k1.oddaj("Ola")
-k1.wyswietl_historie()
+class Zwierze:
+    pass
+    def daj_glos(self):
+        print("zwirze wydaje glos")
 
-b1 = Biblioteka()
-b1.dodaj("Ala ma kota","AB")
-b1.dodaj("Ala ma kota","AB")
-b1.dodaj("Atlas","DC")
-b1.usun("A")
-b1.usun("Atlas")
-b1.wyswietl_dostepne()
+class Pies(Zwierze):
+    def daj_glos(self):
+        print("Hau hau")
+
+class Kot(Zwierze):
+    def daj_glos(self):
+        print("Miau")
+
+
+
+Zadanie 3: System Rezerwacji Biletów
+Cel: Stwórz program obsługujący rezerwacje biletów na wydarzenia.
+
+Stwórz klasę Bilet z właściwościami:
+
+nazwa_wydarzenia
+cena
+dostepne_miejsca
+Dodaj metody:
+
+zarezerwuj_bilet(liczba_miejsc, osoba): zmniejsza dostępne miejsca i zapisuje rezerwację.
+anuluj_rezerwacje(osoba): zwraca miejsca dla danej osoby.
+Stwórz klasę SystemRezerwacji, która przechowuje listę biletów i zarządza nimi.
+
+Zadanie 4: Biblioteka z Dziedziczeniem
+Cel: Rozszerz przykład biblioteki o kategorie książek.
+
+Stwórz klasę Ksiazka, a następnie dodaj klasy dziedziczące:
+KsiazkaTechniczna
+KsiazkaFantastyczna
+KsiazkaNaukowa
+Każda z tych klas powinna mieć dodatkową właściwość charakterystyczną dla danej kategorii (np. język programowania, gatunek literacki, dziedzina naukowa).
+Stwórz bibliotekę, która zarządza książkami różnych kategorii i umożliwia ich wypożyczenie.
+Zadanie 5: Gra RPG
+Cel: Stwórz prostą grę RPG.
+
+Stwórz klasę Postac z właściwościami:
+imie
+zdrowie
+atak
+Dodaj metody:
+zadaj_cios(inna_postac): zmniejsza zdrowie innej postaci o wartość ataku.
+czy_zyje(): zwraca True, jeśli zdrowie > 0.
+Stwórz klasy Wojownik i Mag, które dziedziczą po Postac, ale mają różne wartości ataku oraz mogą mieć unikalne zdolności (np. Mag rzuca zaklęcie, które zmniejsza zdrowie przeciwnika o dodatkowe punkty).
+Stwórz prosty system walki, w którym dwie postacie walczą, aż jedna z nich przegra.
+Zadanie 6: System Bankowy
+Cel: Stwórz aplikację symulującą bank.
+
+Stwórz klasę Konto z właściwościami:
+numer_konta
+saldo
+właściciel
+Dodaj metody:
+wplata(kwota)
+wyplata(kwota)
+pokaz_saldo()
+Stwórz klasę Bank, która zarządza listą kont, pozwala na tworzenie nowych kont oraz przelewy między kontami.
+Zadanie 7: Zarządzanie Flotą Samochodów
+Cel: Stwórz program do zarządzania flotą pojazdów.
+
+Stwórz klasę Pojazd z właściwościami:
+marka
+model
+stan_licznika
+Dodaj metody:
+przejedz_kilometry(km): dodaje przejechane kilometry.
+Utwórz klasy dziedziczące:
+Samochod (z dodatkową właściwością: pojemnosc_baku).
+Motocykl (z właściwością: rodzaj).
+Stwórz klasę Flota, która przechowuje listę pojazdów i umożliwia ich wynajem.
+Zadanie 8: Symulacja Szkoły
+Cel: Stwórz program zarządzający szkołą.
+
+Stwórz klasę Uczen z właściwościami:
+imie
+nazwisko
+oceny (lista ocen).
+Dodaj metody:
+dodaj_ocene(ocena)
+oblicz_srednia(): oblicza średnią ocen ucznia.
+Stwórz klasę Klasa, która przechowuje listę uczniów i umożliwia:
+dodawanie uczniów,
+wyświetlanie średniej klasy,
+znajdowanie najlepszego ucznia.
