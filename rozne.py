@@ -869,7 +869,6 @@ lista = [3, 1, 4, 1, 5, 9]
 # p1.roczne_wynagrodzenie()
 
 
-
 # Zadanie: System Biblioteczny
 # Zadanie polega na stworzeniu prostego systemu bibliotecznego, który będzie umożliwiał zarządzanie książkami oraz użytkownikami biblioteki.
 
@@ -1021,7 +1020,6 @@ lista = [3, 1, 4, 1, 5, 9]
 # r1.pokaz_wolne()
 
 
-
 # Zadanie: System Zarządzania Kursami Online
 # Stwórz system zarządzania kursami online, który pozwoli na:
 #
@@ -1031,9 +1029,9 @@ lista = [3, 1, 4, 1, 5, 9]
 # Wyświetlanie listy użytkowników zarejestrowanych na dany kurs.
 # Usuwanie użytkownika z kursu.
 class Kurs:
-    def __init__(self,nazwa):
+    def __init__(self, nazwa):
         self.nazwa = nazwa
-        self.uczestnicy =[]
+        self.uczestnicy = []
 
     # def dodaj_kurs(self,nazwa):
     #     Platforma.kursy.append(self.nazwa)
@@ -1045,6 +1043,7 @@ class Kurs:
     #         print(f"Kurs {self.nazwa} zosatl usuniety z listy kursow")
     #     else:
     #         print("Nie ma takiego kirsu na liscie")
+
 
 #     def zapis(self, uczestnik):
 #         if uczestnik in self.uczestnicy:
@@ -1106,7 +1105,6 @@ class Kurs:
 # k1.wyswietl_liste()
 # k1.wypis("Iza")
 # k1.wyswietl_liste()
-
 
 
 # Zadanie: System Wypożyczalni Samochodów
@@ -1271,7 +1269,6 @@ class Kurs:
 # b1.wyswietl_dostepne()
 
 
-
 # Zadanie 1: System Zarządzania Produktami
 # Cel: Stwórz program, który umożliwi zarządzanie bazą produktów w sklepie.
 #
@@ -1333,92 +1330,129 @@ class Kurs:
 # Utwórz klasy Pies, Kot, i Ptak, które dziedziczą po klasie Zwierze, ale implementują własną wersję metody daj_glos() (np. "Hau!", "Miau!", "Ćwir!").
 # Wykorzystaj polimorfizm, aby wywołać daj_glos() dla listy zwierząt.
 
-class Zwierze:
-    pass
-    def daj_glos(self):
-        print("zwirze wydaje glos")
+# class Zwierze:
+#     def __init__(self, rasa, kolor):
+#         self.rasa = rasa
+#         self.kolor = kolor
+#
+#     def daj_glos(self):
+#         print("zwirze wydaje glos")
+#
+#     def info(self):
+#         print(f"Moja rasa to {self.rasa}, jestem koloru: {self.kolor}")
+#
+#
+# class Pies(Zwierze):
+#     def __init__(self, rasa, kolor):
+#         super().__init__(rasa, kolor)
+#
+#     def daj_glos(self):
+#         print("Hau hau")
+#
+#
+# class Kot(Zwierze):
+#     def __init__(self, rasa, kolor, co_lubi):
+#         super().__init__(rasa, kolor)
+#         self.co_lubi = co_lubi
+#
+#     def daj_glos(self):
+#         print("Miau")
+#
+#
+# z1 = Zwierze("ogolna", 'wielokolorowy')
+# z1.daj_glos()
+# p1 = Pies("jamnik", 'brazowy')
+# p1.daj_glos()
+# p1.info()
+# k1 = Kot("dachowiec", "szary", 'mleko')
+# k1.daj_glos()
 
-class Pies(Zwierze):
-    def daj_glos(self):
-        print("Hau hau")
-
-class Kot(Zwierze):
-    def daj_glos(self):
-        print("Miau")
 
 
+# Zadanie 3: System Rezerwacji Biletów
+# Cel: Stwórz program obsługujący rezerwacje biletów na wydarzenia.
+#
+# Stwórz klasę Bilet z właściwościami:
+#
+# nazwa_wydarzenia
+# cena
+# dostepne_miejsca
+# Dodaj metody:
+#
+# zarezerwuj_bilet(liczba_miejsc, osoba): zmniejsza dostępne miejsca i zapisuje rezerwację.
+# anuluj_rezerwacje(osoba): zwraca miejsca dla danej osoby.
+# Stwórz klasę SystemRezerwacji, która przechowuje listę biletów i zarządza nimi.
 
-Zadanie 3: System Rezerwacji Biletów
-Cel: Stwórz program obsługujący rezerwacje biletów na wydarzenia.
 
-Stwórz klasę Bilet z właściwościami:
 
-nazwa_wydarzenia
-cena
-dostepne_miejsca
-Dodaj metody:
 
-zarezerwuj_bilet(liczba_miejsc, osoba): zmniejsza dostępne miejsca i zapisuje rezerwację.
-anuluj_rezerwacje(osoba): zwraca miejsca dla danej osoby.
-Stwórz klasę SystemRezerwacji, która przechowuje listę biletów i zarządza nimi.
 
-Zadanie 4: Biblioteka z Dziedziczeniem
-Cel: Rozszerz przykład biblioteki o kategorie książek.
 
-Stwórz klasę Ksiazka, a następnie dodaj klasy dziedziczące:
-KsiazkaTechniczna
-KsiazkaFantastyczna
-KsiazkaNaukowa
-Każda z tych klas powinna mieć dodatkową właściwość charakterystyczną dla danej kategorii (np. język programowania, gatunek literacki, dziedzina naukowa).
-Stwórz bibliotekę, która zarządza książkami różnych kategorii i umożliwia ich wypożyczenie.
-Zadanie 5: Gra RPG
-Cel: Stwórz prostą grę RPG.
 
-Stwórz klasę Postac z właściwościami:
-imie
-zdrowie
-atak
-Dodaj metody:
-zadaj_cios(inna_postac): zmniejsza zdrowie innej postaci o wartość ataku.
-czy_zyje(): zwraca True, jeśli zdrowie > 0.
-Stwórz klasy Wojownik i Mag, które dziedziczą po Postac, ale mają różne wartości ataku oraz mogą mieć unikalne zdolności (np. Mag rzuca zaklęcie, które zmniejsza zdrowie przeciwnika o dodatkowe punkty).
-Stwórz prosty system walki, w którym dwie postacie walczą, aż jedna z nich przegra.
-Zadanie 6: System Bankowy
-Cel: Stwórz aplikację symulującą bank.
 
-Stwórz klasę Konto z właściwościami:
-numer_konta
-saldo
-właściciel
-Dodaj metody:
-wplata(kwota)
-wyplata(kwota)
-pokaz_saldo()
-Stwórz klasę Bank, która zarządza listą kont, pozwala na tworzenie nowych kont oraz przelewy między kontami.
-Zadanie 7: Zarządzanie Flotą Samochodów
-Cel: Stwórz program do zarządzania flotą pojazdów.
 
-Stwórz klasę Pojazd z właściwościami:
-marka
-model
-stan_licznika
-Dodaj metody:
-przejedz_kilometry(km): dodaje przejechane kilometry.
-Utwórz klasy dziedziczące:
-Samochod (z dodatkową właściwością: pojemnosc_baku).
-Motocykl (z właściwością: rodzaj).
-Stwórz klasę Flota, która przechowuje listę pojazdów i umożliwia ich wynajem.
-Zadanie 8: Symulacja Szkoły
-Cel: Stwórz program zarządzający szkołą.
 
-Stwórz klasę Uczen z właściwościami:
-imie
-nazwisko
-oceny (lista ocen).
-Dodaj metody:
-dodaj_ocene(ocena)
-oblicz_srednia(): oblicza średnią ocen ucznia.
-Stwórz klasę Klasa, która przechowuje listę uczniów i umożliwia:
-dodawanie uczniów,
-wyświetlanie średniej klasy,
-znajdowanie najlepszego ucznia.
+
+
+
+#
+# Zadanie 4: Biblioteka z Dziedziczeniem
+# Cel: Rozszerz przykład biblioteki o kategorie książek.
+#
+# Stwórz klasę Ksiazka, a następnie dodaj klasy dziedziczące:
+# KsiazkaTechniczna
+# KsiazkaFantastyczna
+# KsiazkaNaukowa
+# Każda z tych klas powinna mieć dodatkową właściwość charakterystyczną dla danej kategorii (np. język programowania, gatunek literacki, dziedzina naukowa).
+# Stwórz bibliotekę, która zarządza książkami różnych kategorii i umożliwia ich wypożyczenie.
+# Zadanie 5: Gra RPG
+# Cel: Stwórz prostą grę RPG.
+#
+# Stwórz klasę Postac z właściwościami:
+# imie
+# zdrowie
+# atak
+# Dodaj metody:
+# zadaj_cios(inna_postac): zmniejsza zdrowie innej postaci o wartość ataku.
+# czy_zyje(): zwraca True, jeśli zdrowie > 0.
+# Stwórz klasy Wojownik i Mag, które dziedziczą po Postac, ale mają różne wartości ataku oraz mogą mieć unikalne zdolności (np. Mag rzuca zaklęcie, które zmniejsza zdrowie przeciwnika o dodatkowe punkty).
+# Stwórz prosty system walki, w którym dwie postacie walczą, aż jedna z nich przegra.
+# Zadanie 6: System Bankowy
+# Cel: Stwórz aplikację symulującą bank.
+#
+# Stwórz klasę Konto z właściwościami:
+# numer_konta
+# saldo
+# właściciel
+# Dodaj metody:
+# wplata(kwota)
+# wyplata(kwota)
+# pokaz_saldo()
+# Stwórz klasę Bank, która zarządza listą kont, pozwala na tworzenie nowych kont oraz przelewy między kontami.
+# Zadanie 7: Zarządzanie Flotą Samochodów
+# Cel: Stwórz program do zarządzania flotą pojazdów.
+#
+# Stwórz klasę Pojazd z właściwościami:
+# marka
+# model
+# stan_licznika
+# Dodaj metody:
+# przejedz_kilometry(km): dodaje przejechane kilometry.
+# Utwórz klasy dziedziczące:
+# Samochod (z dodatkową właściwością: pojemnosc_baku).
+# Motocykl (z właściwością: rodzaj).
+# Stwórz klasę Flota, która przechowuje listę pojazdów i umożliwia ich wynajem.
+# Zadanie 8: Symulacja Szkoły
+# Cel: Stwórz program zarządzający szkołą.
+#
+# Stwórz klasę Uczen z właściwościami:
+# imie
+# nazwisko
+# oceny (lista ocen).
+# Dodaj metody:
+# dodaj_ocene(ocena)
+# oblicz_srednia(): oblicza średnią ocen ucznia.
+# Stwórz klasę Klasa, która przechowuje listę uczniów i umożliwia:
+# dodawanie uczniów,
+# wyświetlanie średniej klasy,
+# znajdowanie najlepszego ucznia.
