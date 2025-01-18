@@ -1383,6 +1383,18 @@ class Kurs:
 # anuluj_rezerwacje(osoba): zwraca miejsca dla danej osoby.
 # Stwórz klasę SystemRezerwacji, która przechowuje listę biletów i zarządza nimi.
 
+class Bilet:
+    def __init__(self, nazwa_wydarzenia, cena, dostepne_miejsca):
+        self.nazwa_wydarzenia = nazwa_wydarzenia
+        self.cena = cena
+        self.dostepne_miejsca = dostepne_miejsca
+        self.lista_rezerwujacych = dict()
+
+    def zarazerwuj_bilet(self,liczba_miejsc,osoba):
+        self.dostepne_miejsca -= liczba_miejsc
+        self.lista_rezerwujacych[osoba]=liczba_miejsc
+
+    def anuluj_rezerwacje(self,osoba):
 
 
 
