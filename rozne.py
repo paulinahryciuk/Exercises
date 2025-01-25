@@ -1383,48 +1383,30 @@ class Kurs:
 # anuluj_rezerwacje(osoba): zwraca miejsca dla danej osoby.
 # Stwórz klasę SystemRezerwacji, która przechowuje listę biletów i zarządza nimi.
 
-class Bilet:
-    def __init__(self, nazwa_wydarzenia, cena, dostepne_miejsca):
-        self.nazwa_wydarzenia = nazwa_wydarzenia
-        self.cena = cena
-        self.dostepne_miejsca = dostepne_miejsca
-        self.lista_rezerwujacych = dict()
-
-    def zarazerwuj_bilet(self,liczba_miejsc,osoba):
-        self.dostepne_miejsca -= liczba_miejsc
-        self.lista_rezerwujacych[osoba]=liczba_miejsc
-
-    def anuluj_rezerwacje(self,osoba):
-        if osoba in self.lista_rezerwujacych:
-            self.dostepne_miejsca += self.lista_rezerwujacych[osoba]
-            self.lista_rezerwujacych.pop(osoba)
-            print("Rezerwacja anulowana")
-        else:
-            print("Nie ma takije rezerw")
-
-b1 = Bilet("teatr",25, 10)
-b1.zarazerwuj_bilet(4,"Ala")
-print(b1.dostepne_miejsca)
-b1.anuluj_rezerwacje("Ola")
-b1.anuluj_rezerwacje("Ala")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# class Bilet:
+#     def __init__(self, nazwa_wydarzenia, cena, dostepne_miejsca):
+#         self.nazwa_wydarzenia = nazwa_wydarzenia
+#         self.cena = cena
+#         self.dostepne_miejsca = dostepne_miejsca
+#         self.lista_rezerwujacych = dict()
+#
+#     def zarazerwuj_bilet(self,liczba_miejsc,osoba):
+#         self.dostepne_miejsca -= liczba_miejsc
+#         self.lista_rezerwujacych[osoba]=liczba_miejsc
+#
+#     def anuluj_rezerwacje(self,osoba):
+#         if osoba in self.lista_rezerwujacych:
+#             self.dostepne_miejsca += self.lista_rezerwujacych[osoba]
+#             self.lista_rezerwujacych.pop(osoba)
+#             print("Rezerwacja anulowana")
+#         else:
+#             print("Nie ma takije rezerw")
+#
+# b1 = Bilet("teatr",25, 10)
+# b1.zarazerwuj_bilet(4,"Ala")
+# print(b1.dostepne_miejsca)
+# b1.anuluj_rezerwacje("Ola")
+# b1.anuluj_rezerwacje("Ala")
 
 
 #
@@ -1437,6 +1419,30 @@ b1.anuluj_rezerwacje("Ala")
 # KsiazkaNaukowa
 # Każda z tych klas powinna mieć dodatkową właściwość charakterystyczną dla danej kategorii (np. język programowania, gatunek literacki, dziedzina naukowa).
 # Stwórz bibliotekę, która zarządza książkami różnych kategorii i umożliwia ich wypożyczenie.
+
+# class Ksiazka:
+#     def __init__(self,tytul):
+#         self.tytul = tytul
+#
+#     def pokaz_nazwe(self):
+#         print(f"Ksiazka nazywa sie {self.tytul}")
+#
+# class KsiazkaTech(Ksiazka):
+#     def __init__(self,tytul,jez_progr):
+#         super().__init__(tytul)
+#         self.jez_progr = jez_progr
+#
+# class KsiazkaFantast(Ksiazka):
+#     def __init__(self,tytul, swiat):
+#         super().__init__(tytul)
+#         self.swiat = swiat
+#
+# k1 = Ksiazka("Ala ma kota")
+# k2= KsiazkaTech("podstawy pythona", "python")
+# k3 = KsiazkaFantast('krsina czarow',"zazcarowany")
+# k3.pokaz_nazwe()
+
+
 # Zadanie 5: Gra RPG
 # Cel: Stwórz prostą grę RPG.
 #
@@ -1449,6 +1455,23 @@ b1.anuluj_rezerwacje("Ala")
 # czy_zyje(): zwraca True, jeśli zdrowie > 0.
 # Stwórz klasy Wojownik i Mag, które dziedziczą po Postac, ale mają różne wartości ataku oraz mogą mieć unikalne zdolności (np. Mag rzuca zaklęcie, które zmniejsza zdrowie przeciwnika o dodatkowe punkty).
 # Stwórz prosty system walki, w którym dwie postacie walczą, aż jedna z nich przegra.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Zadanie 6: System Bankowy
 # Cel: Stwórz aplikację symulującą bank.
 #
