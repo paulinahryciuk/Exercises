@@ -1395,6 +1395,26 @@ class Bilet:
         self.lista_rezerwujacych[osoba]=liczba_miejsc
 
     def anuluj_rezerwacje(self,osoba):
+        if osoba in self.lista_rezerwujacych:
+            self.dostepne_miejsca += self.lista_rezerwujacych[osoba]
+            self.lista_rezerwujacych.pop(osoba)
+            print("Rezerwacja anulowana")
+        else:
+            print("Nie ma takije rezerw")
+
+b1 = Bilet("teatr",25, 10)
+b1.zarazerwuj_bilet(4,"Ala")
+print(b1.dostepne_miejsca)
+b1.anuluj_rezerwacje("Ola")
+b1.anuluj_rezerwacje("Ala")
+
+
+
+
+
+
+
+
 
 
 
