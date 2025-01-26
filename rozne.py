@@ -1456,13 +1456,23 @@ class Kurs:
 # Stwórz klasy Wojownik i Mag, które dziedziczą po Postac, ale mają różne wartości ataku oraz mogą mieć unikalne zdolności (np. Mag rzuca zaklęcie, które zmniejsza zdrowie przeciwnika o dodatkowe punkty).
 # Stwórz prosty system walki, w którym dwie postacie walczą, aż jedna z nich przegra.
 
-
-
-
-
-
-
-
+# class Postac:
+#     def __init__(self, imie, zdrowie, atak):
+#         self.imie = imie
+#         self.zdrowie = zdrowie
+#         self.atak = 100
+#
+#     def zadaj_cios(self,osoba, wartosc_ataku):
+#         nowe_zdrowie = osoba.zdowie - wartosc_ataku
+#
+#     def czy_zyje(self):
+#         if self.zdrowie> 0:
+#             print("zyje")
+#         else:
+#             print("Nie zyje")
+#
+# class Wojownik(Postac):
+#     def __init__(self):
 
 
 
@@ -1497,6 +1507,9 @@ class Kurs:
 # Samochod (z dodatkową właściwością: pojemnosc_baku).
 # Motocykl (z właściwością: rodzaj).
 # Stwórz klasę Flota, która przechowuje listę pojazdów i umożliwia ich wynajem.
+
+
+
 # Zadanie 8: Symulacja Szkoły
 # Cel: Stwórz program zarządzający szkołą.
 #
@@ -1511,3 +1524,28 @@ class Kurs:
 # dodawanie uczniów,
 # wyświetlanie średniej klasy,
 # znajdowanie najlepszego ucznia.
+
+class Uczen:
+    def __init__(self,imie,nazwisko):
+        self.imie = imie
+        self.nazwisko = nazwisko
+        oceny = []
+
+    def dodaj_ocene(self,ocena):
+        self.oceny.append(ocena)
+        print(f"Uczen {self.imie} {self.nazwisko} otrzymal ocene {ocena}"
+
+    def oblicz_sr(self):
+            suma=0
+            for i in self.oceny:
+                suma+=i
+            srednia = suma/len(self.oceny)
+        print(f" Srednia ocen ucznia {self.imie} wynosi {srednia}")
+
+class Klasa:
+    def __init__(self:
+        self.lista_uczniow = []
+
+    def dodaj_ucznia(self,imie):
+        self.lista.uczniow.append(imie))
+        print(f"Uczen {imie} zosatl dodany do listy uczniow")
