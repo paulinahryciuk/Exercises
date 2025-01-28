@@ -1368,7 +1368,6 @@ class Kurs:
 # k1.daj_glos()
 
 
-
 # Zadanie 3: System Rezerwacji Biletów
 # Cel: Stwórz program obsługujący rezerwacje biletów na wydarzenia.
 #
@@ -1475,13 +1474,6 @@ class Kurs:
 #     def __init__(self):
 
 
-
-
-
-
-
-
-
 # Zadanie 6: System Bankowy
 # Cel: Stwórz aplikację symulującą bank.
 #
@@ -1509,7 +1501,6 @@ class Kurs:
 # Stwórz klasę Flota, która przechowuje listę pojazdów i umożliwia ich wynajem.
 
 
-
 # Zadanie 8: Symulacja Szkoły
 # Cel: Stwórz program zarządzający szkołą.
 #
@@ -1526,26 +1517,64 @@ class Kurs:
 # znajdowanie najlepszego ucznia.
 
 class Uczen:
-    def __init__(self,imie,nazwisko):
+    def __init__(self, imie, nazwisko):
         self.imie = imie
         self.nazwisko = nazwisko
-        oceny = []
+        self.oceny = []
 
-    def dodaj_ocene(self,ocena):
+    def dodaj_ocene(self, ocena):
         self.oceny.append(ocena)
-        print(f"Uczen {self.imie} {self.nazwisko} otrzymal ocene {ocena}"
+        print(f"Uczen {self.imie} {self.nazwisko} otrzymal ocene {ocena}")
 
     def oblicz_sr(self):
-            suma=0
-            for i in self.oceny:
-                suma+=i
-            srednia = suma/len(self.oceny)
+        suma = 0
+        for i in self.oceny:
+            suma += i
+        srednia = suma / len(self.oceny)
         print(f" Srednia ocen ucznia {self.imie} wynosi {srednia}")
 
+
 class Klasa:
-    def __init__(self:
+    def __init__(self):
         self.lista_uczniow = []
 
-    def dodaj_ucznia(self,imie):
-        self.lista.uczniow.append(imie))
-        print(f"Uczen {imie} zosatl dodany do listy uczniow")
+    def dodaj_ucznia(self, imie, nazwisko):
+        uczen = Uczen(imie, nazwisko)
+        self.lista_uczniow.append(uczen)
+        print(f"Uczen {imie} zostal dodany do listy uczniow")
+
+    def wyswietl_srednia_klasy(self):
+        suma_sr = 0
+        for i in self.lista_uczniow:
+            # sr = Uczen.oblicz_sr(i)
+            sr = i.oblicz_sr()
+            suma_sr += sr
+        srednia = suma_sr / len(self.lista_uczniow)
+        return srednia
+        print(f"Srednia uczniow wynosi: {srednia}")
+
+    def najlepszy_uczen(self):
+        najlepszy = []
+        imie_naj = []
+        for i in self.lista_uczniow:
+            sr = i.oblicz_sr()
+            if sr >= najlepszy:
+                najlepszy = sr
+                imie_naj = i
+        print(f"Uczen z najlepsza srednia to : {imie_naj}")
+
+u1 = Uczen("Adam","B")
+u2 = Uczen("Asia","U")
+u1.dodaj_ocene(5)
+u1.dodaj_ocene(5)
+u2.dodaj_ocene(4)
+u2.dodaj_ocene(4)
+u1.oblicz_sr()
+u2.oblicz_sr()
+k1 = Klasa()
+k1.dodaj_ucznia("Ola","c")
+print(k1.lista_uczniow)
+k1.wyswietl_srednia_klasy()
+k1.najlepszy_uczen()
+
+
