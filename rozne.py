@@ -1536,7 +1536,7 @@ class Uczen:
             return srednia
         else:
             print("ktorys uczen nei ma ocen")
-            return None
+            return 0
 
 
 class Klasa:
@@ -1561,6 +1561,7 @@ class Klasa:
             return srednia
         else:
             print("brak uczniow")
+            return 0
 
 
     def najlepszy_uczen(self):
@@ -1571,8 +1572,8 @@ class Klasa:
             if sr >= najlepszy:
                 najlepszy = sr
                 imie_naj = i
-                return imie_naj
-        print(f"Uczen z najlepsza srednia to : {imie_naj.imie}")
+            print(f"Uczen z najlepsza srednia to : {imie_naj.imie}")
+            return imie_naj
 
 u1 = Uczen("Adam","B")
 u2 = Uczen("Asia","U")
