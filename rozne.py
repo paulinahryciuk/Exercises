@@ -1528,10 +1528,15 @@ class Uczen:
 
     def oblicz_sr(self):
         suma = 0
-        for i in self.oceny:
-            suma += i
-        srednia = suma / len(self.oceny)
-        print(f" Srednia ocen ucznia {self.imie} wynosi {srednia}")
+        if len(self.oceny)>0:
+            for i in self.oceny:
+                suma += i
+            srednia = suma / len(self.oceny)
+            print(f" Srednia ocen ucznia {self.imie} wynosi {srednia}")
+            return srednia
+        else:
+            print("ktorys uczen nei ma ocen")
+            return None
 
 
 class Klasa:
@@ -1542,26 +1547,32 @@ class Klasa:
         uczen = Uczen(imie, nazwisko)
         self.lista_uczniow.append(uczen)
         print(f"Uczen {imie} zostal dodany do listy uczniow")
+        return uczen
 
     def wyswietl_srednia_klasy(self):
         suma_sr = 0
-        for i in self.lista_uczniow:
-            # sr = Uczen.oblicz_sr(i)
-            sr = i.oblicz_sr()
-            suma_sr += sr
-        srednia = suma_sr / len(self.lista_uczniow)
-        return srednia
-        print(f"Srednia uczniow wynosi: {srednia}")
+        if len(self.lista_uczniow)>0:
+            for i in self.lista_uczniow:
+                # sr = Uczen.oblicz_sr(i)
+                sr = i.oblicz_sr()
+                suma_sr += int(sr)
+            srednia = suma_sr / len(self.lista_uczniow)
+            print(f"Srednia uczniow wynosi: {srednia}")
+            return srednia
+        else:
+            print("brak uczniow")
+
 
     def najlepszy_uczen(self):
-        najlepszy = []
-        imie_naj = []
+        najlepszy = 0
+        imie_naj = None
         for i in self.lista_uczniow:
             sr = i.oblicz_sr()
             if sr >= najlepszy:
                 najlepszy = sr
                 imie_naj = i
-        print(f"Uczen z najlepsza srednia to : {imie_naj}")
+                return imie_naj
+        print(f"Uczen z najlepsza srednia to : {imie_naj.imie}")
 
 u1 = Uczen("Adam","B")
 u2 = Uczen("Asia","U")
@@ -1572,8 +1583,9 @@ u2.dodaj_ocene(4)
 u1.oblicz_sr()
 u2.oblicz_sr()
 k1 = Klasa()
-k1.dodaj_ucznia("Ola","c")
+# k1.dodaj_ucznia("Ola","c")
 print(k1.lista_uczniow)
+# uczen.dodaj_ocene(2)
 k1.wyswietl_srednia_klasy()
 k1.najlepszy_uczen()
 
