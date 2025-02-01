@@ -1516,78 +1516,164 @@ class Kurs:
 # wyświetlanie średniej klasy,
 # znajdowanie najlepszego ucznia.
 
-class Uczen:
-    def __init__(self, imie, nazwisko):
-        self.imie = imie
-        self.nazwisko = nazwisko
-        self.oceny = []
+# class Uczen:
+#     def __init__(self, imie, nazwisko):
+#         self.imie = imie
+#         self.nazwisko = nazwisko
+#         self.oceny = []
+#
+#     def dodaj_ocene(self, ocena):
+#         self.oceny.append(ocena)
+#         print(f"Uczen {self.imie} {self.nazwisko} otrzymal ocene {ocena}")
+#
+#     def oblicz_sr(self):
+#         suma = 0
+#         if len(self.oceny)>0:
+#             for i in self.oceny:
+#                 suma += i
+#             srednia = suma / len(self.oceny)
+#             print(f" Srednia ocen ucznia {self.imie} wynosi {srednia}")
+#             return srednia
+#         else:
+#             print("ktorys uczen nei ma ocen")
+#             return 0
+#
+#
+# class Klasa:
+#     def __init__(self):
+#         self.lista_uczniow = []
+#
+#     def dodaj_ucznia(self, imie, nazwisko):
+#         uczen = Uczen(imie, nazwisko)
+#         self.lista_uczniow.append(uczen)
+#         print(f"Uczen {imie} zostal dodany do listy uczniow")
+#         return uczen
+#
+#     def wyswietl_srednia_klasy(self):
+#         suma_sr = 0
+#         if len(self.lista_uczniow)>0:
+#             for i in self.lista_uczniow:
+#                 # sr = Uczen.oblicz_sr(i)
+#                 sr = i.oblicz_sr()
+#                 suma_sr += int(sr)
+#             srednia = suma_sr / len(self.lista_uczniow)
+#             print(f"Srednia uczniow wynosi: {srednia}")
+#             return srednia
+#         else:
+#             print("brak uczniow")
+#             return 0
+#
+#
+#     def najlepszy_uczen(self):
+#         najlepszy = 0
+#         imie_naj = None
+#         for i in self.lista_uczniow:
+#             sr = i.oblicz_sr()
+#             if sr >= najlepszy:
+#                 najlepszy = sr
+#                 imie_naj = i
+#             print(f"Uczen z najlepsza srednia to : {imie_naj.imie}")
+#             return imie_naj
+#
+# u1 = Uczen("Adam","B")
+# u2 = Uczen("Asia","U")
+# u1.dodaj_ocene(5)
+# u1.dodaj_ocene(5)
+# u2.dodaj_ocene(4)
+# u2.dodaj_ocene(4)
+# u1.oblicz_sr()
+# u2.oblicz_sr()
+# k1 = Klasa()
+# # k1.dodaj_ucznia("Ola","c")
+# print(k1.lista_uczniow)
+# # uczen.dodaj_ocene(2)
+# k1.wyswietl_srednia_klasy()
+# k1.najlepszy_uczen()
 
-    def dodaj_ocene(self, ocena):
-        self.oceny.append(ocena)
-        print(f"Uczen {self.imie} {self.nazwisko} otrzymal ocene {ocena}")
 
-    def oblicz_sr(self):
-        suma = 0
-        if len(self.oceny)>0:
-            for i in self.oceny:
-                suma += i
-            srednia = suma / len(self.oceny)
-            print(f" Srednia ocen ucznia {self.imie} wynosi {srednia}")
-            return srednia
-        else:
-            print("ktorys uczen nei ma ocen")
-            return 0
+# Podstawy Pythona (must-have dla każdego)
+# ✅ Składnia i struktury danych
+#
+# Zmienne, operatory, instrukcje warunkowe (if-else)
+# Pętle (for, while)
+# Listy, krotki, słowniki, zbiory
+# List/dict comprehensions
+# ✅ Funkcje i obiektowość
+#
+# Definiowanie funkcji (def, return)
+# Argumenty (*args, **kwargs)
+# Klasy i obiekty (class, self, __init__)
+# Dziedziczenie, polimorfizm
+# ✅ Obsługa wyjątków
+#
+# try-except-finally, raise
+# Własne wyjątki
+# ✅ Praca z plikami
+#
+# Otwieranie i zapisywanie plików (open(), with)
+# CSV, JSON
+# ✅ Moduły i importy
+#
+# Importowanie (import, from ... import)
+# Praca z bibliotekami (pip install)
+# ✅ Podstawy testowania
+#
+# assert, unittest, pytest
+# ✅ Zarządzanie środowiskiem
+#
+# venv (wirtualne środowiska)
+# pip, poetry (zarządzanie pakietami)
+# ✅ Podstawy Git i GitHub
+#
+# git clone, git commit, git push
+# Pull requesty, branchowanie
+# ✅ Znajomość algorytmów i struktur danych
+#
+# Sortowanie, wyszukiwanie
+# Rekurencja, stosy, kolejki
+# Algorytmy grafowe (BFS, DFS)
+
+# Zadanie praktyczne: List Comprehensions
+# Zadanie:
+# Masz listę liczb od 1 do 20.
+#
+# Wygeneruj listę tylko liczb parzystych.
+# Podnieś każdą liczbę do kwadratu i zapisz w nowej liście.
+# Zamień liczby na tekst – jeśli liczba jest podzielna przez 3, napisz "Fizz", jeśli przez 5 – "Buzz", jeśli przez 3 i 5 –
+# "FizzBuzz", w przeciwnym razie zostaw liczbę.
+
+# lista = []
+# for i in range(1,21):
+#     lista.append(i)
+# print(lista)
+# lista = list(range(1,21))
+# print(lista)
+#
+# parzyste = [l for l in lista if l % 2 == 0]
+# print(parzyste)
+#
+# kwadrat = [l ** 2 for l in lista]
+# print(kwadrat)
+#
+# # # fizz = [["Buzz" for l in lista if l%5==0]"Fizz" for l in lista if l%3==0 ]
+# # fizz = ["Fizz","Buzz" for l in lista if l%3==0 else l%5==0 ]
+# fizz = ["fizzbuzz" if i%3==0 and i%5==0 else "fizz" if i%3 == 0 else "buzz" if i%5 == 0 else i for i in lista ]
+# print(fizz)
 
 
-class Klasa:
-    def __init__(self):
-        self.lista_uczniow = []
+# Zadanie praktyczne: *args i **kwargs w Pythonie
+# Zadanie:
+# Stwórz funkcję opis_osoby, która przyjmuje następujące argumenty:
+#
+# *args: nieokreśloną liczbę argumentów pozycyjnych, reprezentujących imię i nazwisko osoby,
+# **kwargs: dowolną liczbę argumentów nazwanych, które będą opisem danej osoby (np. wiek, zawód, hobby).
+# Funkcja powinna:
+#
+# Wypisać imię i nazwisko osoby.
+# Wypisać wszystkie przekazane informacje o osobie.
 
-    def dodaj_ucznia(self, imie, nazwisko):
-        uczen = Uczen(imie, nazwisko)
-        self.lista_uczniow.append(uczen)
-        print(f"Uczen {imie} zostal dodany do listy uczniow")
-        return uczen
+def opis_osoby(*args, **kwargs):
+    print(f"Imie i nawisko osby: {args}")
+    print(f"dodatkowy opis: {kwargs}")
 
-    def wyswietl_srednia_klasy(self):
-        suma_sr = 0
-        if len(self.lista_uczniow)>0:
-            for i in self.lista_uczniow:
-                # sr = Uczen.oblicz_sr(i)
-                sr = i.oblicz_sr()
-                suma_sr += int(sr)
-            srednia = suma_sr / len(self.lista_uczniow)
-            print(f"Srednia uczniow wynosi: {srednia}")
-            return srednia
-        else:
-            print("brak uczniow")
-            return 0
-
-
-    def najlepszy_uczen(self):
-        najlepszy = 0
-        imie_naj = None
-        for i in self.lista_uczniow:
-            sr = i.oblicz_sr()
-            if sr >= najlepszy:
-                najlepszy = sr
-                imie_naj = i
-            print(f"Uczen z najlepsza srednia to : {imie_naj.imie}")
-            return imie_naj
-
-u1 = Uczen("Adam","B")
-u2 = Uczen("Asia","U")
-u1.dodaj_ocene(5)
-u1.dodaj_ocene(5)
-u2.dodaj_ocene(4)
-u2.dodaj_ocene(4)
-u1.oblicz_sr()
-u2.oblicz_sr()
-k1 = Klasa()
-# k1.dodaj_ucznia("Ola","c")
-print(k1.lista_uczniow)
-# uczen.dodaj_ocene(2)
-k1.wyswietl_srednia_klasy()
-k1.najlepszy_uczen()
-
-
+opis_osoby("Anna","Nowak",lat = 20, oczy = "szare", wzrost = 180)
