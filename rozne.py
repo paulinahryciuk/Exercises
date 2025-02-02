@@ -1670,10 +1670,37 @@ class Kurs:
 # Funkcja powinna:
 #
 # Wypisać imię i nazwisko osoby.
-# Wypisać wszystkie przekazane informacje o osobie.
+# # Wypisać wszystkie przekazane informacje o osobie.
+#
+# def opis_osoby(*args, **kwargs):
+#     print(f"Imie i nawisko osby: {args}")
+#     print(f"dodatkowy opis: {kwargs}")
+#
+# opis_osoby("Anna","Nowak",lat = 20, oczy = "szare", wzrost = 180)
 
-def opis_osoby(*args, **kwargs):
-    print(f"Imie i nawisko osby: {args}")
-    print(f"dodatkowy opis: {kwargs}")
 
-opis_osoby("Anna","Nowak",lat = 20, oczy = "szare", wzrost = 180)
+
+
+# zadanie praktyczne: *args i **kwargs w Pythonie
+# Zadanie:
+# Napisz funkcję zamowienie_pizzy, która przyjmuje:
+#
+# *args → dowolną liczbę składników na pizzę,
+# **kwargs → dodatkowe opcje, takie jak rozmiar (rozmiar="duża") lub dodatkowy sos (sos="czosnkowy").
+# Funkcja powinna:
+#
+# Wypisać listę składników pizzy.
+# Wypisać dodatkowe opcje zamówienia.
+
+# def zamow_pizze(*args, **kwargs):
+#     print(f"zamowiona pizza ze skladnikow: {args}")
+#     print(f"Zamowiona pizza ze skladnikow: {",".join(args)}")
+#     print(f"Dodatkowo: {kwargs}")
+#     for i,j in kwargs.items():
+#         print(f"Dodatkowo {i} : {j}")
+#
+#     print(f"Dodatkowo: {kwargs.keys()}:{kwargs.values()}")
+#
+# zamow_pizze("pieczarki", "ananas", rozmiar = "srednia")
+
+lambda
