@@ -1703,4 +1703,25 @@ class Kurs:
 #
 # zamow_pizze("pieczarki", "ananas", rozmiar = "srednia")
 
-lambda
+
+
+# Zadanie praktyczne z funkcją lambda w Pythonie
+# Zadanie:
+# Napisz program, który używa funkcji lambda do sortowania listy studentów według średniej ocen.
+
+studenci = [
+    ("Anna", "Kowalska", 4.5),
+    ("Jan", "Nowak", 3.8),
+    ("Kasia", "Wiśniewska", 4.9),
+    ("Tomek", "Zieliński", 3.5),
+]
+
+potega = lambda x=2: x**2
+print(potega())
+print(potega(3))
+
+lista = ["Z","B","E"]
+sortowanie = lambda a: sorted(a)
+print(sortowanie(lista))
+
+
