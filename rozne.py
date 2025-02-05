@@ -1709,19 +1709,40 @@ class Kurs:
 # Zadanie:
 # Napisz program, który używa funkcji lambda do sortowania listy studentów według średniej ocen.
 
-studenci = [
-    ("Anna", "Kowalska", 4.5),
-    ("Jan", "Nowak", 3.8),
-    ("Kasia", "Wiśniewska", 4.9),
-    ("Tomek", "Zieliński", 3.5),
-]
+# studenci = [
+#     ("Anna", "Kowalska", 4.5),
+#     ("Jan", "Nowak", 3.8),
+#     ("Kasia", "Wiśniewska", 4.9),
+#     ("Tomek", "Zieliński", 3.5),
+# ]
+#
+# potega = lambda x=2: x**2
+# print(potega())
+# print(potega(3))
+#
+# lista = ["Z","B","E"]
+# sortowanie = lambda a: sorted(a)
+# print(sortowanie(lista))
 
-potega = lambda x=2: x**2
-print(potega())
-print(potega(3))
-
-lista = ["Z","B","E"]
-sortowanie = lambda a: sorted(a)
-print(sortowanie(lista))
+# sort_sr = [map(studenci)][filter([-3])]
+# sort_sr = lambda student: student[-1]
+# for student in studenci:
+#     print(sort_sr(student))
+#
 
 
+# Zadanie z funkcją lambda w Pythonie
+# Zadanie: Filtracja liczb parzystych
+# Napisz program, który używa funkcji lambda oraz filter() do wyfiltrowania z listy tylko liczb parzystych.
+
+liczby = [1, 4, 7, 12, 19, 24, 36, 49, 50]
+
+parzyste = list(filter(lambda x:x%2==0,liczby))
+print(parzyste)
+
+# Zadanie: Podnoszenie liczb do potęgi
+# Napisz program, który używa funkcji lambda oraz map() do podniesienia każdej liczby w liście do kwadratu.
+
+liczby = [2, 3, 5, 7, 11]
+kwadraty = list(map(lambda x:x**2,liczby))
+print(kwadraty)
