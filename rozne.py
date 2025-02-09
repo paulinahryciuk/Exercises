@@ -1679,8 +1679,6 @@ class Kurs:
 # opis_osoby("Anna","Nowak",lat = 20, oczy = "szare", wzrost = 180)
 
 
-
-
 # zadanie praktyczne: *args i **kwargs w Pythonie
 # Zadanie:
 # Napisz funkcję zamowienie_pizzy, która przyjmuje:
@@ -1702,7 +1700,6 @@ class Kurs:
 #     print(f"Dodatkowo: {kwargs.keys()}:{kwargs.values()}")
 #
 # zamow_pizze("pieczarki", "ananas", rozmiar = "srednia")
-
 
 
 # Zadanie praktyczne z funkcją lambda w Pythonie
@@ -1734,15 +1731,182 @@ class Kurs:
 # Zadanie z funkcją lambda w Pythonie
 # Zadanie: Filtracja liczb parzystych
 # Napisz program, który używa funkcji lambda oraz filter() do wyfiltrowania z listy tylko liczb parzystych.
+#
+# liczby = [1, 4, 7, 12, 19, 24, 36, 49, 50]
+#
+# parzyste = list(filter(lambda x:x%2==0,liczby))
+# print(parzyste)
+#
+# # Zadanie: Podnoszenie liczb do potęgi
+# # Napisz program, który używa funkcji lambda oraz map() do podniesienia każdej liczby w liście do kwadratu.
+#
+# liczby = [2, 3, 5, 7, 11]
+# kwadraty = list(map(lambda x:x**2,liczby))
+# print(kwadraty)
 
-liczby = [1, 4, 7, 12, 19, 24, 36, 49, 50]
+# Zadanie
+# Napisz program, który używa funkcji lambda do przekształcenia listy imion – zmień wszystkie imiona na wielkie litery
+# i posortuj je alfabetycznie.
 
-parzyste = list(filter(lambda x:x%2==0,liczby))
-print(parzyste)
+# imiona = ["anna", "jan", "kasia", "tomek", "bartek"]
+#
+# wielkie_imiona = list(map(lambda x:x.capitalize(),imiona))
+# wielkie_imiona.sort()
+# print(wielkie_imiona)
 
-# Zadanie: Podnoszenie liczb do potęgi
-# Napisz program, który używa funkcji lambda oraz map() do podniesienia każdej liczby w liście do kwadratu.
+# Zadanie praktyczne: Obsługa wyjątków w Pythonie
+# Zadanie
+# Napisz program, który prosi użytkownika o podanie dwóch liczb, a następnie dzieli pierwszą liczbę przez drugą. Obsłuż
+# wyjątki, takie jak:
+#
+# Dzielenie przez zero (ZeroDivisionError)
+# Błędne dane wejściowe (ValueError)
 
-liczby = [2, 3, 5, 7, 11]
-kwadraty = list(map(lambda x:x**2,liczby))
-print(kwadraty)
+# try:
+#     print("Podaj liczby to wykonam dzialanie dzielenia")
+#     pierwsza = input("Podaj liczbe pierwsza: ")
+#     druga = input("Podaj liczbe druga: ")
+#     wynik = int(pierwsza) / int(druga)
+# except ZeroDivisionError:
+#     print("druga liczba nei moze byc rowna 0")
+# except ValueError:
+#     print("Bledne dane wejsciowe")
+# else:
+#     print("poprawne dane")
+#     print(f"wynik dzielenia to {wynik}")
+# finally:
+#     print("koniec obliczem")
+
+
+# Zadanie praktyczne: Obsługa wyjątków w Pythonie
+# Zadanie
+# Napisz program, który otwiera plik tekstowy podany przez użytkownika, odczytuje jego zawartość i wyświetla ją na
+# ekranie. Obsłuż wyjątki w przypadku:
+#
+# Plik nie istnieje (FileNotFoundError)
+# Brak uprawnień do odczytu (PermissionError)
+# Innych błędów (Exception)
+
+# try:
+#     plik = input("Podaj nazwe pliku wejsciowego: ")
+#     with open(plik, "r") as f:
+#         tekst = f.read()
+#         print(tekst)
+# except FileNotFoundError:
+#     print("Taki plik nie istnieje")
+# except PermissionError:
+#     print("Plik zablokowany, tylko dla uwierzytelnionych uzytkownikow")
+# except:
+#     print("Inny blad")
+# else:
+#     print("Plik zostal wyswietlony")
+# finally:
+#     print("Koniec")
+
+
+# ROZNE
+#  Zadanie:
+# Napisz funkcję przyjmującą dowolną liczbę argumentów pozycyjnych i nazwanych. Niech funkcja wypisuje sumę liczb
+# przekazanych jako argumenty.
+
+
+# def sumowanie(*args, **kwargs):
+#     suma = 0
+#     for arg in args:
+#         suma += int(arg)
+#     for kwarg in kwargs.values():
+#         suma += int(kwarg)
+#         return suma
+#
+# print(sumowanie(1, 2, 3, b=10, d=100))
+#
+#
+
+
+
+
+
+
+
+
+
+
+
+
+# 6. Praca z plikami
+# ✅ Zadanie:
+# Napisz program, który tworzy plik dane.txt, zapisuje do niego kilka linii tekstu, a następnie go otwiera i wyświetla jego zawartość.
+#
+# python
+# Kopiuj
+# Edytuj
+# with open("dane.txt", "w") as plik:
+#     pass  # Zapisz dane
+#
+# with open("dane.txt", "r") as plik:
+#     pass  # Odczytaj dane
+# 📌 Wskazówka: Użyj with open("nazwa_pliku", "tryb") as f:.
+#
+# 🔹 7. Klasy i obiekty
+# ✅ Zadanie:
+# Napisz klasę Samochod, która ma atrybuty marka, model i rok_produkcji, oraz metodę info(), która wypisuje te dane.
+#
+# python
+# Kopiuj
+# Edytuj
+# class Samochod:
+#     pass  # Uzupełnij kod
+#
+# auto = Samochod("Toyota", "Corolla", 2020)
+# auto.info()
+# 📌 Wskazówka: Użyj __init__() i self.
+#
+# 🔹 8. API i requests
+# ✅ Zadanie:
+# Pobierz dane z API https://jsonplaceholder.typicode.com/todos/1 i wyświetl je.
+#
+# python
+# Kopiuj
+# Edytuj
+# import requests
+#
+# url = "https://jsonplaceholder.typicode.com/todos/1"
+# response = pass  # Uzupełnij kod
+# 📌 Wskazówka: Użyj biblioteki requests i metody .json().
+#
+# 🔹 9. Generatory
+# ✅ Zadanie:
+# Napisz generator, który zwraca kolejne liczby Fibonacciego.
+#
+# python
+# Kopiuj
+# Edytuj
+# def fibonacci():
+#     pass  # Uzupełnij kod
+#
+# gen = fibonacci()
+# print(next(gen))
+# print(next(gen))
+# 📌 Wskazówka: Użyj yield.
+#
+# 🔹 10. Wielowątkowość (threading)
+# ✅ Zadanie:
+# Napisz program, który uruchamia dwa wątki – jeden wypisuje liczby parzyste, a drugi nieparzyste.
+#
+# python
+# Kopiuj
+# Edytuj
+# import threading
+#
+# def liczby_parzyste():
+#     pass  # Uzupełnij kod
+#
+# def liczby_nieparzyste():
+#     pass  # Uzupełnij kod
+#
+# t1 = threading.Thread(target=liczby_parzyste)
+# t2 = threading.Thread(target=liczby_nieparzyste)
+#
+# t1.start()
+# t2.start()
+# 📌 Wskazówka: Użyj threading.Thread.
