@@ -1821,32 +1821,19 @@ class Kurs:
 # print(sumowanie(1, 2, 3, b=10, d=100))
 #
 #
-
-
-
-
-
-
-
-
-
-
-
-
 # 6. Praca z plikami
 # ✅ Zadanie:
 # Napisz program, który tworzy plik dane.txt, zapisuje do niego kilka linii tekstu, a następnie go otwiera i wyświetla jego zawartość.
+
+# def program(*args):
+#     with open("dane.txt", "w+") as ft:
+#         ft.write(",".join((map(str,args))))
+#     with open("dane.txt") as file:
+#         tekst = file.read()
+#         print(tekst)
 #
-# python
-# Kopiuj
-# Edytuj
-# with open("dane.txt", "w") as plik:
-#     pass  # Zapisz dane
-#
-# with open("dane.txt", "r") as plik:
-#     pass  # Odczytaj dane
-# 📌 Wskazówka: Użyj with open("nazwa_pliku", "tryb") as f:.
-#
+# program(1, 2, 'ee')
+
 # 🔹 7. Klasy i obiekty
 # ✅ Zadanie:
 # Napisz klasę Samochod, która ma atrybuty marka, model i rok_produkcji, oraz metodę info(), która wypisuje te dane.
@@ -1910,3 +1897,69 @@ class Kurs:
 # t1.start()
 # t2.start()
 # 📌 Wskazówka: Użyj threading.Thread.
+
+# Zadanie:
+# Napisz funkcję podsumuj, która przyjmuje dowolną liczbę argumentów pozycyjnych (*args) i nazwanych (**kwargs).
+#
+# Argumenty pozycyjne to liczby, które należy zsumować.
+# Argumenty nazwane powinny zostać wypisane w formacie klucz: wartość.
+
+#  Zamiana listy w słownik
+# Zadanie:
+# Masz dwie listy:
+# Napisz funkcję, która zwróci słownik utworzony z tych dwóch list.
+
+# klucze = ["imie", "wiek", "miasto"]
+# wartosci = ["Jan", 25, "Warszawa"]
+#
+
+
+# Obsługa wyjątków – walidacja wejścia (łatwe)
+# Zadanie:
+# Napisz funkcję, która prosi użytkownika o podanie liczby. Jeśli użytkownik poda coś innego niż liczbę, funkcja powinna
+# obsłużyć błąd i poprosić o ponowne wprowadzenie wartości.
+
+# def podaj_liczbe():
+#     while True:
+#         try:
+#             liczba = input("Podaj liczbe: ")
+#             wynik = int(liczba) / 2
+#         except ValueError:
+#             print("Nie podales liczby, podaj liczbe!")
+#         else:
+#             print("Podales poporawan liczbe")
+#         # finally:
+#         #     print("koniec")
+#
+#
+# podaj_liczbe()
+
+
+# Klasy w Pythonie – sklep internetowy (trudne)
+# Zadanie:
+# Napisz klasę Produkt, która ma atrybuty nazwa, cena i ilosc. Następnie stwórz klasę Koszyk, która pozwala na dodawanie
+# produktów i obliczanie łącznej ceny zakupów.
+
+
+class Produkt():
+    def __init__(self, nazwa, cena, ilosc):
+        self.nazwa = nazwa
+        self.cena = cena
+        self.ilosc = ilosc
+
+
+class Koszyk():
+    def __init__(self):
+        self.koszyk = []
+
+    def dodaj_do_koszyka(self, nazwa):
+        towar = Produkt(nazwa)
+        self.koszyk.append(towar)
+        print(f"produkt {nazwa} zostal dodany do koszyka")
+        # Produkt.ilosc
+        return self.koszyk
+
+
+p1 = Produkt("bluzka", 20, 2)
+k1 = Koszyk()
+k1.dodaj_do_koszyka("bluzka")
