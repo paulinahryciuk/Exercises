@@ -1951,15 +1951,29 @@ class Produkt():
 class Koszyk():
     def __init__(self):
         self.koszyk = []
+        self.suma = 0
 
-    def dodaj_do_koszyka(self, nazwa):
-        towar = Produkt(nazwa)
-        self.koszyk.append(towar)
-        print(f"produkt {nazwa} zostal dodany do koszyka")
-        # Produkt.ilosc
+    # def dodaj_do_koszyka(self, nazwa, cena, ilosc=1):
+    #     towar = Produkt(nazwa,cena,ilosc)
+    #     self.koszyk.append(towar)
+    #     print(f"produkt {nazwa} zostal dodany do koszyka")
+    #     # Produkt.ilosc
+    #     self.suma += cena
+    #     return self.koszyk
+
+    def dodaj_do_koszyka(self, produkt, ilosc=1):
+        self.koszyk.append(produkt)
+        print(f"produkt {produkt.nazwa} zostal dodany do koszyka")
+        self.suma += int(produkt.cena)
         return self.koszyk
+
+    def pokaz_laczna_sume(self):
+        print(f'Laczna suma koszyka wynosi: {self.suma}')
 
 
 p1 = Produkt("bluzka", 20, 2)
 k1 = Koszyk()
-k1.dodaj_do_koszyka("bluzka")
+# k1.dodaj_do_koszyka("bluzka",30)
+# k1.dodaj_do_koszyka("spodnie",100)
+k1.dodaj_do_koszyka(p1)
+k1.pokaz_laczna_sume()
