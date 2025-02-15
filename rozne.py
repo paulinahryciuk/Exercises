@@ -1940,40 +1940,76 @@ class Kurs:
 # Napisz klasę Produkt, która ma atrybuty nazwa, cena i ilosc. Następnie stwórz klasę Koszyk, która pozwala na dodawanie
 # produktów i obliczanie łącznej ceny zakupów.
 
+#
+# class Produkt():
+#     def __init__(self, nazwa, cena, ilosc):
+#         self.nazwa = nazwa
+#         self.cena = cena
+#         self.ilosc = ilosc
+#
+#
+# class Koszyk():
+#     def __init__(self):
+#         self.koszyk = []
+#         self.suma = 0
+#
+#     # def dodaj_do_koszyka(self, nazwa, cena, ilosc=1):
+#     #     towar = Produkt(nazwa,cena,ilosc)
+#     #     self.koszyk.append(towar)
+#     #     print(f"produkt {nazwa} zostal dodany do koszyka")
+#     #     # Produkt.ilosc
+#     #     self.suma += cena
+#     #     return self.koszyk
+#
+#     def dodaj_do_koszyka(self, produkt, ilosc=1):
+#         self.koszyk.append(produkt)
+#         print(f"produkt {produkt.nazwa} zostal dodany do koszyka")
+#         self.suma += int(produkt.cena)
+#         return self.koszyk
+#
+#     def pokaz_laczna_sume(self):
+#         print(f'Laczna suma koszyka wynosi: {self.suma}')
+#
+#
+# p1 = Produkt("bluzka", 20, 2)
+# k1 = Koszyk()
+# # k1.dodaj_do_koszyka("bluzka",30)
+# # k1.dodaj_do_koszyka("spodnie",100)
+# k1.dodaj_do_koszyka(p1)
+# k1.pokaz_laczna_sume()
 
-class Produkt():
-    def __init__(self, nazwa, cena, ilosc):
-        self.nazwa = nazwa
-        self.cena = cena
-        self.ilosc = ilosc
+
+# Generator haseł: Stwórz funkcję generującą losowe hasło o zadanej długości, składające się z liter, cyfr i znaków specjalnych.
 
 
-class Koszyk():
-    def __init__(self):
-        self.koszyk = []
-        self.suma = 0
+import random
 
-    # def dodaj_do_koszyka(self, nazwa, cena, ilosc=1):
-    #     towar = Produkt(nazwa,cena,ilosc)
-    #     self.koszyk.append(towar)
-    #     print(f"produkt {nazwa} zostal dodany do koszyka")
-    #     # Produkt.ilosc
-    #     self.suma += cena
-    #     return self.koszyk
-
-    def dodaj_do_koszyka(self, produkt, ilosc=1):
-        self.koszyk.append(produkt)
-        print(f"produkt {produkt.nazwa} zostal dodany do koszyka")
-        self.suma += int(produkt.cena)
-        return self.koszyk
-
-    def pokaz_laczna_sume(self):
-        print(f'Laczna suma koszyka wynosi: {self.suma}')
+litery = 'ABCDEFGHIJKLMNOPQRSTUVWXYZĄĆĘŁŃŚÓŻŹabcdefghijklmnopqrstuvwxyząćęłńśóżź'
+specjalne = "!@#$%^&*()"
 
 
-p1 = Produkt("bluzka", 20, 2)
-k1 = Koszyk()
-# k1.dodaj_do_koszyka("bluzka",30)
-# k1.dodaj_do_koszyka("spodnie",100)
-k1.dodaj_do_koszyka(p1)
-k1.pokaz_laczna_sume()
+def generator_hasla(x):
+    if int(x) < 5:
+        print("Haslo musi miec co najmniej 5 znakow")
+    else:
+        znaki = int(x)
+        haslo = []
+        while znaki > 0:
+            znak1 = random.randrange(9)
+            haslo.append(str(znak1))
+            znaki -= 1
+            if znaki > 0:
+                znak2 = random.choice(litery)
+                haslo.append(znak2)
+                znaki -= 1
+                if znaki > 0:
+                    znak3 = random.choice(specjalne)
+                    haslo.append(znak3)
+                    znaki -= 1
+        random.shuffle(haslo)
+        haslo_ostateczne = "".join(haslo)
+        print(f"Twoje haslo to: {haslo_ostateczne}")
+
+
+dlugosc = input("Podaj dlugosc hasla: ")
+generator_hasla(dlugosc)
