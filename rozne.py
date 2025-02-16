@@ -1982,34 +1982,83 @@ class Kurs:
 # Generator haseł: Stwórz funkcję generującą losowe hasło o zadanej długości, składające się z liter, cyfr i znaków specjalnych.
 
 
-import random
+# import random
+#
+# litery = 'ABCDEFGHIJKLMNOPQRSTUVWXYZĄĆĘŁŃŚÓŻŹabcdefghijklmnopqrstuvwxyząćęłńśóżź'
+# specjalne = "!@#$%^&*()"
+#
+#
+# def generator_hasla(x):
+#     if int(x) < 5:
+#         print("Haslo musi miec co najmniej 5 znakow")
+#     else:
+#         znaki = int(x)
+#         haslo = []
+#         while znaki > 0:
+#             znak1 = random.randrange(9)
+#             haslo.append(str(znak1))
+#             znaki -= 1
+#             if znaki > 0:
+#                 znak2 = random.choice(litery)
+#                 haslo.append(znak2)
+#                 znaki -= 1
+#                 if znaki > 0:
+#                     znak3 = random.choice(specjalne)
+#                     haslo.append(znak3)
+#                     znaki -= 1
+#         random.shuffle(haslo)
+#         haslo_ostateczne = "".join(haslo)
+#         print(f"Twoje haslo to: {haslo_ostateczne}")
+#
+#
+# dlugosc = input("Podaj dlugosc hasla: ")
+# generator_hasla(dlugosc)
 
-litery = 'ABCDEFGHIJKLMNOPQRSTUVWXYZĄĆĘŁŃŚÓŻŹabcdefghijklmnopqrstuvwxyząćęłńśóżź'
-specjalne = "!@#$%^&*()"
 
 
-def generator_hasla(x):
-    if int(x) < 5:
-        print("Haslo musi miec co najmniej 5 znakow")
-    else:
-        znaki = int(x)
-        haslo = []
-        while znaki > 0:
-            znak1 = random.randrange(9)
-            haslo.append(str(znak1))
-            znaki -= 1
-            if znaki > 0:
-                znak2 = random.choice(litery)
-                haslo.append(znak2)
-                znaki -= 1
-                if znaki > 0:
-                    znak3 = random.choice(specjalne)
-                    haslo.append(znak3)
-                    znaki -= 1
-        random.shuffle(haslo)
-        haslo_ostateczne = "".join(haslo)
-        print(f"Twoje haslo to: {haslo_ostateczne}")
+# Gra w zgadywanie liczby: Komputer losuje liczbę, a użytkownik musi ją odgadnąć.
+
+# import random
+# liczba_kom = random.randrange(9)
+# print(liczba_kom)
+# # liczba_uzy = input("Zgadnij moja liczbe: ")
+# # if liczba_kom == int(liczba_uzy):
+# #     print("zgadles!")
+# # else:
+# #     print("sprobuj jeszce raz")
+# #     liczba_uzy = input("Zgadnij moja liczbe: ")
+# #     if liczba_kom == int(liczba_uzy):
+# #         print("zgadles!")
+# #     else:
+# #         print("nie udalo Ci sie")
+# while True:
+#     liczba_uzy = input("Zgadnij moja liczbe: ")
+#     if liczba_kom < int(liczba_uzy):
+#         print("Podales za duza liczbe")
+#     elif liczba_kom > int(liczba_uzy):
+#         print("Podales za mala liczbe")
+#     elif liczba_kom == int(liczba_uzy):
+#         print("zgadles!")
+#         break
 
 
-dlugosc = input("Podaj dlugosc hasla: ")
-generator_hasla(dlugosc)
+#  Zadanie: Praca z plikiem CSV w Pythonie
+# Zadanie
+# Napisz program, który:
+#
+# Tworzy plik produkty.csv, zapisując w nim przykładowe dane o produktach (nazwa, cena, ilość).
+# Wczytuje dane z pliku i wyświetla je w czytelny sposób.
+# Oblicza łączną wartość wszystkich produktów (cena × ilość).
+
+produkty = [
+    ["Nazwa", "Cena", "Ilosc"],
+    ["Jabłka", 3.5, 10],
+    ["Banan", 2.0, 5],
+    ["Mleko", 4.2, 2],
+    ["Chleb", 3.0, 3]
+]
+
+import csv
+
+
+
