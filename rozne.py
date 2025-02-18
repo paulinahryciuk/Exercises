@@ -2060,5 +2060,13 @@ produkty = [
 
 import csv
 
+with open ("producty.csv","w+",newline="") as f:
+    writer = csv.writer(f)
+    writer.writerows(produkty)
+
+with open("producty.csv") as ft:
+    reader = csv.reader(ft)
+    for i in reader:
+        print(i)
 
 
