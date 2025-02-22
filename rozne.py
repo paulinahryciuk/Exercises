@@ -2060,13 +2060,22 @@ produkty = [
 
 import csv
 
-with open ("producty.csv","w+",newline="") as f:
+with open ("produkty.csv","w+",newline="") as f:
     writer = csv.writer(f)
     writer.writerows(produkty)
 
-with open("producty.csv") as ft:
+with open("produkty.csv") as ft:
     reader = csv.reader(ft)
-    for i in reader:
+    print(reader)
+    raed_list =list(reader)
+    print(raed_list)
+    print("-------------")
+    for i in raed_list:
         print(i)
+    cena = 0
+    for row in raed_list[1:]:
+        cena += float(row[1])*int(row[2])
+    print(cena)
+
 
 
