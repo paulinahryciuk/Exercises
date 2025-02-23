@@ -2057,7 +2057,7 @@ class Kurs:
 #     ["Chleb", 3.0, 3]
 # ]
 
-import csv
+# import csv
 
 # with open("produkty.csv", "w+", newline="") as f:
 #     writer = csv.writer(f)
@@ -2075,18 +2075,18 @@ import csv
 #     for row in raed_list[1:]:
 #         cena += float(row[1])*int(row[2])
 #     print(cena)
-
-naglowki = ["Nazwa", "Cena", "Ilosc"]
-produkty = [
-    {"Nazwa": "Jabłka", "Cena": 3.5, "Ilosc": 10},
-    {"Nazwa": "Banan", "Cena": 2.0, "Ilosc": 5},
-    {"Nazwa": "Mleko", "Cena": 4.2, "Ilosc": 2}
-]
-
-with open("produkty2.csv","w",newline="") as f:
-    dwriter = csv.DictWriter(f,fieldnames=naglowki)
-    dwriter.writeheader()
-    dwriter.writerows(produkty)
+#
+# naglowki = ["Nazwa", "Cena", "Ilosc"]
+# produkty = [
+#     {"Nazwa": "Jabłka", "Cena": 3.5, "Ilosc": 10},
+#     {"Nazwa": "Banan", "Cena": 2.0, "Ilosc": 5},
+#     {"Nazwa": "Mleko", "Cena": 4.2, "Ilosc": 2}
+# ]
+#
+# with open("produkty2.csv","w",newline="") as f:
+#     dwriter = csv.DictWriter(f,fieldnames=naglowki)
+#     dwriter.writeheader()
+#     dwriter.writerows(produkty)
 
 # with open("produkty2.csv") as ft:
 #     dreader = csv.DictReader(ft)
@@ -2112,8 +2112,32 @@ with open("produkty2.csv","w",newline="") as f:
 #         suma += float(row["Cena"]) * int(row["Ilosc"])
 #     print(f"Suma = {suma}")
 
-nowy_produkt = {"Nazwa": "Chleb", "Cena": 6.0, "Ilosc": 20}
+# nowy_produkt = {"Nazwa": "Chleb", "Cena": 6.0, "Ilosc": 20}
+#
+# with open("produkty2.csv","a",newline="") as f:
+#     writer=csv.DictWriter(f,fieldnames=naglowki)
+#     writer.writerow(nowy_produkt)
 
-with open("produkty2.csv","a",newline="") as f:
-    writer=csv.DictWriter(f,fieldnames=naglowki)
-    writer.writerow(nowy_produkt)
+
+# Zadanie: Analiza sprzedaży produktów (CSV)
+# Napisz program w Pythonie, który:
+#
+# Wczyta dane z pliku sprzedaz.csv (produkty, cena, ilość sprzedana).
+# Obliczy całkowity dochód ze sprzedaży każdego produktu.
+# Doda nową kolumnę Przychód i zapisze dane do nowego pliku sprzedaz_podsumowanie.csv.
+
+import csv
+
+with open("sprzedaz.csv") as f:
+    przychod = []
+    reader = csv.reader(f)
+    lista_reader = list(reader)
+    for i in lista_reader[1:]:
+        prz = float(i[1]) * int(i[2])
+        przychod.append(prz)
+
+print(przychod)
+
+with open("sprzedaz_podsumowanie.csv", "a",newline="") as ft:
+    writer = csv.writer(ft)
+    writer.writerows()
