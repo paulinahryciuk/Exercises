@@ -2015,7 +2015,6 @@ class Kurs:
 # generator_hasla(dlugosc)
 
 
-
 # Gra w zgadywanie liczby: Komputer losuje liczbę, a użytkownik musi ją odgadnąć.
 
 # import random
@@ -2050,32 +2049,71 @@ class Kurs:
 # Wczytuje dane z pliku i wyświetla je w czytelny sposób.
 # Oblicza łączną wartość wszystkich produktów (cena × ilość).
 
-produkty = [
-    ["Nazwa", "Cena", "Ilosc"],
-    ["Jabłka", 3.5, 10],
-    ["Banan", 2.0, 5],
-    ["Mleko", 4.2, 2],
-    ["Chleb", 3.0, 3]
-]
+# produkty = [
+#     ["Nazwa", "Cena", "Ilosc"],
+#     ["Jabłka", 3.5, 10],
+#     ["Banan", 2.0, 5],
+#     ["Mleko", 4.2, 2],
+#     ["Chleb", 3.0, 3]
+# ]
 
 import csv
 
-with open ("produkty.csv","w+",newline="") as f:
-    writer = csv.writer(f)
-    writer.writerows(produkty)
+# with open("produkty.csv", "w+", newline="") as f:
+#     writer = csv.writer(f)
+#     writer.writerows(produkty)
 
-with open("produkty.csv") as ft:
-    reader = csv.reader(ft)
-    print(reader)
-    raed_list =list(reader)
-    print(raed_list)
-    print("-------------")
-    for i in raed_list:
-        print(i)
-    cena = 0
-    for row in raed_list[1:]:
-        cena += float(row[1])*int(row[2])
-    print(cena)
+# with open("produkty.csv") as ft:
+#     reader = csv.reader(ft)
+#     print(reader)
+#     raed_list =list(reader)
+#     print(raed_list)
+#     print("-------------")
+#     for i in raed_list:
+#         print(i)
+#     cena = 0
+#     for row in raed_list[1:]:
+#         cena += float(row[1])*int(row[2])
+#     print(cena)
 
+naglowki = ["Nazwa", "Cena", "Ilosc"]
+produkty = [
+    {"Nazwa": "Jabłka", "Cena": 3.5, "Ilosc": 10},
+    {"Nazwa": "Banan", "Cena": 2.0, "Ilosc": 5},
+    {"Nazwa": "Mleko", "Cena": 4.2, "Ilosc": 2}
+]
 
+with open("produkty2.csv","w",newline="") as f:
+    dwriter = csv.DictWriter(f,fieldnames=naglowki)
+    dwriter.writeheader()
+    dwriter.writerows(produkty)
 
+# with open("produkty2.csv") as ft:
+#     dreader = csv.DictReader(ft)
+#     for _ in dreader:
+#         print(_)
+#
+#
+# with open("produkty2.csv") as ft:
+#     dreader = csv.DictReader(ft)
+#     suma = 0
+#     for row in dreader:
+#         suma += float(row["Cena"]) *int(row["Ilosc"])
+#     print(f"Suma = {suma}")
+
+# with open("produkty2.csv") as ft:
+#     dreader = csv.DictReader(ft)
+#     for _ in dreader:
+#         print(_)
+#     ft.seek(0)
+#     dreader = csv.DictReader(ft)
+#     suma = 0
+#     for row in dreader:
+#         suma += float(row["Cena"]) * int(row["Ilosc"])
+#     print(f"Suma = {suma}")
+
+nowy_produkt = {"Nazwa": "Chleb", "Cena": 6.0, "Ilosc": 20}
+
+with open("produkty2.csv","a",newline="") as f:
+    writer=csv.DictWriter(f,fieldnames=naglowki)
+    writer.writerow(nowy_produkt)
