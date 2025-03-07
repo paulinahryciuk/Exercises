@@ -2126,18 +2126,109 @@ class Kurs:
 # Obliczy całkowity dochód ze sprzedaży każdego produktu.
 # Doda nową kolumnę Przychód i zapisze dane do nowego pliku sprzedaz_podsumowanie.csv.
 
-import csv
+# import csv
+#
+# with open("sprzedaz.csv") as f:
+#     przychod = []
+#     reader = csv.reader(f)
+#     next(reader)
+#     lista_reader = list(reader)
+#     for i in lista_reader:
+#         prz = float(i[1]) * int(i[2])
+#         przychod.append(prz)
+#
+# print(przychod)
+#
+#
+# # with open("sprzedaz.csv") as ff:
+# #     reader = csv.DictReader(ff)
+# #     reader_slownik = reader
+# # with open("sprzedaz_podsumowanie.csv", "a",newline="") as ft:
+# #     naglowki = ['produkty', 'cena', 'ilość_sprzedana','przychod']
+# #     writer = csv.DictWriter(ft)
+# #     writer.writeheader(naglowki)
+# #     writer.writerows(reader_slownik)
+# #     # writer.writerows({""})
+#
+# naglowki = lista_reader[:1]
+# naglowki.append("przychod")
+#
+# print(naglowki)
+# zawartosc = next(lista_reader )
+# print(zawartosc)
 
-with open("sprzedaz.csv") as f:
-    przychod = []
-    reader = csv.reader(f)
-    lista_reader = list(reader)
-    for i in lista_reader[1:]:
-        prz = float(i[1]) * int(i[2])
-        przychod.append(prz)
 
-print(przychod)
 
-with open("sprzedaz_podsumowanie.csv", "a",newline="") as ft:
-    writer = csv.writer(ft)
-    writer.writerows()
+
+
+
+
+# Zadanie z NumPy
+# Napisz program, który:
+#
+# Wygeneruje macierz 4×4 wypełnioną losowymi liczbami całkowitymi z zakresu 1-20.
+# Obliczy średnią wartość każdego wiersza i kolumny.
+# Zastąpi wszystkie wartości większe od średniej w macierzy wartością 1, a mniejsze 0.
+
+
+# import numpy as np
+#
+# macierz = np.random.randint(1,21,(3,3))
+# print(macierz)
+# print(np.mean(macierz[0]))
+# sr_all = np.mean(macierz)
+# print(f"srednia: {sr_all}")
+#
+# macierz[macierz>sr_all]= sr_all
+# print(macierz)
+
+# Zadanie z Pandas – analiza danych sprzedażowych
+# Napisz program, który:
+#
+# Wczyta plik CSV zawierający dane o sprzedaży produktów (możesz użyć poniższych danych do stworzenia pliku).
+# Doda nową kolumnę „Przychód” (Cena × Ilość).
+# Policzy łączny przychód dla każdego produktu.
+# Posortuje produkty według przychodu malejąco.
+# Zapisze przetworzone dane do nowego pliku CSV.
+
+# import pandas as pd
+# import openpyxl as xl
+#
+# df = pd.read_csv('sprzedaz1.csv')
+# print(df)
+# df["Przychod"]= df['Cena']* df["Ilość"]
+# print(df)
+# df2 = df.sort_values("Przychod")
+# print(df2)
+# df2.to_csv("sprzedaz_nowe.csv",index=False)
+# df2.to_excel("sprzedaz_final.xlsx",index=False, engine = "openpyxl")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
