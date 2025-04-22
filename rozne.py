@@ -2203,6 +2203,24 @@ class Kurs:
 # df2.to_csv("sprzedaz_nowe.csv",index=False)
 # df2.to_excel("sprzedaz_final.xlsx",index=False, engine = "openpyxl")
 
+#  Gra: Zgadnij liczbę
+# Komputer losuje liczbę od 1 do 100, a użytkownik ma zgadnąć, co to za liczba. Po każdej próbie komputer podpowiada, czy liczba jest za duża, za mała, czy trafiona.
+
+import random
+
+liczba = random.randint(1,100)
+while True:
+    zgadnij_liczbe = input("Zgadnij liczbe: ")
+    if liczba > int(zgadnij_liczbe):
+        print(f"Liczba {zgadnij_liczbe} jest za mala")
+    elif liczba < int(zgadnij_liczbe):
+        print(f"Liczba {zgadnij_liczbe} jest za duza")
+    elif liczba == int(zgadnij_liczbe):
+        print("zgadnes!")
+        break
+    else:
+        print("Podales zla wartosc")
+
 
 
 
