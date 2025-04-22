@@ -2206,23 +2206,61 @@ class Kurs:
 #  Gra: Zgadnij liczbę
 # Komputer losuje liczbę od 1 do 100, a użytkownik ma zgadnąć, co to za liczba. Po każdej próbie komputer podpowiada, czy liczba jest za duża, za mała, czy trafiona.
 
-import random
+# import random
+#
+# liczba = random.randint(1,100)
+# while True:
+#     zgadnij_liczbe = input("Zgadnij liczbe: ")
+#     if liczba > int(zgadnij_liczbe):
+#         print(f"Liczba {zgadnij_liczbe} jest za mala")
+#     elif liczba < int(zgadnij_liczbe):
+#         print(f"Liczba {zgadnij_liczbe} jest za duza")
+#     elif liczba == int(zgadnij_liczbe):
+#         print("zgadnes!")
+#         break
+#     else:
+#         print("Podales zla wartosc")
 
-liczba = random.randint(1,100)
-while True:
-    zgadnij_liczbe = input("Zgadnij liczbe: ")
-    if liczba > int(zgadnij_liczbe):
-        print(f"Liczba {zgadnij_liczbe} jest za mala")
-    elif liczba < int(zgadnij_liczbe):
-        print(f"Liczba {zgadnij_liczbe} jest za duza")
-    elif liczba == int(zgadnij_liczbe):
-        print("zgadnes!")
-        break
-    else:
-        print("Podales zla wartosc")
 
 
 
+#  Zadanie: Klasa KontoBankowe
+# Stwórz klasę KontoBankowe, która umożliwia:
+#
+# utworzenie konta z imieniem właściciela i saldem początkowym,
+#
+# wpłatę pieniędzy (wplac),
+#
+# wypłatę pieniędzy (wyplac),
+#
+# sprawdzenie salda (sprawdz_saldo).
+
+class KontoBankowe:
+    def __init__(self, imie, saldo = 0):
+        self.imie = imie
+        self.saldo =saldo
+
+
+    def wyplata(self, kwota):
+        if kwota<=self.saldo:
+            self.saldo -= kwota
+            print(f"Z konta wyplacono {kwota}")
+        else:
+            print("Nie masz tylu srodkow na koncie")
+
+    def wplata(self, kwota_wplaty):
+        self.saldo += kwota_wplaty
+        print(f"Na konto wplacono {kwota_wplaty}")
+
+    def sprawdz_saldo(self):
+        print(f"Saldo konta wynosi: {self.saldo}")
+
+k1 = KontoBankowe("ola")
+k1.sprawdz_saldo()
+k1.wplata(1000)
+k1.wyplata(100)
+k1.sprawdz_saldo()
+k1.wyplata(1000)
 
 
 
