@@ -2235,32 +2235,64 @@ class Kurs:
 #
 # sprawdzenie salda (sprawdz_saldo).
 
-class KontoBankowe:
-    def __init__(self, imie, saldo = 0):
-        self.imie = imie
-        self.saldo =saldo
+# class KontoBankowe:
+#     def __init__(self, imie, saldo = 0):
+#         self.imie = imie
+#         self.saldo =saldo
+#
+#
+#     def wyplata(self, kwota):
+#         if kwota<=self.saldo:
+#             self.saldo -= kwota
+#             print(f"Z konta wyplacono {kwota}")
+#         else:
+#             print("Nie masz tylu srodkow na koncie")
+#
+#     def wplata(self, kwota_wplaty):
+#         self.saldo += kwota_wplaty
+#         print(f"Na konto wplacono {kwota_wplaty}")
+#
+#     def sprawdz_saldo(self):
+#         print(f"Saldo konta wynosi: {self.saldo}")
+#
+# k1 = KontoBankowe("ola")
+# k1.sprawdz_saldo()
+# k1.wplata(1000)
+# k1.wyplata(100)
+# k1.sprawdz_saldo()
+# k1.wyplata(1000)
 
 
-    def wyplata(self, kwota):
-        if kwota<=self.saldo:
-            self.saldo -= kwota
-            print(f"Z konta wyplacono {kwota}")
-        else:
-            print("Nie masz tylu srodkow na koncie")
+# Zadanie: Analiza danych o uczniach
+# Masz dane o uczniach zapisane w DataFrame:
 
-    def wplata(self, kwota_wplaty):
-        self.saldo += kwota_wplaty
-        print(f"Na konto wplacono {kwota_wplaty}")
+data = {
+    'Imie': ['Anna', 'Bartek', 'Celina', 'Daniel', 'Ela'],
+    'Wiek': [15, 16, 15, 17, 16],
+    'Ocena_koncowa': [4.5, 3.0, 5.0, 2.5, 4.0],
+    'Klasa': ['1A', '1B', '1A', '1C', '1B']
+}
 
-    def sprawdz_saldo(self):
-        print(f"Saldo konta wynosi: {self.saldo}")
+# Twoje zadania:
+# Wyświetl uczniów z klasy "1A".
+#
+# Policz średni wiek uczniów.
+#
+# Wyświetl tylko uczniów z oceną końcową powyżej 4.0.
+#
+# Policz liczbę uczniów w każdej klasie.
+#
+# Posortuj DataFrame według ocen malejąco.
 
-k1 = KontoBankowe("ola")
-k1.sprawdz_saldo()
-k1.wplata(1000)
-k1.wyplata(100)
-k1.sprawdz_saldo()
-k1.wyplata(1000)
+import pandas as Pd
+df = Pd.DataFrame(data)
+print(df)
+ucz_1A=df[df["Klasa"] == "1A"]
+print(ucz_1A)
+wiek = df.loc[:,"Wiek"]
+srednia = sum(wiek)/len(wiek)
+print(srednia)
+
 
 
 
